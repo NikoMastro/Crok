@@ -1,2 +1,0 @@
-class UserInteractionsController < ApplicationController
-end

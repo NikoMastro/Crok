@@ -4,14 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :dogs
-  has_many :user_interactions
-  has_many :dog_tasks
-  has_one :user_setting
+  belongs_to :family
+  has_many :dogs, through: :families
+  has_many :tasks, dependent: :destroy
   has_one_attached :photo
 
+  validates :family, presence: true
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
   validates :encrypted_password, presence: true
-  validates :name, presence: true
 end
