@@ -5,8 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :family
-  has_many :dogs, through: :families
+  has_many :dogs, through: :family
   has_many :tasks, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_one_attached :photo
 
   validates :family, presence: true
