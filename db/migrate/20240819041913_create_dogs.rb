@@ -7,6 +7,7 @@ class CreateDogs < ActiveRecord::Migration[7.1]
       t.integer :age
       t.text :allergies
       t.text :medical_history
+      t.integer :BCS
 
       t.timestamps
     end
