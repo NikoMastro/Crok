@@ -4,9 +4,8 @@ class CreateDogs < ActiveRecord::Migration[7.1]
       t.string :name
       t.string :breed
       t.date :birthdate
-      t.integer :age
-      t.text :allergies
-      t.text :medical_history
+      t.string :allergies
+      t.references :family, null: false, foreign_key: true
 
       t.timestamps
     end
