@@ -4,7 +4,7 @@ class CreateMedicalRecords < ActiveRecord::Migration[7.1]
       t.references :dog, null: false, foreign_key: true
       t.text :description
       t.string :document_url
-      t.string :date
+      t.date :date
       t.string :vet_contact
 
       t.timestamps

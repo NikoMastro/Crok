@@ -4,9 +4,9 @@ class CreateTasks < ActiveRecord::Migration[7.1]
       t.references :dog, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
       t.string :name
-      t.string :status
-      t.string :start_time
-      t.string :end_time
+      t.boolean :status
+      t.datetime :start_time
+      t.datetime :end_time
       t.string :location
       t.text :description
 
