@@ -10,8 +10,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one_attached :photo
 
-  validates :family, presence: true
-  validates :name, presence: true
-  validates :email, presence: true, uniqueness: true
-  validates :encrypted_password, presence: true
+  # validates :family, presence: true
+  # validates :name, presence: true
+  # validates :email, presence: true, uniqueness: true
+  # validates :encrypted_password, presence: true
 end
