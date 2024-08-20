@@ -1,10 +1,14 @@
 # user, dog, family, tasks, comments, health_tracks, medical_records
-
+Family.destroy_all
+User.destroy_all
+Dog.destroy_all
+Task.destroy_all
 # family name
 my_family = Family.new(
   name: "Inagaki"
 )
 my_family.save
+puts "made family"
 
 # user name role
 ryuya = User.new(
@@ -34,6 +38,7 @@ ryuya.save
 pierre.save
 joe.save
 sunjun.save
+puts "made 4 users"
 
 # dog name breed birthday allergies
 doug = Dog.new(
