@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <h2> tasks: </h2>
+  <div class="tasks">
+    <% @tasks.each do |task| %>
+      <div class="task">
+        <% if task.status %>
+          <i class="fa-regular fa-square-check"></i>
+        <% else %>
+          <i class="fa-regular fa-square"></i>
+        <% end %>
+        <li><%= task.name %></li>
+        <li><%= task.status %></li>
+      </div>
+    <% end %>
+  </div>
+  <%= render 'tasks/form' %>
+</div>
