@@ -4,4 +4,10 @@
   <p><strong><%= @dog.breed %></strong></p>
   <p><strong><%= @dog.birthdate %></strong></p>
   <p><strong><%= @dog.allergies %></strong></p>
+
+  <h2>Tasks</h2>
+  <% @tasks.each do |task| %>
+    <p><%= task.name %></p>
+    <p><%= task.status %></p>
+  <% end %>
 </div>

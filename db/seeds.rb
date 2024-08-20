@@ -13,28 +13,19 @@ puts "made family"
 # user name role
 ryuya = User.new(
   name: "Ryuya",
-  role: "Parent"
+  role: "Parent",
+  email: "test@mail.com",
+  password:  "123123"
 )
-
-pierre = User.new(
-  name: "Pierre",
-  role: "Child"
-)
-
-joe = User.new(
-  name: "Joe",
-  role: "Child"
-)
-
-sunjun = User.new(
-  name: "Sunjun",
-  role: "Child"
-)
-ryuya.save
-pierre.save
-joe.save
-sunjun.save
-puts "made 4 users"
+ryuya.family = my_family
+if ryuya.save
+  puts "made 1 users"
+else
+  puts ryuya.errors.full_messages
+end
+# pierre.save
+# joe.save
+# sunjun.save
 
 # dog name breed birthday allergies
 doug = Dog.new(
@@ -54,5 +45,8 @@ test_task = Task.new(
   start_time: "2024-08-19",
   end_time: "2024-08-19"
 )
-test_task.save
-puts "made 1 task"
+test_task.dog = doug
+test_task.user = ryuya
+if test_task.save
+  puts "made 1 task"
+end
