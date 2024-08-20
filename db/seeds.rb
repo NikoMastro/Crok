@@ -1,8 +1,8 @@
 # user, dog, family, tasks, comments, health_tracks, medical_records
-Family.destroy_all
 User.destroy_all
 Dog.destroy_all
 Task.destroy_all
+Family.destroy_all
 # family name
 my_family = Family.new(
   name: "Inagaki"
@@ -30,10 +30,6 @@ sunjun = User.new(
   name: "Sunjun",
   role: "Child"
 )
-ryuya.family = my_family
-pierre.family = my_family
-joe.family = my_family
-sunjun.family = my_family
 ryuya.save
 pierre.save
 joe.save
@@ -44,10 +40,12 @@ puts "made 4 users"
 doug = Dog.new(
   name: "Doug",
   breed: "golden retriever",
+  sex: "male",
   birthdate: Date.new(2002, 2, 24)
 )
 doug.family = my_family
 doug.save
+puts "made 1 dog"
 
 # tasks
 test_task = Task.new(
@@ -57,3 +55,4 @@ test_task = Task.new(
   end_time: "2024-08-19"
 )
 test_task.save
+puts "made 1 task"
