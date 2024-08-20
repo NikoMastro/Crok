@@ -1,0 +1,12 @@
+<div class="container col-6">
+  <h1>Medical Records</h2>
+  <% if medical_records.empty? %>
+    <p>No medical records added</p>
+  <% else %>
+    <% @medical_records.each do |record| %>
+      <h3><%= record.date %></h3>
+      <p><%= record.description %></p>
+      <p><%= record.vet_contact %></p>
+    <% end %>
+  <% end %>
+</div>
