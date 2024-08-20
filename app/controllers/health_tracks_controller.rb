@@ -36,8 +36,10 @@ class HealthTracksController < ApplicationController
   end
 
   def destroy
+    @health_track = HealthTrack.find(params[:id])
+    @health_track.destroy!
+    redirect_to dog_path(Dog.find(params[:dog_id]))
   end
-
 
   private
 
@@ -48,4 +50,9 @@ class HealthTracksController < ApplicationController
     # find energy score and age factor
     # (@track.bcs * 0.4 + (ratio / ideal_ratio * 0.2) + energy_score * 0.2 + age_factor * 0.2).round
   end
+
+  def track_params
+    params.require(:health_track).permit(:weight, :height, :bcs, :date)
+  end
+
 end
