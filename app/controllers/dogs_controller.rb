@@ -6,6 +6,7 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
+    @ideal = @dog
   end
 
   def new
