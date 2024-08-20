@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :medical_records, only: [:new, :create]
   end
 
-  resources :tasks
+  resources :tasks, only: [:create, :update]
 
   get 'my_family', to: 'families#show', as: :family
   get 'dogs/:id/health', to: 'dogs#health', as: :dog_health
