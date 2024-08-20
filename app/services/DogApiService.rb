@@ -3,7 +3,7 @@ require 'json'
 
 class DogApiService
   API_URL = 'https://api.api-ninjas.com/v1/dogs'
-  API_KEY = '9ZGP/UmUh1vqwEDBww+k4Q==RjWzpsacAaraPj4O'
+  API_KEY = API
 
   def self.call(breed)
     uri = URI("#{API_URL}?name=#{breed}")
