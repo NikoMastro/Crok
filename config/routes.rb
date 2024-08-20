@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :dogs do
-    resources :health_tracks, only: [:new, :create]
-    resources :medical_records, only: [:new, :create]
+    resources :health_tracks, only: [:new, :create, :update, :destroy]
+    resources :medical_records, only: [:new, :create, :update, :destroy]
   end
 
   resources :tasks, only: [:create, :update]
