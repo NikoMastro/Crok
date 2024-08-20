@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <h2> tasks: </h2>
+  <ul id="tasks">
+    <% @tasks.each do |task| %>
+      <li>
+        <% if task.completed? %>
+        <% else %>
+        <% end %>
+        <%= link_to task.name, task_path(task.id) %>
+        <%= link_to task_path(task.id), data: {turbo_method: :delete, turbo_confirm: "Delete #{task.name}?"} do %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  <hr>
+  <%= link_to new_task_path do %>
+    Add a new task
+  <% end %>
+</div>
