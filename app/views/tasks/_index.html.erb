@@ -3,10 +3,28 @@
   <div class="tasks">
     <% @tasks.each do |task| %>
       <div class="task">
+
         <%= form_with url: toggle_status_task_path(task), method: :patch, remote: true do |f| %>
           <%= f.check_box :status, checked: task.status, onclick: 'this.form.submit();' %>
         <% end %>
         <%= task.name %>
+
+        <p>Assignee: <%= task.user.name %></p>
+        <%= simple_form_for task, url: assign_user_task_path(task), method: :patch, remote: true do |f| %>
+          <%= f.association :user, collection: @users, prompt: "Choose a User", label: 'Edit Assignee' %>
+          <%= f.submit "Assign this task to him", class: "btn btn-danger" %>
+        <% end %>
+
+        <p>Comments</p>
+        <% @comments.each do |comment| %>
+          <p><%= comment.content %> Posted by: <%= comment.user.name %></p>
+        <% end %>
+        <%= simple_form_for(@comment) do |f| %>
+          <%= f.hidden_field :task_id, value: task.id %>
+          <%= f.input :content, as: :text %>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+
       </div>
     <% end %>
   </div>
