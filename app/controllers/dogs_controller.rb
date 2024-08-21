@@ -41,6 +41,11 @@ class DogsController < ApplicationController
     redirect_to dogs_path
   end
 
+  def health
+    @dog = Dog.find(params[:id])
+    @health_tracks = HealthTrack.where(dog: @dog)
+  end
+
   private
 
   def dog_params

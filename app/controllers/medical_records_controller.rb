@@ -12,7 +12,7 @@ class MedicalRecordsController < ApplicationController
     @medical_record = MedicalRecord.new(record_params)
     @medical_record.dog = Dog.find(params[:dog_id])
     if @medical_record.save
-      redirect_to dog_health_path(Dog.find(params[:dog_id]))
+      redirect_to :dog_health(Dog.find(params[:dog_id]))
     else
       render :new, status: :unprocessable_entity
     end
@@ -21,7 +21,7 @@ class MedicalRecordsController < ApplicationController
   def update
     @medical_record = MedicalRecord.find(params[:id])
     if @medical_record.update(record_params)
-      redirect_to dog_health_path(Dog.find(params[:dog_id]))
+      redirect_to :dog_health(Dog.find(params[:dog_id]))
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class MedicalRecordsController < ApplicationController
   def destroy
     @medical_record = MedicalRecord.find(params[:id])
     @medical_record.destroy!
-    redirect_to dog_health_path(Dog.find(params[:dog_id]))
+    redirect_to :dog_health(Dog.find(params[:dog_id]))
   end
 
   private
