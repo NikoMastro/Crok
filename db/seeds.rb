@@ -17,7 +17,8 @@ ryuya = User.new(
   email: "test@mail.com",
   password:  "123123"
 )
-ryuya.family = my_family
+ryuya.family_id = my_family.id
+
 if ryuya.save
   puts "made 1 users"
 else
@@ -73,7 +74,7 @@ doug = Dog.new(
   sex: "male",
   birthdate: Date.new(2002, 2, 24)
 )
-doug.family = my_family
+doug.family_id = my_family.id
 doug.save
 puts "made 1 dog"
 

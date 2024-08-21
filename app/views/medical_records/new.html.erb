@@ -1,0 +1,12 @@
+<div class="container col-6">
+<h1>Add medical record</h1>
+  <%= link_to "Go back", dog_medical_records_path %>
+  <%= simple_form_for [@dog, @medical_record] do |f| %>
+    <%= f.input :date, input_html: { data: { controller: "datepicker" } }, label: false %></a>
+    <%= f.input :description %>
+    <%= f.input :vet_contact %>
+    <div class="form-actions">
+      <%= f.button :submit, class:"btn btn-info my-3" %>
+    </div>
+  <% end %>
+</div>

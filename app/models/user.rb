@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :dogs, through: :family
   has_many :tasks, dependent: :destroy
   has_many :comments, dependent: :destroy
+
   has_one_attached :photo
 
   def assign_family

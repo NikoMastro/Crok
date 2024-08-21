@@ -1,12 +1,76 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
+// Define some variables for colors and font sizes
+$navbar-bg-color: #f8f9fa;
+$nav-link-color:#112028;
+$nav-link-hover-color:#3a6376;
+$dropdown-bg-color: #ffffff;
+$dropdown-border-color: #ddd;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+.navbar {
+  background-image: url("banner_family_03.jpg");
+  background-position: 50% 50%;
+  background-size: cover;
+  padding-top: 0px;
+  padding-bottom: 0px;
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+
+
+  .navbar-brand {
+    img {
+      height: 100px;
+      width: auto;
+      margin: 0;
+    }
+  }
+
+  .navbar-toggler {
+    border-color: $nav-link-color;
+
+    .navbar-toggler-icon {
+      background-image: none;
+    }
+  }
+
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        color: $nav-link-color;
+        font-family: "Montserrat", sans-serif;
+        font-size: 28px;
+        font-weight: 600;
+        margin: 5px 8px;
+        border-radius: 10px;
+        text-shadow: 1px 1px 2px #f8f9fa;
+
+
+        &:hover {
+          color: $nav-link-hover-color;
+        }
+      }
+
+      &.active .nav-link {
+        color: $nav-link-hover-color;
+      }
+    }
+  }
+
+  .dropdown-menu {
+    background-color: $dropdown-bg-color;
+    border-color: $dropdown-border-color;
+
+    .dropdown-item {
+      color: $nav-link-color;
+
+      &:hover {
+        background-color: $dropdown-border-color;
+        color: $nav-link-hover-color;
+      }
+    }
+  }
+
+  .avatar-class {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+  }
+
 }
