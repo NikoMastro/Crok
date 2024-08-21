@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'landing', to: 'pages#landing', as: :landing
 
+
   resources :dogs do
     resources :health_tracks, only: [:new, :create, :update, :destroy]
     resources :medical_records, only: [:new, :create, :update, :destroy]
