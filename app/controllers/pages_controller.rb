@@ -6,4 +6,7 @@ class PagesController < ApplicationController
     @users = User.all
 
   end
+
+  def landing
+  end
 end
