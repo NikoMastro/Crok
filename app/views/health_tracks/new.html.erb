@@ -5,8 +5,8 @@
     <%= f.input :date, input_html: { data: { controller: "datepicker" } }, label: false %></a>
     <%= f.input :height %>
     <%= f.input :weight %>
-    <%= f.input :bcs %>
-    <%= f.input :exercise, as: :numeric %>
+    <p>BCS <%= f.select :bcs, (1..10) %></p>
+    <p>Exercise Level <%= f.select :exercise, (1..10) %></p>
     <div class="form-actions">
       <%= f.button :submit, class:"btn btn-info my-3" %>
     </div>
