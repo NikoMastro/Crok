@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <%= link_to (user_signed_in? ? root_path : landing_path), class: "dwg-text-decoration--none" do %>
-    <%= image_tag "crok_logo02.jpg", alt: "Crok Logo", style: "height: 150px; width: 100%; margin: 0;" %>
+    <%= image_tag "crok_logo.jpg", alt: "Crok Logo", style: "height: 150px; min-height: 50px; width: 100%; margin: 0;" %>
   <% end %>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fa-solid fa-bars"></i>
@@ -22,7 +22,7 @@
             id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
             style="background-image: url('<%= current_user.photo.attached? ? cl_image_path(current_user.photo.key) : "" %>')">
             <% unless current_user.photo.attached? %>
-              <%= image_tag "empty_avatar.jpg", alt: "Avatar", class: "avatar-class" %>
+              <%= image_tag "log.jpg", alt: "Avatar", class: "avatar-class" %>
             <% end %>
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

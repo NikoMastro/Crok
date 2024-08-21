@@ -1,43 +1,71 @@
-<section id="hero">
-  <div class="content" style="font-family:Playfair Display">
-    <div class="banner">
-      <div class="banner-block">
-        <h1>Welcome</h1>
-        <p>
-          ieuhvbqevbeq
-        </p>
-        <%= link_to "blaaa", root_path, class: "btn btn-outline-light text-white text-decoration-none" %>
+<div class="landing">
+  <!--need to add banner here-->
+  <div class="concept">
+    <div class="container">
+      <div class="row mt-3 mx-3">
+        <div class="col-12 col-md-5 mb-3">
+          <div class="content-border mt-4">
+            <h2>Your All-in-One Solution for Pet Care</h2>
+            <div class="content">
+              <p>
+                At Crok', we understand that managing a pet’s needs can be overwhelming,
+                especially when juggling responsibilities among family members.
+                That’s why we’ve created the ultimate pet management app tailored for families like yours.
+                With Crok', pet care becomes a collaborative, organized, and stress-free experience.
+              </p>
+            </div>
+            <%= image_tag 'icn_family_00.jpg', alt: 'Image family', class: 'img-fit-left'%>
+          </div>
+        </div>
+        <div class="col-12 col-md-7 mt-4">
+          <div class="content-border mt-4">
+            <div class="bg-content">
+              <%= image_tag 'bg_00.jpg', alt: 'Image family', class: 'img-fit-right' %>
+              <h2>Why Choose Crok'?</h2>
+              <ul>
+                <li>
+                  <strong>Comprehensive Care:</strong> We combine health, nutrition, and task management into one streamlined platform, making pet care simpler and more effective for families.
+                </li>
+                <li>
+                  <strong>Family-Oriented Features:</strong> Crok' is designed to make pet care a shared responsibility, ensuring every family member can contribute to the well-being of your furry friend.
+                </li>
+                <li>
+                  <strong>Data-Driven Insights:</strong> Receive personalized care recommendations based on your pet’s unique profile, ensuring optimal health and happiness.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- second part -->
+      <div class="row mt-3 mx-3">
+        <div class="col-12 col-md-5 mb-3">
+          <div class="content-border">
+            <h2>Appointment & Event Management</h2>
+            <%= image_tag 'banner_vet_01.jpg', alt: 'Image family', class: 'img-fit-right' %>
+            <div class="content">
+              <p>
+                Never miss a vet visit or a food delivery again with Crok's Appointment & Event Management feature. Effortlessly schedule and manage your pet's vet appointments by registering your vet directly in the app. Sync all upcoming appointments with your Google Calendar, ensuring you're always on top of your pet's health needs.
+                But we don’t stop there! Crok' also helps you manage your pet's nutrition by integrating food ordering and delivery tracking. Get reminders when it’s time to reorder, track your deliveries in real-time, and rest easy knowing your pet’s favorite foods will always be in stock.
+                Keep your pet’s life organized and stress-free with Crok'.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-7 mt-4">
+          <div class="content-border mt-4">
+            <div class="bg-content">
+              <%= image_tag 'crok_logo.jpg', alt: 'Image family', class: 'img-fit-down-left'%>
+              <h2>Join the Crok' Community!</h2>
+              <p>
+                At Crok', we're more than just a pet nutrition tracker— we're a thriving community of pet lovers who care deeply about the well-being of our furry friends. By joining our community, you'll connect with like-minded individuals who share your passion for providing the best care for pets.
+                Discover valuable insights, share your experiences, and be the first to access new features and tips designed to make your pet's life healthier and happier. Let's work together to ensure every pet gets the nutrition they deserve.
+                Join us today and be part of something truly special!
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="hero-content">
-    <h1>Your Pet’s Personal Health and Nutrition Assistant</h1>
-    <p>Crok' makes it easy to manage your pet’s needs, from daily meals to vet visits.</p>
-    <a href="#download" class="btn-primary">Download Now</a>
-  </div>
-  <img src="hero-image.jpg" alt="Happy pets with Crok' app">
-</section>
-<section id="features">
-  <h2>Features</h2>
-  <div class="features-grid">
-    <div class="feature">
-      <img src="nutrition-icon.png" alt="Nutrition tracking">
-      <h3>Nutrition Tracking</h3>
-      <p>Track and manage your pet's diet with personalized recommendations.</p>
-    </div>
-    <div class="feature">
-      <img src="vet-icon.png" alt="Vet location">
-      <h3>Vet Locations</h3>
-      <p>Find the nearest vets and pet shops with ease.</p>
-    </div>
-    <!-- Add more features as needed -->
-  </div>
-</section>
-<section id="testimonials">
-  <h2>What Our Users Say</h2>
-  <div class="testimonial">
-    <p>"Crok' has transformed the way we manage our dog's health!"</p>
-    <p>- Happy User</p>
-  </div>
-  <!-- Add more testimonials -->
-</section>
+</div>
