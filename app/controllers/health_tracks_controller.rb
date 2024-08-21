@@ -16,8 +16,7 @@ class HealthTracksController < ApplicationController
     @health_track = HealthTrack.new(track_params)
     @health_track.dog = Dog.find(params[:dog_id])
     if @health_track.save
-      redirect_to :dog_health(Dog.find(params[:dog_id]))
-    else
+        else
       render :new, status: :unprocessable_entity
     end
   end
