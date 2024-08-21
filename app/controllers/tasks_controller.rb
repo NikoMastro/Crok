@@ -1,29 +1,27 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @tasks = Task.all
-  end
-
-  def show
-  end
-
-  def new
-    @task = Task.new
-  end
+  # before_action :set_task, only: [:edit, :update, :destroy]
 
   def create
-    task = Task.new(task_params)
-    task.save
-    redirect_to tasks_path
-  end
-
-  def edit
+    @task = Task.new(task_params)
+    @task.status = false
+    @task.dog = Dog.find(13)
+    @task.user = current_user
+    if @task.save
+      redirect_to root_path
+    else
+      # raise
+      redirect_to root_path, status: :unprocessable_entity
+    end
   end
 
   def update
     @task.update(task_params)
-    redirect_to task_path(@task)
+    @task.status = false
+    if @task.save
+      redirect_to root
+    else
+      redirect_to root_path, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -38,6 +36,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :description, :status, :location, :start_time, :end_time)
+    params.require(:task).permit(:name, :description, :status, :location, :start_time, :end_time, :user_id)
   end
 end

@@ -31,4 +31,14 @@ class HealthTrack < ApplicationRecord
     ideal_ratio
   end
 
+  def life_expectancies(breed)
+    breed_data = DogApiService.call(breed)
+
+    return nil if breed_data.empty?
+
+    min_life = breed_data[0]['min_life_expectancy']
+    max_life = breed_data[0]['max_life_expectancy']
+    [min_life, max_life]
+  end
+
 end

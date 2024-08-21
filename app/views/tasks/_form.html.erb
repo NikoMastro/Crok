@@ -1,18 +1,10 @@
-<%= form_with model: @task do |f| %>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
+<%= simple_form_for(@task) do |f| %>
+  <%= f.input :name %>
+  <%= f.association :user, collection: @users, prompt: "Choose a User" %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :start_time, as: :string, input_html: { data: { controller: "datepicker" } }, label: false %></a>
+  <%= f.input :end_time, as: :string, input_html: { data: { controller: "datepicker" } }, label: false %></a>
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-info my-3" %>
   </div>
-  <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_area :description, class: 'form-control' %>
-  </div>
-  <% unless f.object.new_record? %>
-    <div class="checkbox">
-      <label>
-        <%= f.check_box :status %> Completed
-      </label>
-    </div>
-  <% end %>
-  <%= f.submit class: 'btn btn-primary mt-3' %>
 <% end %>
