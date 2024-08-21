@@ -16,7 +16,7 @@ class HealthTracksController < ApplicationController
     @health_track = HealthTrack.new(track_params)
     @health_track.dog = Dog.find(params[:dog_id])
     if @health_track.save
-      redirect_to :dog_health(Dog.find(params[:dog_id]))
+      redirect_to dog_health_path(Dog.find(params[:dog_id]))
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class HealthTracksController < ApplicationController
   def update
     @health_track = HealthTrack.find(params[:id])
     if @health_track.update(track_params)
-      redirect_to :dog_health(Dog.find(params[:dog_id]))
+      redirect_to dog_health_path(Dog.find(params[:dog_id]))
     else
       render :new, status: :unprocessable_entity
     end
@@ -38,7 +38,7 @@ class HealthTracksController < ApplicationController
   def destroy
     @health_track = HealthTrack.find(params[:id])
     @health_track.destroy!
-    redirect_to :dog_health(Dog.find(params[:dog_id]))
+    redirect_to dog_health_path(Dog.find(params[:dog_id]))
   end
 
   def dog_score
