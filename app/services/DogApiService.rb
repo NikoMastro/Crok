@@ -1,9 +1,9 @@
 require 'net/http'
 require 'json'
+require 'dotenv/load'
 
 class DogApiService
   API_URL = 'https://api.api-ninjas.com/v1/dogs'
-  API_KEY = API
 
   def self.call(breed)
     uri = URI("#{API_URL}?name=#{breed}")
