@@ -45,7 +45,7 @@ class HealthTracksController < ApplicationController
   private
 
   def track_params
-    params.require(:health_track).permit(:weight, :height, :bcs, :date)
+    params.require(:health_track).permit(:weight, :height, :bcs, :exercise, :date)
   end
 
 end
