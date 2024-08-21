@@ -13,7 +13,7 @@ class DogsController < ApplicationController
   end
 
   def welcome
-
+    @family = current_user.family
   end
 
   def create
