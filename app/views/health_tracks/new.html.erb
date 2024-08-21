@@ -1,0 +1,14 @@
+<div class="container col-6">
+<h1>Add health info</h1>
+  <%= link_to "Go back", :dog_health %>
+  <%= simple_form_for [@dog, @health_track] do |f| %>
+    <%= f.input :date, input_html: { data: { controller: "datepicker" } }, label: false %></a>
+    <%= f.input :height %>
+    <%= f.input :weight %>
+    <%= f.input :bcs %>
+    <%= f.input :exercise, as: :numeric %>
+    <div class="form-actions">
+      <%= f.button :submit, class:"btn btn-info my-3" %>
+    </div>
+  <% end %>
+</div>
