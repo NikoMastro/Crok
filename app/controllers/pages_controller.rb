@@ -4,6 +4,5 @@ class PagesController < ApplicationController
     @tasks = Task.all
     @task = Task.new
     @users = User.all
-
   end
 end
