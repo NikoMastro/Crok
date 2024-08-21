@@ -1,15 +1,12 @@
 <div class="container mt-5">
-  <h2> tasks: </h2>
+  <h2> tasks </h2>
   <div class="tasks">
     <% @tasks.each do |task| %>
       <div class="task">
-        <% if task.status %>
-          <i class="fa-regular fa-square-check"></i>
-        <% else %>
-          <i class="fa-regular fa-square"></i>
+        <%= form_with url: toggle_status_task_path(task), method: :patch, remote: true do |f| %>
+          <%= f.check_box :status, checked: task.status, onclick: 'this.form.submit();' %>
         <% end %>
-        <li><%= task.name %></li>
-        <li><%= task.status %></li>
+        <%= task.name %>
       </div>
     <% end %>
   </div>
