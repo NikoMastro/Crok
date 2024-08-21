@@ -1,5 +1,8 @@
 <div class="container col-6">
   <h1>Your Dog</h1>
+  <% if !@dog.photos.empty? %>
+    <%= cl_image_tag @dog.photos[0].key, width: 300, height: 220, crop: :fill %>
+  <% end %>
   <p><strong><%= @dog.name %></strong></p>
   <p><strong><%= @dog.breed %></strong></p>
   <p><strong><%= @dog.birthdate %></strong></p>

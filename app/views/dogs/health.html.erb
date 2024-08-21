@@ -1,6 +1,25 @@
 <div class="container col-6">
   <h1><%= @dog.name %>'s Health</h1>
+  <div>
+  <div>
+  <p>BCS trend:
+    <% @health_tracks.each do |track| %>
+      <p><%= track.date %>
+      <%= track.bcs %></p>
+    <% end %>
+  </div>
+  <%= link_to "Add new health info", :dog_health_new %>
+  <%= link_to "View medical records", "medical_records#index" %>
 </div>
-<div class="container col-6">
-
+  <% if @health_tracks.empty? %>
+    <p>No health information added</p>
+  <% else %>
+    <% @health_tracks.each do |track| %>
+      <h2><%= track.date %></h2>
+      <p>Height: <%= track.height %> cm</p>
+      <p>Weight: <%= track.weight %> g</p>
+      <p>BCS: <%= track.bcs %></p>
+      <p>Exercise Score: <%= track.exercise %></p>
+    <% end %>
+  <% end %>
 </div>
