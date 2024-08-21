@@ -14,8 +14,11 @@ Rails.application.routes.draw do
   resources :tasks, only: [:create, :update] do
     member do
       patch :toggle_status
+      patch :assign_user
     end
   end
+
+  resources :comments, only: [:create]
 
   get 'my_family', to: 'families#show', as: :family
   get 'dogs/:id/health', to: 'dogs#health', as: :dog_health

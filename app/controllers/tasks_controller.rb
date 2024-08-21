@@ -33,6 +33,16 @@ class TasksController < ApplicationController
     end
   end
 
+  def assign_user
+    @task = Task.find(params[:id])
+    @task.update(task_params)
+    if @task.save
+      redirect_to root_path
+    else
+      redirect_to root_path, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
