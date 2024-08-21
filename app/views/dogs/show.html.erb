@@ -5,6 +5,10 @@
   <p><strong><%= @dog.birthdate %></strong></p>
   <p><strong><%= @dog.allergies %></strong></p>
 
+  <%# <div class="col-6">
+    <%= cl_image_tag @dog.photos[0].key, width: 300, height: 220, crop: :fill %>
+  <%# <div> %>
+
   <h2>Tasks</h2>
   <% @tasks.each do |task| %>
     <p><%= task.name %></p>
