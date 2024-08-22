@@ -1,7 +1,7 @@
 class HealthTrack < ApplicationRecord
   belongs_to :dog
 
-  def dog_score(breed, sex)
+  def self.dog_score(breed, sex)
     breed_data = DogApiService.call(breed)
 
     return nil if breed_data.empty?
@@ -50,5 +50,19 @@ class HealthTrack < ApplicationRecord
 
     (bcs * 0.4 + ratio_score * 0.2 + exercise * 0.2 + age_score * 0.2).round
   end
+
+  def self.bcs_hash
+    bcs_hash = {}
+    HealthTrack.all.map{ |track| bcs_hash[track.id] =
+                       { track.date.strftime("%Y-%m-%d") => track.bcs}}
+  end
+
+  def self.monkey
+    "monkey"
+  end
+
+  # def bcs
+  #   bcs
+  # end
 
 end

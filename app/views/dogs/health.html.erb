@@ -10,6 +10,8 @@
     <p>No health information added</p>
   <% else %>
     <h2>BCS trend:</h2>
+    <%= line_chart(HealthTrack.bcs_hash) %>
+
     <% @health_tracks.each do |track| %>
       <p><%= track.date %>: <%= track.bcs %></p>
     <% end %>
