@@ -1,0 +1,9 @@
+<div class="container col-6">
+<h1>Register Your Dog</h1>
+<%= simple_form_for(@families) do |f| %>
+    <%= f.input :name %>
+    <div class="form-actions">
+      <%= f.button :submit, class:"btn btn-info my-3" %>
+    </div>
+  <% end %>
+</div>

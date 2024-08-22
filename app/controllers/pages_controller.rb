@@ -6,7 +6,6 @@ class PagesController < ApplicationController
     @users = User.all
     @comment = Comment.new
     @comments = Comment.all
-
   end
 
   def landing

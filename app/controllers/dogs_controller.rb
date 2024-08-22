@@ -12,6 +12,10 @@ class DogsController < ApplicationController
     @dog = Dog.new
   end
 
+  def welcome
+    @family = current_user.family
+  end
+
   def create
     @dog = Dog.new(dog_params)
     @dog.family = current_user.family

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   root to: "pages#home"
+  resources :users, only: [:show]
   patch 'task/:id/done', to: 'tasks#done', as: :task_done
 
   get 'landing', to: 'pages#landing', as: :landing
