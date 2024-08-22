@@ -7,9 +7,11 @@ Rails.application.routes.draw do
 
 
   resources :dogs do
-    resources :health_tracks, only: [:show, :new, :create, :edit, :update, :destroy]
-    resources :medical_records
+    resources :health_tracks, only: [:show, :edit, :update, :new, :create, :destroy]
+    resources :medical_records, only: [:index, :show, :new, :create]
   end
+
+  resources :medical_records, only: [:edit, :update, :destroy]
 
   resources :tasks, only: [:create, :update] do
     member do
@@ -21,8 +23,8 @@ Rails.application.routes.draw do
   resources :comments, only: [:create]
 
   get 'my_family', to: 'families#show', as: :family
-  get 'dogs/:dog_id/health', to: 'dogs#health', as: :dog_health
-  get 'dogs/:dog_id/health/new', to: "health_tracks#new", as: :dog_health_new
-  # get 'dogs/:dog_id/health/medical_records'
-  # get 'dogs/:id/health/', to: "dogs#health", as: :health_tracks_path
+  get 'dogs/:id/health', to: 'dogs#health', as: :dog_health
+  get 'dogs/:dog_id/health', to: 'dogs#health', as: :dog_id_health
+  get 'dogs/:id/health/new', to: "health_tracks#new", as: :dog_health_new
+
 end

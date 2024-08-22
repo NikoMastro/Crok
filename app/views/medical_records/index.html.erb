@@ -1,6 +1,6 @@
 <div class="container col-6">
   <h1><%= @dog.name %>'s Medical Records</h1>
-  <%= link_to "Go back", :dog_health %>
+  <%= link_to "Go back", :dog_id_health %>
   <%= link_to "Add new record", "medical_records/new" %>
   <% if @medical_records.empty? %>
     <p>No medical records added</p>
@@ -10,6 +10,12 @@
       <h3><%= record.date %></h3>
       <p>Description: <%= record.description %></p>
       <p>Veterinarian: <%= record.vet_contact %></p>
+      <div><%= link_to "Delete",
+            medical_record_path(record),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this entry?" }
+            %>
+        <%= link_to "Edit", edit_medical_record_path(record) %>
+      </div>
     <% end %>
   <% end %>
 </div>

@@ -42,7 +42,7 @@ class DogsController < ApplicationController
   end
 
   def health
-    @dog = Dog.find(params[:dog_id])
+    @dog = Dog.find(params[:id])
     @health_tracks = HealthTrack.where(dog: @dog)
     @health_track = HealthTrack.new
   end
