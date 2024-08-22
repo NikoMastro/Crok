@@ -1,0 +1,8 @@
+<h1><%= current_user.family.name%></h1>
+<% current_user.family.users.each do |user|%>
+  <li><%= user.name %></li>
+<% end %>
+<h2>Dogs</h2>
+<% current_user.family.dogs.each do |dog|%>
+  <li><%= dog.name %></li>
+<% end %>
