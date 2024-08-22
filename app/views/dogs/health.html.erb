@@ -9,7 +9,6 @@
   <% if @health_tracks.empty? %>
     <p>No health information added</p>
   <% else %>
-    <% @health_tracks.sort_by(&:date) %>
     <h2>BCS trend:</h2>
     <% @health_tracks.each do |track| %>
       <p><%= track.date %>: <%= track.bcs %></p>

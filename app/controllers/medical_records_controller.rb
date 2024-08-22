@@ -1,7 +1,7 @@
 class MedicalRecordsController < ApplicationController
 
   def index
-    @medical_records = MedicalRecord.all
+    @medical_records = MedicalRecord.all.order(date: :desc)
     @dog = Dog.find(params[:dog_id])
   end
 
@@ -23,14 +23,14 @@ class MedicalRecordsController < ApplicationController
   def edit
     @medical_record = MedicalRecord.find(params[:id])
     @dog = @medical_record.dog
+    # raise
   end
 
-
   def update
-    raise
+    # raise
     @medical_record = MedicalRecord.find(params[:id])
     if @medical_record.update(record_params)
-      redirect_to dog_medical_records_path
+      redirect_to dog_medical_records_path(@medical_record.dog)
     else
       render :new, status: :unprocessable_entity
     end
