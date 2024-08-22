@@ -1,5 +1,52 @@
+.tasks {
+  background-color: #f5d6c4;
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
 .task {
-  display: flex;
-  font-size: 20px;
   border: solid;
+  border-color: gray;
+  border-radius: 5px;
+  padding: 8px;
+  margin-bottom: 6px;
+  width: 100%;
+  .task-header {
+    display: flex;
+  }
+  .task-header p {
+    margin: 0px;
+    padding-left: 8px;
+    font-size: 20px;
+  }
+  h4 {
+    margin: 0px;
+  }
+  .due-date {
+    padding: 3px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .due-date p {
+    margin: 0px;
+  }
+  .assignee {
+    padding: 3px;
+  }
+  .comments {
+    padding: 3px;
+  }
+  .comment {
+    padding-left: 6px;
+  }
+  .comment .content {
+    font-size: 16px;
+    margin: 2px;
+  }
+  .comment .poster {
+    font-size: 10px;
+    margin: 2px;
+    color: gray;
+  }
 }

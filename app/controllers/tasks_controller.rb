@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.status = false
-    @task.dog = Dog.find(13)
+    @task.dog = Dog.last
     @task.user = current_user
     if @task.save
       redirect_to root_path
