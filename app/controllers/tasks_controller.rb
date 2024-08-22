@@ -5,12 +5,12 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.status = false
-    @task.dog = Dog.find(13)
+    @task.dog = Dog.last
     @task.user = current_user
     if @task.save
-      redirect_to root_path
+      redirect_to home_path
     else
-      redirect_to root_path, status: :unprocessable_entity
+      redirect_to home_path, status: :unprocessable_entity
     end
   end
 
@@ -19,9 +19,9 @@ class TasksController < ApplicationController
     @task.update(task_params)
     @task.status = false
     if @task.save
-      redirect_to root_path
+      redirect_to home_path
     else
-      redirect_to root_path, status: :unprocessable_entity
+      redirect_to home_path, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.update(status: !@task.status)
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Task status was successfully updated.' }
+      format.html { redirect_to home_path, notice: 'Task status was successfully updated.' }
     end
   end
 
@@ -37,9 +37,9 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.update(task_params)
     if @task.save
-      redirect_to root_path
+      redirect_to home_path
     else
-      redirect_to root_path, status: :unprocessable_entity
+      redirect_to home_path, status: :unprocessable_entity
     end
   end
 

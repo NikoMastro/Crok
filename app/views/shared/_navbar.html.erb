@@ -1,43 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to (user_signed_in? ? root_path : landing_path), class: "dwg-text-decoration--none" do %>
-    <%= image_tag "crok_logo.jpg", alt: "Crok Logo", style: "height: 150px; min-height: 50px; width: 100%; margin: 0;" %>
-  <% end %>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <i class="fa-solid fa-bars"></i>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-        <%= link_to "Features", root_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Solution", root_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Contact", root_path, class: "nav-link" %>
-      </li>
-      <% if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <a href="#" class="avatar d-flex justify-content-right align-items-right"
-            id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-            style="background-image: url('<%= current_user.photo.attached? ? cl_image_path(current_user.photo.key) : "" %>')">
-            <% unless current_user.photo.attached? %>
-              <%= image_tag "log.jpg", alt: "Avatar", class: "avatar-class" %>
-            <% end %>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li><%= link_to "Update profile", "#", class: "dropdown-item" %></li>
-            <li><%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
-          </ul>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
-        </li>
+<div class="navbar-container d-flex justify-content-between align-items-center">
+  <div class="banner-container">
+    <% if user_signed_in? %>
+      <%= link_to home_path do %>
+        <%= image_tag "banner_icn.svg", alt: "Crok Logo", class: "banner-image" %>
       <% end %>
+    <% else %>
+      <%= link_to root_path do %>
+        <%= image_tag "banner_icn.svg", alt: "Crok Logo", class: "banner-image" %>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Mobile Dropdown Button -->
+  <div class="dropdown d-md-none">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa-regular fa-bars"></i>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+      <%= render 'shared/logbtn' %>
     </ul>
   </div>
-</nav>
+</div>

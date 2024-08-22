@@ -1,0 +1,24 @@
+<div class="dog-img">
+  <div class="dog-name"><%= @dog.name %></div>
+  <% if @dog.photos.attached? %>
+    <%= cl_image_tag @dog.photos.first.key, crop: :fill %>
+  <% else %>
+    <%= image_tag 'labrador running.jpg', alt: "default image for dog"%>
+  <% end %>
+  <div class="dog-score">
+    <%= image_tag 'dog_score_03.svg', alt: "score", style:"height:120px; width:120px"%>
+    <%# <p>Score</p>
+    <h4>30.0</h4> %>
+  </div>
+  <div class="medical-record-link">
+    <%= link_to dog_medical_records_path(@dog) do %>
+      <%= image_tag 'medical_eam_btn.svg', alt: "medic", style:"height:60px; width:100%"%>
+    <% end %>
+  </div>
+  <div class="family-showpage-link">
+    <%# this family path should be changed to current_user.family %>
+    <%= link_to family_path(1) do %>
+      <%= image_tag 'dog_family_2.svg', alt: "medic", style:"height:60px; width:100%"%>
+    <% end %>
+  </div>
+</div>

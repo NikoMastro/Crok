@@ -1,6 +1,6 @@
 <div class="container col-6">
-<h1>Register Your Dog</h1>
-<%= simple_form_for(@dog) do |f| %>
+  <h1>Register a new Dog</h1>
+  <%= simple_form_for(@dog) do |f| %>
     <%= f.input :name %>
     <%= f.input :breed %>
     <%= f.input :birthdate %>
@@ -12,3 +12,4 @@
     </div>
   <% end %>
 </div>
+<%= render 'shared/bottom_nav' %>
