@@ -55,3 +55,28 @@
 .button:hover .button-decor {
   transform: translate(0);
 }
+
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Adds space between buttons */
+  margin-top: 20px;
+}
+
+.home-buttons .btn div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px; /* Set a fixed width for the buttons */
+  height: 100px; /* Set a fixed height for the buttons */
+  background-color: #f8f9fa; /* Light background for buttons */
+  border-radius: 50%; /* Rounded corners */
+  padding: 10px;
+}
+
+.home-buttons .btn div img {
+  max-width: 80%; /* Adjusts the image size relative to the container */
+  max-height: 80%; /* Ensures the image fits within the container */
+  display: block;
+  margin: auto; /* Centers the image inside the div */
+}

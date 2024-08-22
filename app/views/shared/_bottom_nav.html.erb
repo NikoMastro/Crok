@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="home-buttons">
+        <%= link_to "/dogs/new", class: "btn" do %>
+          <div>
+            <%= image_tag 'dog_add.svg', alt: "Add new record" %>
+          </div>
+        <% end %>
+        <%= link_to home_path, class: "btn" do %>
+          <div>
+            <%= image_tag 'home_icn.svg', alt: "Home" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
