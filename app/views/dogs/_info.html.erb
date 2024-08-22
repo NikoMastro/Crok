@@ -9,6 +9,15 @@
     <p>Score</p>
     <h4>30.0</h4>
   </div>
-  <div class="medical-record-link"><i class="fa-solid fa-book-medical"></i></div>
-  <div class="family-showpage-link"><i class="fa-solid fa-person person"></i><i class="fa-solid fa-dog dog"></i></div>
+  <div class="medical-record-link">
+    <%= link_to dog_medical_records_path(@dog) do %>
+      <i class="fa-solid fa-book-medical"></i>
+    <% end %>
+  </div>
+  <div class="family-showpage-link">
+  <%# this family path should be changed to current_user.family %>
+    <%= link_to family_path(1) do %>
+      <i class="fa-solid fa-person person"></i><i class="fa-solid fa-dog dog"></i>
+    <% end %>
+  </div>
 </div>
