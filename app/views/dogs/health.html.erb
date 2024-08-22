@@ -1,14 +1,14 @@
 <div class="container col-6">
-  <h1><%= @dog.name %>'s Health</h1>
+  <h1><%= @dog.name %>'s Fitness History</h1>
   <div>
-  <%= link_to "Add new health info", :dog_health_new %>
-  <%= link_to "View medical records", "medical_records#index" %>
+  <%= link_to "Go Back", dog_path, class: "btn" %>
+  <%= link_to "Add new health info", :dog_health_new, class: "btn" %>
+  <%= link_to "View medical records", "medical_records#index", class: "btn" %>
 </div>
 <div>
   <% if @health_tracks.empty? %>
     <p>No health information added</p>
   <% else %>
-    <% @health_tracks.sort_by(&:date) %>
     <h2>BCS trend:</h2>
     <% @health_tracks.each do |track| %>
       <p><%= track.date %>: <%= track.bcs %></p>
@@ -19,6 +19,12 @@
       <p>Weight: <%= track.weight %> g</p>
       <p>BCS: <%= track.bcs %></p>
       <p>Exercise Score: <%= track.exercise %></p>
+      <div><%= link_to "Edit", edit_dog_health_track_path(track) %>
+            <%= link_to "Delete",
+            dog_health_track_path(track),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this entry?" }
+            %>
+      </div>
     <% end %>
   <% end %>
   </div>

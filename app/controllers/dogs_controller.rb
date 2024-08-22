@@ -42,8 +42,8 @@ class DogsController < ApplicationController
   end
 
   def health
-    @dog = Dog.find(params[:dog_id])
-    @health_tracks = HealthTrack.where(dog: @dog)
+    @dog = Dog.find(params[:id])
+    @health_tracks = HealthTrack.where(dog: @dog).order(date: :desc)
     @health_track = HealthTrack.new
   end
 
