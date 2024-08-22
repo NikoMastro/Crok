@@ -1,7 +1,7 @@
 <div class="dog-img">
   <div class="dog-name"><%= @dog.name %></div>
   <% if @dog.photos.attached? %>
-    <%= cl_image_tag product.photos.first.key, crop: :fill %>
+    <%= cl_image_tag @dog.photos.first.key, crop: :fill %>
   <% else %>
     <%= image_tag 'dog_vet_05.jpg', alt: "default image for dog"%>
   <% end %>
