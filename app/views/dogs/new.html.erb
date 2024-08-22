@@ -1,15 +1,17 @@
-<div class="container col-6">
-  <h1>Register a new Dog</h1>
-  <%= simple_form_for(@dog) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :breed %>
-    <%= f.input :birthdate %>
-    <%= f.input :sex %>
-    <%= f.input :allergies %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <div class="form-actions">
-      <%= f.button :submit, class:"btn btn-info my-3" %>
-    </div>
-  <% end %>
+<div class="dog-new">
+  <div class="container col-6">
+    <h1>Register a new Dog</h1>
+    <%= simple_form_for(@dog) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :breed %>
+      <%= f.input :birthdate %>
+      <%= f.input :sex %>
+      <%= f.input :allergies %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <div class="form-actions">
+        <%= f.button :submit, class:"btn btn-info my-3" %>
+      </div>
+    <% end %>
+  </div>
+  <%= render 'shared/bottom_nav' %>
 </div>
-<%= render 'shared/bottom_nav' %>
