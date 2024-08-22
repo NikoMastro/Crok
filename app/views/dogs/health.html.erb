@@ -1,5 +1,5 @@
 <div class="container col-6">
-  <h1><%= @dog.name %>'s Health</h1>
+  <h1><%= @dog.name %>'s Fitness History</h1>
   <div>
   <%= link_to "Go Back", dog_path, class: "btn" %>
   <%= link_to "Add new health info", :dog_health_new, class: "btn" %>
@@ -19,11 +19,12 @@
       <p>Weight: <%= track.weight %> g</p>
       <p>BCS: <%= track.bcs %></p>
       <p>Exercise Score: <%= track.exercise %></p>
-      <div><%= link_to "Delete",
+      <div><%= link_to "Edit", edit_dog_health_track_path(track) %>
+            <%= link_to "Delete",
             dog_health_track_path(track),
             data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this entry?" }
-            %></div>
-      <%= link_to "Edit", edit_dog_health_track_path(track) %>
+            %>
+      </div>
     <% end %>
   <% end %>
   </div>

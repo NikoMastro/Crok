@@ -1,18 +1,5 @@
 <div class="container col-6">
   <h1>Edit Medical Entry</h1>
   <%= link_to "Go back", :dog_health %>
-  <%= simple_form_for [@dog, @health_track] do |f| %>
-    <%= f.input :date, input_html: { data: { controller: "datepicker" } }, label: false %></a>
-    <%= f.input :height %>
-    <%= f.input :weight %>
-    <div class="form-dropdown">
-      <p>BCS (1 for skinny, 10 for chubby)</p>
-      <p><%= f.select :bcs, (1..10) %></p>
-      <p>Exercise Level (1 for little exercise, 10 for a lot)</p>
-      <p><%= f.select :exercise, (1..10) %></p>
-    </div>
-    <div class="form-actions">
-      <%= f.button :submit, class:"btn btn-info my-3" %>
-    </div>
-  <% end %>
+  <%= render "form", health_track: @health_track %>
 </div>
