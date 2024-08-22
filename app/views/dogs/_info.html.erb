@@ -1,0 +1,23 @@
+<div class="dog-img">
+  <div class="dog-name"><%= @dog.name %></div>
+  <% if @dog.photos.attached? %>
+    <%= cl_image_tag product.photos.first.key, crop: :fill %>
+  <% else %>
+    <%= image_tag 'dog_vet_05.jpg', alt: "default image for dog"%>
+  <% end %>
+  <div class="dog-score">
+    <p>Score</p>
+    <h4>30.0</h4>
+  </div>
+  <div class="medical-record-link">
+    <%= link_to dog_medical_records_path(@dog) do %>
+      <i class="fa-solid fa-book-medical"></i>
+    <% end %>
+  </div>
+  <div class="family-showpage-link">
+  <%# this family path should be changed to current_user.family %>
+    <%= link_to family_path(1) do %>
+      <i class="fa-solid fa-person person"></i><i class="fa-solid fa-dog dog"></i>
+    <% end %>
+  </div>
+</div>

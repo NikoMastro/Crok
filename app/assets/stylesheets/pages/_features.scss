@@ -1,0 +1,57 @@
+// Grid Layout
+.parent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, auto);
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+}
+
+.div1 { grid-area: 1 / 1 / 3 / 3; }
+.div2 { grid-area: 1 / 3 / 3 / 5; }
+.div3 { grid-area: 3 / 1 / 5 / 4; }
+.div4 { grid-area: 3 / 4 / 5 / 5; }
+.div5 { grid-area: 5 / 1 / 7 / 2; }
+.div6 { grid-area: 5 / 2 / 7 / 5; }
+
+// Image Styles
+.img-fit-right, .img-fit-left {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.img-fit-right {
+  max-height: 350px;
+}
+
+
+
+.img-fit-down-left {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  padding: 10px;
+  margin: 20px 0;
+  border-radius: 15%;
+}
+
+// Font and Text
+.landing {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+}
+
+// Banner
+.banner {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 766px; // or use a responsive unit like vh for dynamic height
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative; // or static if no additional positioning needed
+}

@@ -1,32 +1,22 @@
-<div class="container mt-5">
-  <h2> tasks </h2>
-  <div class="tasks">
-    <% @tasks.each do |task| %>
-      <div class="task">
-
+<div class="container tasks" data-controller="toggle">
+  <h2> Tasks </h2>
+  <% @tasks.each do |task| %>
+    <div class="task">
+      <div class="task-header">
         <%= form_with url: toggle_status_task_path(task), method: :patch, remote: true do |f| %>
           <%= f.check_box :status, checked: task.status, onclick: 'this.form.submit();' %>
         <% end %>
-        <%= task.name %>
-
-        <p>Assignee: <%= task.user.name %></p>
-        <%= simple_form_for task, url: assign_user_task_path(task), method: :patch, remote: true do |f| %>
-          <%= f.association :user, collection: @users, prompt: "Choose a User", label: 'Edit Assignee' %>
-          <%= f.submit "Assign this task to him", class: "btn btn-danger" %>
-        <% end %>
-
-        <p>Comments</p>
-        <% @comments.each do |comment| %>
-          <p><%= comment.content %> Posted by: <%= comment.user.name %></p>
-        <% end %>
-        <%= simple_form_for(@comment) do |f| %>
-          <%= f.hidden_field :task_id, value: task.id %>
-          <%= f.input :content, as: :text %>
-          <%= f.button :submit, class: "btn btn-primary" %>
-        <% end %>
-
+        <p data-action="click->toggle#show_detail" data-task-id="<%= task.id %>"><%= task.name %></p>
       </div>
-    <% end %>
+      <div class="task-detail d-none" data-toggle-target="togglableDetail" data-task-id="<%= task.id %>">
+        <%= render 'tasks/task_detail', task: task %>
+      </div>
+    </div>
+  <% end %>
+  <div class="task-form-wrap">
+    <button type="button" class="btn my-btn-green" data-action="click->toggle#show_form">Add Task</button>
+    <div class="task-form d-none" data-toggle-target="togglableForm">
+      <%= render 'tasks/form' %>
+    </div>
   </div>
-  <%= render 'tasks/form' %>
 </div>

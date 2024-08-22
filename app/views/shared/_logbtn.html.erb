@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+  <li class="nav-item" style="list-style-type: none; padding: 0; margin: 0;">
+    <a href="#" class="avatar d-flex justify-content-right align-items-right"
+       id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+       style="background-image: url('<%= current_user.photo.attached? ? cl_image_path(current_user.photo.key) : "" %>')">
+      <% unless current_user.photo.attached? %>
+        <%= image_tag "profile_btn.svg", alt: "Login Icon", class: "login-icon" %>
+      <% end %>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="list-style-type: none; padding: 0; margin: 0;">
+      <li><%= link_to "Family settings", family_path(current_user.family), class: "dropdown-item"%></li>
+      <li><%= link_to "User settings", edit_user_registration_path, class: "dropdown-item" %></li>
+      <li><%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
+    </ul>
+  </li>
+<% else %>
+  <div class="auth-buttons">
+    <li class="nav-item" style="list-style-type: none; padding: 0; margin: 0;">
+      <%= link_to image_tag("login button.svg", alt: "Login Icon", class: "login-icon"), new_user_session_path %>
+    </li>
+    <li class="nav-item" style="list-style-type: none; padding: 0; margin: 0;">
+      <%= link_to image_tag("register_btn.svg", alt: "Register Icon", class: "register-icon"), new_user_registration_path, class: "nav-link" %>
+    </li>
+  </div>
+<% end %>
