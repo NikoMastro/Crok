@@ -1,76 +1,41 @@
-// Define some variables for colors and font sizes
-$navbar-bg-color: #f8f9fa;
-$nav-link-color:#112028;
-$nav-link-hover-color:#3a6376;
-$dropdown-bg-color: #ffffff;
-$dropdown-border-color: #ddd;
+// Banner container styles
+.banner-container {
+  width: 100%;
+  background-color: #f8f9fa;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-.navbar {
-  background-image: url("banner_family_03.jpg");
-  background-position: 50% 50%;
-  background-size: cover;
-  padding-top: 0px;
-  padding-bottom: 0px;
+// Banner image styles
+.banner-image {
+  height: 130px; // Adjust to control the logo size
+  min-height: 50px;
+  width: auto;
+}
 
+// Auth button container styles
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px; // Adjust space between buttons
+}
 
+// Auth button item styles
+.auth-buttons .nav-item {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 
-  .navbar-brand {
-    img {
-      height: 100px;
-      width: auto;
-      margin: 0;
-    }
-  }
+// Icon styles for login and register buttons
+.login-icon, .register-icon {
+  width: 150px; // Adjust the size of the icons as needed
+  height: auto;
+}
 
-  .navbar-toggler {
-    border-color: $nav-link-color;
-
-    .navbar-toggler-icon {
-      background-image: none;
-    }
-  }
-
-  .navbar-nav {
-    .nav-item {
-      .nav-link {
-        color: $nav-link-color;
-        font-family: "Montserrat", sans-serif;
-        font-size: 28px;
-        font-weight: 600;
-        margin: 5px 8px;
-        border-radius: 10px;
-        text-shadow: 1px 1px 2px #f8f9fa;
-
-
-        &:hover {
-          color: $nav-link-hover-color;
-        }
-      }
-
-      &.active .nav-link {
-        color: $nav-link-hover-color;
-      }
-    }
-  }
-
-  .dropdown-menu {
-    background-color: $dropdown-bg-color;
-    border-color: $dropdown-border-color;
-
-    .dropdown-item {
-      color: $nav-link-color;
-
-      &:hover {
-        background-color: $dropdown-border-color;
-        color: $nav-link-hover-color;
-      }
-    }
-  }
-
-  .avatar-class {
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-  }
-
+// Nav link styles
+.nav-link {
+  color: #000; // Adjust the color of the link
 }
