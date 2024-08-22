@@ -1,15 +1,15 @@
-<div class="container mt-5 tasks" data-controller="toggle">
+<div class="container mt-5 tasks">
   <h2> Tasks </h2>
-  <div class="tasks">
+  <div class="tasks" data-controller="toggle">
     <% @tasks.each do |task| %>
       <div class="task">
         <div class="task-header">
           <%= form_with url: toggle_status_task_path(task), method: :patch, remote: true do |f| %>
             <%= f.check_box :status, checked: task.status, onclick: 'this.form.submit();' %>
           <% end %>
-          <p data-action="click->toggle#show_detail"><%= task.name %></p>
+          <p data-action="click->toggle#show_detail" data-task-id="<%= task.id %>"><%= task.name %></p>
         </div>
-        <div class="task-detail d-none" data-toggle-target="togglableDetail">
+        <div class="task-detail d-none" data-toggle-target="togglableDetail" data-task-id="<%= task.id %>">
           <%= render 'tasks/task_detail', task: task %>
         </div>
       </div>
