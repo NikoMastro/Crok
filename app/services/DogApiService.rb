@@ -1,6 +1,6 @@
-require 'net/http'
-require 'json'
-require 'dotenv/load'
+# require 'net/http'
+# require 'json'
+# require 'dotenv/load'
 
 class DogApiService
   API_URL = 'https://api.api-ninjas.com/v1/dogs'
