@@ -19,6 +19,8 @@
   <%= simple_form_for(@comment) do |f| %>
     <%= f.hidden_field :task_id, value: task.id %>
     <%= f.input :content, as: :text, label: false %>
-    <%= f.button :submit, class: "btn btn-primary" %>
+    <button type="submit" class="btn" title="Adicionar ao Carrinho">
+      <i class="fa-solid fa-pen"></i>
+    </button>
   <% end %>
 </div>
