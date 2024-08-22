@@ -39,3 +39,20 @@
 .nav-link {
   color: #000; // Adjust the color of the link
 }
+.navbar-container {
+  width: 100%;
+  padding: 10px;
+}
+
+.banner-container {
+  flex-grow: 1;
+}
+
+.log-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dropdown-toggle {
+  margin-left: auto; // Ensure the dropdown button is aligned to the right
+}

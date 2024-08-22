@@ -1,19 +1,25 @@
-<div class="banner-container d-flex justify-content-between align-items-center">
-  <% if user_signed_in? %>
-    <%= link_to home_path do %>
-      <%= image_tag "banner_icn.svg", alt: "Crok Logo", class: "banner-image" %>
+<div class="navbar-container d-flex justify-content-between align-items-center">
+  <div class="banner-container">
+    <% if user_signed_in? %>
+      <%= link_to home_path do %>
+        <%= image_tag "banner_icn.svg", alt: "Crok Logo", class: "banner-image" %>
+      <% end %>
+    <% else %>
+      <%= link_to root_path do %>
+        <%= image_tag "banner_icn.svg", alt: "Crok Logo", class: "banner-image" %>
+      <% end %>
     <% end %>
-  <% else %>
-    <%= link_to root_path do %>
-      <%= image_tag "banner_icn.svg", alt: "Crok Logo", class: "banner-image" %>
-    <% end %>
-  <% end %>
-  <% unless user_signed_in? %>
-    <div class="log-button-container">
-      <%= link_to 'Features', features_path, class: 'btn btn-primary' %>
-    </div>
-  <% end %>
-  <div class="log-button-container">
+  </div>
+  <div class="log-button-container d-none d-md-flex">
     <%= render 'shared/logbtn' %>
+  </div>
+  <!-- Mobile Dropdown Button -->
+  <div class="dropdown d-md-none">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+      Menu
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+      <%= render 'shared/logbtn' %>
+    </ul>
   </div>
 </div>
