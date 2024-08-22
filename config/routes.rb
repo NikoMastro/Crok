@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
-  root to: "pages#home"
+  root to: "pages#landing"
   resources :users, only: [:show]
   patch 'task/:id/done', to: 'tasks#done', as: :task_done
 
-  get 'landing', to: 'pages#landing', as: :landing
+  get 'home', to: 'pages#home', as: :home
   get 'features', to: 'pages#features', as: :features
 
 
