@@ -11,4 +11,8 @@ class PagesController < ApplicationController
 
   def landing
   end
+
+  def features
+
+  end
 end
