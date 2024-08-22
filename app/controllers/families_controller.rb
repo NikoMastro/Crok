@@ -5,16 +5,24 @@ class FamiliesController < ApplicationController
     if @family.save
       current_user.family = @family
       current_user.save
-      redirect_to user_path(current_user)
+      redirect_to home_path
     else
       render 'welcome', status: :unprocessable_entity
+    end
+  end
+
+  def welcome
+    if current_user.family
+      1
+    else
+      @family = Family.new
     end
   end
 
   def update
     @family = Family.find(params[:id])
     if @family.update(family_params)
-      redirect_to user_path(current_user)
+      redirect_to home_path
     else
       render 'welcome', status: :unprocessable_entity
     end

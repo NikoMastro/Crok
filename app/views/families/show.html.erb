@@ -1,6 +1,9 @@
 <h1><%= current_user.family.name%></h1>
+<!--Change/update the name of the family-->
 <% current_user.family.users.each do |user|%>
+  <!--Add / invite a user inside the family (by link or input)-->
   <li><%= user.name %></li>
+  <!--Remove a user from the family-->
 <% end %>
 <h2>Dogs</h2>
 <% current_user.family.dogs.each do |dog|%>

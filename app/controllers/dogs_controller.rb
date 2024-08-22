@@ -12,14 +12,6 @@ class DogsController < ApplicationController
     @dog = Dog.new
   end
 
-  def welcome
-    if current_user.family
-      1
-    else
-      @family = Family.new
-    end
-  end
-
   def create
     @dog = Dog.new(dog_params)
     @dog.family = current_user.family
