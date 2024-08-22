@@ -1,6 +1,6 @@
 <div class="container col-6">
   <h1>Register Your Family</h1>
-  <%= simple_form_for @family do |f| %>
+  <%= simple_form_for current_user.family do |f| %>
     <%= f.input :name %>
     <!-- User shouldnt be able to validate if form is blank-->
     <%= f.submit "Submit", class:"btn btn-info my-3" %>
