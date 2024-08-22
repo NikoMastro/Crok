@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     @users = User.all
     @comment = Comment.new
     @comments = Comment.all
+    @dog = Dog.last
   end
 
   def landing
