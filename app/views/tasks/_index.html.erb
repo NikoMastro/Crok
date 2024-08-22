@@ -2,9 +2,9 @@
   <h2> Tasks </h2>
   <% @tasks.each do |task| %>
     <div class="task">
-      <div class="task-header">
+      <div class="form-check">
         <%= form_with url: toggle_status_task_path(task), method: :patch, remote: true do |f| %>
-          <%= f.check_box :status, checked: task.status, onclick: 'this.form.submit();' %>
+          <%= f.check_box :status, class: "form-check-input", id: "flexCheckDefault", checked: task.status, onclick: 'this.form.submit();' %>
         <% end %>
         <p data-action="click->toggle#show_detail" data-task-id="<%= task.id %>"><%= task.name %></p>
       </div>
