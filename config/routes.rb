@@ -22,8 +22,9 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: [:create]
+  resources :families, only: [:update, :create]
 
-  get 'my_family', to: 'families#show', as: :family
+  get 'welcome', to: 'dogs#welcome', as: :welcome
   get 'dogs/:dog_id/health', to: 'dogs#health', as: :dog_health
   get 'dogs/:dog_id/health/new', to: "health_tracks#new", as: :dog_health_new
   # get 'dogs/:dog_id/health/medical_records'

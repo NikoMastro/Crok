@@ -13,7 +13,11 @@ class DogsController < ApplicationController
   end
 
   def welcome
-    @family = current_user.family
+    if current_user.family
+      1
+    else
+      @family = Family.new
+    end
   end
 
   def create
@@ -56,5 +60,4 @@ class DogsController < ApplicationController
   def dog_params
     params.require(:dog).permit(:name, :breed, :birthdate, :sex, :allergies, photos: [])
   end
-
 end
