@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: {
+    registrations: "registrations",
+    sessions: "sessions"
+  }
+
   root to: "pages#landing"
+
   resources :users, only: [:show]
   patch 'task/:id/done', to: 'tasks#done', as: :task_done
 
   get 'home', to: 'pages#home', as: :home
   get 'features', to: 'pages#features', as: :features
-
-
 
   resources :dogs do
     resources :health_tracks, only: [:show, :new, :create, :edit, :update, :destroy]
@@ -27,6 +30,4 @@ Rails.application.routes.draw do
   get 'welcome', to: 'dogs#welcome', as: :welcome
   get 'dogs/:dog_id/health', to: 'dogs#health', as: :dog_health
   get 'dogs/:dog_id/health/new', to: "health_tracks#new", as: :dog_health_new
-  # get 'dogs/:dog_id/health/medical_records'
-  # get 'dogs/:id/health/', to: "dogs#health", as: :health_tracks_path
 end
