@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to root_path
+      redirect_to home_path
     else
-      redirect_to root_path, status: :unprocessable_entity
+      redirect_to home_path, status: :unprocessable_entity
     end
   end
 
