@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   patch 'task/:id/done', to: 'tasks#done', as: :task_done
 
   get 'landing', to: 'pages#landing', as: :landing
+  get 'features', to: 'pages#features', as: :features
+
 
 
   resources :dogs do
