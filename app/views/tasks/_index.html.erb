@@ -7,9 +7,9 @@
           <%= form_with url: toggle_status_task_path(task), method: :patch, remote: true do |f| %>
             <%= f.check_box :status, checked: task.status, onclick: 'this.form.submit();' %>
           <% end %>
-          <p data-action="click->toggle#fire"><%= task.name %></p>
+          <p data-action="click->toggle#show_detail"><%= task.name %></p>
         </div>
-        <div class="task-detail d-none" data-toggle-target="togglableElement">
+        <div class="task-detail d-none" data-toggle-target="togglableDetail">
           <%= render 'tasks/task_detail', task: task %>
         </div>
       </div>
