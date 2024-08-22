@@ -10,7 +10,7 @@
           <p><%= @dog.sex %></p>
         </div>
         <div class="text">
-          <p>Should return a basic text of the dog's health</p>
+          <p>Should return a basic text of the dog's health based on tracks</p>
         </div>
       </div>
     </div>
@@ -20,7 +20,7 @@
   <div class="row">
     <div class="col-md-6 d-flex justify-content-center align-items-center">
       <div class="graph">
-        <img src="graph_placeholder.png" alt="Graph placeholder">
+        <%= image_tag 'graph.svg', alt: 'graph', style:"height:250px;width:350px"%>
       </div>
     </div>
     <div class="col-md-6">
