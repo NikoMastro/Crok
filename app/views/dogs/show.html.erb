@@ -1,21 +1,25 @@
-<div class="container col-6">
-  <h1><%= @dog.name %></h1>
+<div class="container col-md-6 mt-4">
+  <h1 class="display-4 mb-3"><%= @dog.name %></h1>
   <% if !@dog.photos.empty? %>
-    <%= cl_image_tag @dog.photos[0].key, width: 300, height: 220, crop: :fill %>
+    <div class="mb-4">
+      <%= cl_image_tag @dog.photos[0].key, class: 'img-fluid rounded', width: 300, height: 220, crop: :fill %>
+    </div>
   <% end %>
-  <p><%= link_to "View Health Information", :dog_health %>
-  <p><strong>Breed: </strong><%= @dog.breed %></p>
-  <p><strong>Sex: </strong><%= @dog.sex %>
-  <p><strong>Birthdate: </strong><%= @dog.birthdate %></p>
-  <p><strong>Allergies: </strong><%= @dog.allergies %></p>
-
-  <%# <div class="col-6">
-    <%= cl_image_tag @dog.photos[0].key, width: 300, height: 220, crop: :fill %>
-  <%# <div> %>
-
-  <h2>Tasks</h2>
-  <% @tasks.each do |task| %>
-    <p><%= task.name %></p>
-    <p><%= task.status %></p>
-  <% end %>
+  <p><%= link_to "View Health Information", :dog_health, class: "btn btn-primary mb-3" %></p>
+  <div class="mb-3">
+    <p><strong>Breed: </strong><%= @dog.breed %></p>
+    <p><strong>Sex: </strong><%= @dog.sex %></p>
+    <p><strong>Birthdate: </strong><%= @dog.birthdate %></p>
+    <p><strong>Allergies: </strong><%= @dog.allergies %></p>
+  </div>
+  <h2 class="h4 mt-4">Tasks</h2>
+  <ul class="list-group">
+    <% @tasks.each do |task| %>
+      <li class="list-group-item">
+        <p class="mb-1"><%= task.name %></p>
+        <p class="small text-muted"><%= task.status %></p>
+      </li>
+    <% end %>
+  </ul>
 </div>
+<%= render 'shared/bottom_nav' %>

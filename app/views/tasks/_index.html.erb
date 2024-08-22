@@ -1,4 +1,7 @@
 <div class="container tasks" data-controller="toggle">
+  <div>
+    <%= image_tag 'tasks_02.svg', alt: "Home", style:"height:150px; width:100%"%>
+  </div>
   <h2> Tasks </h2>
   <% @tasks.each do |task| %>
     <div class="task">
