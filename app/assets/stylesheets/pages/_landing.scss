@@ -28,10 +28,18 @@ h5 {
   justify-content: center; /* Horizontally centers the content */
 }
 
+.top-topic{
+  margin-left: 30px;
+  padding: 20px;
+  background-color: rgba(201, 230, 236, 0.4);
+  border-radius: 10px;
+
+}
 .txt-container {
+
   color: white; /* Adjust text color for contrast */
   text-align: left; /* Aligns text to the left */
-  margin-top: 50px; /* Moves the text container down */
+
 }
 
 .separator {

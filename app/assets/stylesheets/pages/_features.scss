@@ -55,3 +55,38 @@
   box-sizing: border-box;
   position: relative; // or static if no additional positioning needed
 }
+.landing {
+  display: flex;
+  justify-content: center; /* Horizontally center content */
+  align-items: center;     /* Vertically center content */
+  min-height: 100vh;       /* Full viewport height to ensure vertical centering */
+}
+
+.concept {
+  width: 100%;
+  max-width: 1200px; /* Adjust max-width as needed */
+  padding: 20px;     /* Optional padding for spacing */
+}
+
+.content-border {
+  padding: 20px; /* Optional padding for spacing inside borders */
+  border: 1px solid #ddd; /* Optional border styling */
+}
+
+.bg-content {
+  position: relative;
+}
+
+.img-fit-left,
+.img-fit-right,
+.img-fit-down-left {
+  width: 100%; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Ensure the images fit well within their containers */
+.bg-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

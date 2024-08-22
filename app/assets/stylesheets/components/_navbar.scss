@@ -10,7 +10,7 @@
 
 // Banner image styles
 .banner-image {
-  height: 130px; // Adjust to control the logo size
+  height: 100px; // Adjust to control the logo size
   min-height: 50px;
   width: auto;
 }
@@ -51,8 +51,4 @@
 .log-button-container {
   display: flex;
   justify-content: flex-end;
-}
-
-.dropdown-toggle {
-  margin-left: auto; // Ensure the dropdown button is aligned to the right
 }

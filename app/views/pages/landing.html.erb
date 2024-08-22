@@ -1,11 +1,14 @@
 <div class="content-top">
-  <div class="container">
+  <div class="container top-topic">
     <div class="row">
-      <div class="col-md-6 text-left text-md-start">
+      <div class="col-md-6 text-center text-md-start">
         <div class="txt-container">
           <h5 class="separator">Unlock your pet's healthiest life with Crok'—your all-in-one app for personalized nutrition and seamless care</h5>
           <h1 class="separator">The Health of your dog with simplicity</h1>
           <h4>Discover the simple way to create a strong bond with your pet. Nourish individually—thrive together with Crok'.</h4>
+        </div>
+        <div class="log-button-container d-none d-md-flex">
+          <%= render 'shared/logbtn' %>
         </div>
       </div>
     </div>
@@ -26,17 +29,18 @@
       <%= image_tag 'phone_land_mkt.svg', alt: 'Image phone', class: 'small-card' %>
     </div>
   </div>
-  <footer class="footer">
-    <div class="container d-flex justify-content-between align-items-center">
-      <div class="mb-2 me-4">
-        <a href="features" class="text-decoration-none">features</a>
-      </div>
-      <div class="mb-2 me-4">
-        <span>Crok Global Services Limited </span>
-        <span> © 2024 Crock, Inc.</span>
-      </div>
-      <div class="mb-2 me-4">
-        <span>Japan-日本</span>
-      </div>
+</div>
+<footer class="footer">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="mb-2 me-4">
+      <a href="features" class="text-decoration-none">features</a>
     </div>
-  </footer>
+    <div class="mb-2 me-4">
+      <span>Crok Global Services Limited </span>
+      <span> © 2024 Crock, Inc.</span>
+    </div>
+    <div class="mb-2 me-4">
+      <span>Japan-日本</span>
+    </div>
+  </div>
+</footer>
