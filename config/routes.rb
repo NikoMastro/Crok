@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :comments, only: [:create]
   resources :families, only: [:show, :update, :create]
 
-  get 'welcome', to: 'dogs#welcome', as: :welcome
+  get 'welcome', to: 'families#welcome', as: :welcome
   get 'dogs/:dog_id/health', to: 'dogs#health', as: :dog_health
   get 'dogs/:dog_id/health/new', to: "health_tracks#new", as: :dog_health_new
 end
