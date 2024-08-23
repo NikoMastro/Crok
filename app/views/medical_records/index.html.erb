@@ -3,7 +3,7 @@
     <div class="col-md-12 text-center">
       <div class="dog-show">
         <div class="dog-profile">
-          <img src="dog_image.jpg" alt="Dog's profile picture">
+          <%# <img src="dog_image.jpg" alt="Dog's profile picture"> %>
           <h1><%= @dog.name %>'s Medical Records</h1>
           <p>Breed: <%= @dog.breed %></p>
           <p>Birthdate: <%= @dog.birthdate.strftime("%B %d, %Y") %></p>
@@ -25,18 +25,17 @@
 </div>
 <div class.container>
   <div class="row">
-    <div class="col-md-12 text-center">
-      <div class="buttons">
+    <div class="col-12 col-md-6 text-center">
+      <div class="buttons mt-3">
         <button><%= link_to "Add new record", "medical_records/new", class: "btn" %></button>
-        <button><%= link_to "Home", home_path , class: "btn" %></button>
         <button><%= link_to "Fitness History", :dog_id_health, class: "btn" %></button>
       </div>
     </div>
   </div>
 </div>
-<div class="container col-6" >
+<div class="container" >
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-12 col-md-6">
       <div class="last-updates d-flex flex-wrap">
         <div class="last-update">
           <% if @medical_records.empty? %>

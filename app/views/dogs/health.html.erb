@@ -1,4 +1,4 @@
-<div class="container col-6">
+<div class="container col-12 col-md-6">
   <div style="background-color: #ffc65a; padding: 10px; margin-bottom: 10px; margin-top: 10px;">
   <h1><%= @dog.name %>'s Fitness History</h1>
   <%= link_to "View medical records", "medical_records#index", class: "btn my-btn-green" %>
@@ -20,7 +20,7 @@
         <p>Weight: <%= track.weight %> lbs</p>
         <p>BCS: <%= track.bcs %></p>
         <p>Exercise Score: <%= track.exercise %></p>
-        <p>Overall Health Score: <%= track.dog_score %></p>
+        <%# <p>Overall Health Score: <%= track.dog_score %></p>
         <div><%= link_to "Edit", edit_dog_health_track_path(track) %>
               <%= link_to "Delete",
               dog_health_track_path(track),
