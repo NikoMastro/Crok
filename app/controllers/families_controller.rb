@@ -7,7 +7,7 @@ class FamiliesController < ApplicationController
   def update
     @family = Family.find(params[:id])
     if @family.update(family_params)
-      redirect_to welcome_path
+      redirect_to family_path
     else
       render 'welcome', status: :unprocessable_entity
     end
