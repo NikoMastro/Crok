@@ -44,7 +44,7 @@
           <% else %>
             <% @medical_records.each do |record| %>
               <div class="health-card">
-                <h3><i class="fas fa-folder"></i> <%= record.date.strftime("%B %d, %Y") %></h3>
+                <h3><i class="fa-solid fa-dog"></i> <%= record.date.strftime("%B %d, %Y") %></h3>
                 <p>Description: <%= record.description %></p>
                 <p>Veterinarian: <%= record.vet_contact %></p>
                 <div><%= link_to "Edit", edit_medical_record_path(record) %>

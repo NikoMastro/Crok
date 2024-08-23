@@ -15,12 +15,12 @@
     <% end %>
     <% @health_tracks.each do |track| %>
       <div class="health-card">
-        <h3><i class="fas fa-folder"></i> <%= track.date.strftime("%B %d, %Y") %></h3>
+        <h3><i class="fa-solid fa-dog"></i> <%= track.date.strftime("%B %d, %Y") %></h3>
         <p>Height: <%= track.height %> in</p>
         <p>Weight: <%= track.weight %> lbs</p>
         <p>BCS: <%= track.bcs %></p>
         <p>Exercise Score: <%= track.exercise %></p>
-        <p>Overall Health Score: <%= track.dog_score %></p>
+        <%# <p>Overall Health Score: <%= track.dog_score %>
         <div><%= link_to "Edit", edit_dog_health_track_path(track) %>
               <%= link_to "Delete",
               dog_health_track_path(track),

@@ -1,8 +1,8 @@
 class MedicalRecordsController < ApplicationController
 
   def index
-    @medical_records = MedicalRecord.all.order(date: :desc)
     @dog = Dog.find(params[:dog_id])
+    @medical_records = MedicalRecord.where(dog: @dog).order(date: :desc)
   end
 
   def new
