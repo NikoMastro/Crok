@@ -5,6 +5,23 @@
     margin-bottom: 20px;
   }
 }
+.default-tasks {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 8px;
+  text-align: center;
+  p {
+    font-size: 12px;
+    margin: 0 auto;
+  }
+  .toilet {
+    border: solid;
+    border-radius: 5px;
+    border-color: white;
+    background-color: #FFF5E4;
+    padding: 3px;
+  }
+}
 .task {
   border: solid;
   border-color: gray;
