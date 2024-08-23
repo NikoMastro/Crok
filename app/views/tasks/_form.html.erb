@@ -1,8 +1,8 @@
 <%= simple_form_for(@task) do |f| %>
-  <%= f.input :name %>
-  <%= f.association :user, collection: @users, prompt: "Choose a User" %>
-  <%= f.input :description, as: :text %>
-  <%= f.input :start_time, as: :string, input_html: { data: { controller: "datepicker" } }, label: false %></a>
+  <%= f.input :name, label: false, placeholder: 'Title' %>
+  <%= f.association :user, collection: @users, prompt: "Who do this?" %>
+  <%= f.input :description, as: :text, label: false, placeholder: 'Discriptions' %>
+  <%# <%= f.input :start_time, as: :string, input_html: { data: { controller: "datepicker" } }, label: false %><%#</a> %>
   <%= f.input :end_time, as: :string, input_html: { data: { controller: "datepicker" } }, label: false %></a>
   <div class="form-actions">
     <%= f.button :submit, class: "btn btn-info my-3" %>

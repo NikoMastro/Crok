@@ -11,6 +11,7 @@
   justify-content: space-between;
   padding: 0px 8px;
   text-align: center;
+  margin-bottom: 16px;
   p {
     font-size: 12px;
     margin: 0 auto;
@@ -18,8 +19,28 @@
   .toilet {
     border: solid;
     border-radius: 5px;
-    border-color: white;
+    border-color: #795548;
     background-color: #FFF5E4;
+    color: #4d352d;
+    width: 25%;
+    padding: 3px;
+  }
+  .walk {
+    border: solid;
+    border-radius: 5px;
+    border-color: #795548;
+    background-color: #FFF5E4;
+    color: #4d352d;
+    width: 25%;
+    padding: 3px;
+  }
+  .feed {
+    border: solid;
+    border-radius: 5px;
+    border-color: #795548;
+    background-color: #FFF5E4;
+    color: #4d352d;
+    width: 25%;
     padding: 3px;
   }
 }
@@ -72,4 +93,7 @@
 .task-form-wrap {
   padding: 6px;
   text-align: center;
+}
+.task-done {
+  padding-bottom: 16px;
 }
