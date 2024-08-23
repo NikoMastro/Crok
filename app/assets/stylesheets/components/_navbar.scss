@@ -29,11 +29,6 @@
   margin: 0;
 }
 
-// Icon styles for login and register buttons
-.login-icon, .register-icon {
-  width: 150px; // Adjust the size of the icons as needed
-  height: auto;
-}
 
 // Nav link styles
 .nav-link {
@@ -51,4 +46,9 @@
 .log-button-container {
   display: flex;
   justify-content: flex-end;
+}
+
+.register-icon, .login-icon {
+  width: 270px; // Adjust the size of the icons as needed
+  height: auto;
 }

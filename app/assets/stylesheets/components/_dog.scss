@@ -1,5 +1,5 @@
 .dog-info {
-  background-color: #96C9F4;
+  background-color: #F3FCFF;
   padding-top: 30px;
   padding-bottom: 50px;
   display: flex;
@@ -7,16 +7,32 @@
   justify-content: center;
   .dog-img {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .dog-img img {
+  .dog-image {
     width: 280px;
     height: 280px;
     border-radius: 50%;
-    border: solid;
-    border-color: #B99470;
-    border-width: 5px;
-    object-fit: cover;
-    object-position: center;
+    border: solid 5px #795548;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  .dog-name {
+    font-size: 30px;
+    font-family: Montserrat;
+    color: #112028;
+    top: 10px;
+    z-index: 1;
   }
   .dog-score {
     position: absolute;
@@ -25,66 +41,48 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: solid;
-    border-color: #E76F51;
-    border-width: 5px;
-    background-color: antiquewhite;
-    p {
-      padding-top: 20px;
-      padding-left: 10px;
-      margin-bottom: 8px;
-    }
-    h4 {
-      padding-left: 20px;
-    }
-  }
-  .dog-name {
-
-    position: absolute;
-    text-shadow: white 3px 2px 8px;
-    top: -25px;
-    left: -30px;
-    font-size: 24px;
-    color: #fff;
-    background-color: #114400;
-    margin: 2px 0;
-    padding: 0 8px;
-    border: 9px solid #a60;
-    border-radius: 3px;
-    box-shadow: 2px 2px 4px #666, 2px 2px 2px #111 inset;
-    text-shadow: 0px 0px 2px #000;
-    line-height: 1.9;
+    border: solid 5px #795548;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E76F51; // Adjust color if needed
   }
   .medical-record-link {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: solid;
-    border-color: #3C3D37;
-    border-width: 2px;
+    border: solid 2px #3C3D37;
     background-color: #E76F51;
     position: absolute;
     bottom: 70px;
     left: -33px;
-    font-size: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 30px;
   }
   .family-showpage-link {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: solid;
-    border-color: #3C3D37;
-    border-width: 2px;
+    border: solid 2px #3C3D37;
     background-color: #E76F51;
     position: absolute;
     bottom: 3px;
     left: 11px;
-    font-size: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 25px;
   }
+}
+
+.dog-new {
+  background-image: url('add_dog_banner_lowa.svg');
+  background-position: center center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-size: cover; /* Make sure the image covers the entire screen */
+  background-attachment: fixed; /* Optional: Make background image fixed with respect to viewport */
+  width: 100vw; /* Ensure the element takes the full viewport width */
+  height: 100vh; /* Ensure the element takes the full viewport height */
 }

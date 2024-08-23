@@ -4,7 +4,7 @@
        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
        style="background-image: url('<%= current_user.photo.attached? ? cl_image_path(current_user.photo.key) : "" %>')">
       <% unless current_user.photo.attached? %>
-        <%= image_tag "profile_btn.svg", alt: "Login Icon", class: "login-icon" %>
+        <%= image_tag "profil.svg", alt: "Login Icon", class: "login-icon"%>
       <% end %>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="list-style-type: none; padding: 0; margin: 0;">
