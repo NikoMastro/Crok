@@ -9,7 +9,9 @@
     </div>
     <div class="dog-name"><%= @dog.name %></div>
     <div class="dog-score">
-      <%= image_tag 'dog_score_03.svg', alt: "score", style:"height:120px; width:120px"%>
+      <%= link_to dog_health_path(@dog) do %>
+        <%= image_tag 'dog_score_03.svg', alt: "score", style:"height:120px; width:120px"%>
+      <% end %>
       <%# <p>Score</p>
       <h4>30.0</h4> %>
     </div>
