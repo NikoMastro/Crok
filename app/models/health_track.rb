@@ -1,10 +1,12 @@
 class HealthTrack < ApplicationRecord
   belongs_to :dog
 
-  def dog_score(breed, sex)
+  def dog_score
+    breed = dog.breed
+    sex = dog.sex
     breed_data = DogApiService.call(breed)
 
-    return nil if breed_data.empty?
+    return "not available" if breed_data.empty?
 
     # Determine which attributes to use based on the dog's sex
     if sex.downcase == 'male'
@@ -18,7 +20,7 @@ class HealthTrack < ApplicationRecord
       min_height = breed_data[0]['min_height_female']
       max_height = breed_data[0]['max_height_female']
     else
-      return nil # Return nil if sex is not 'male' or 'female'
+      return "no gender given" # Return nil if sex is not 'male' or 'female'
     end
 
     # Calculate the average weight and height
@@ -50,5 +52,19 @@ class HealthTrack < ApplicationRecord
 
     (bcs * 0.4 + ratio_score * 0.2 + exercise * 0.2 + age_score * 0.2).round
   end
+
+  def self.bcs_hash
+    bcs_hash = {}
+    HealthTrack.all.map{ |track| bcs_hash[track.id] =
+                       { track.date.strftime("%Y-%m-%d") => track.bcs}}
+  end
+
+  def self.monkey
+    "monkey"
+  end
+
+  # def bcs
+  #   bcs
+  # end
 
 end

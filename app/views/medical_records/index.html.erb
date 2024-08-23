@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="background-color: #ffc65a; padding: 10px; margin-bottom: 10px; margin-top: 10px;">
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="dog-show">
@@ -6,11 +6,9 @@
           <img src="dog_image.jpg" alt="Dog's profile picture">
           <h1><%= @dog.name %>'s Medical Records</h1>
           <p>Breed: <%= @dog.breed %></p>
-          <p>DOB: <%= @dog.birthdate %></p>
+          <p>Birthdate: <%= @dog.birthdate.strftime("%B %d, %Y") %></p>
           <p><%= @dog.sex %></p>
-        </div>
-        <div class="text">
-          <p>Should return a basic text of the dog's health based on tracks</p>
+          <p>Allergies: <%= @dog.allergies %></p>
         </div>
       </div>
     </div>
@@ -23,39 +21,6 @@
         <%= image_tag 'graph.svg', alt: 'graph', style:"height:250px;width:350px"%>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          Statistics
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">Weight</a></li>
-          <li><a class="dropdown-item" href="#">Food</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="last-updates d-flex flex-wrap">
-        <div class="last-update">
-          <% if @medical_records.empty? %>
-            <p>No medical records added</p>
-          <% else %>
-            <% @medical_records.each do |record| %>
-              <h3><%= record.date %></h3>
-              <i class="fas fa-folder"></i>
-              <p>Description: <%= record.description %></p>
-              <p>Veterinarian: <%= record.vet_contact %></p>
-              <div><%= link_to "Edit", edit_medical_record_path(record) %>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 <div class.container>
@@ -64,10 +29,38 @@
       <div class="buttons">
         <button><%= link_to "Add new record", "medical_records/new", class: "btn" %></button>
         <button><%= link_to "Home", home_path , class: "btn" %></button>
-        <button><%= link_to "Heath Track", :dog_id_health, class: "btn" %></button>
+        <button><%= link_to "Fitness History", :dog_id_health, class: "btn" %></button>
       </div>
     </div>
   </div>
 </div>
+<div class="container col-6" >
+  <div class="row">
+    <div class="col-md-12">
+      <div class="last-updates d-flex flex-wrap">
+        <div class="last-update">
+          <% if @medical_records.empty? %>
+            <p>No medical records added</p>
+          <% else %>
+            <% @medical_records.each do |record| %>
+              <div class="health-card">
+                <h3><i class="fas fa-folder"></i> <%= record.date.strftime("%B %d, %Y") %></h3>
+                <p>Description: <%= record.description %></p>
+                <p>Veterinarian: <%= record.vet_contact %></p>
+                <div><%= link_to "Edit", edit_medical_record_path(record) %>
+                  <%= link_to "Delete",
+                  medical_record_path(record),
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this entry?" }
+                  %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <br>
 <%= render 'shared/bottom_nav' %>
