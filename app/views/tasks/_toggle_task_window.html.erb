@@ -1,0 +1,14 @@
+<div class="toggle-task-window-bg"></div>
+<div class="toggle-task-window-content">
+  <% tasks.each do |task| %>
+    <div class="task">
+      <div class="form-check">
+        <%= form_with url: toggle_status_task_path(task), method: :patch, remote: true do |f| %>
+          <%= f.check_box :status, class: "form-check-input", id: "flexCheckDefault", checked: task.status, onclick: 'this.form.submit();' %>
+        <% end %>
+        <p data-action="click->toggle#show_detail" data-task-id="<%= task.id %>"><%= task.name %></p>
+      </div>
+      <%= render 'tasks/task_detail', task: task %>
+    </div>
+  <% end %>
+</div>

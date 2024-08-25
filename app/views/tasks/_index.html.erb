@@ -30,6 +30,9 @@
       </div>
     <% end %>
   <% end %>
+  <%# calendar %>
+  <%= render 'tasks/calendar' %>
+
   <div class="task-done">
     <h4>Task Records</h4>
     <% @tasks.each do |task| %>
