@@ -12,13 +12,15 @@
   </div>
   <% tasks.each do |task| %>
     <div class="task">
+
       <div class="task-header">
         <%= form_with url: toggle_status_task_path(task), method: :patch, remote: true do |f| %>
           <%= f.check_box :status, class: "form-check-input", id: "flexCheckDefault", checked: task.status, onclick: 'this.form.submit();' %>
         <% end %>
-        <!--- <p data-action="click->toggle#show_detail" data-task-id="<%= task.id %>"><%= task.name %></p> --->
         <p><%= task.name %></p>
+        <button type="button" class="btn my-btn-plus" data-action="click->toggle#show_form"><i class="fa-solid fa-pencil"></i></button>
       </div>
+
       <div class="due-date">
         <p>Due date:</p><p><%= task.end_time %></p>
       </div>
@@ -27,6 +29,9 @@
       </div>
       <div class="dog">
         <p>Dog:</p><p><%= task.dog.name %></p>
+      </div>
+      <div class="description">
+        <p>Description:</p><p><%= task.description %></p>
       </div>
     </div>
   <% end %>
