@@ -1,26 +1,12 @@
 <div class="due-date">
-  <p>Due date:</p>
-  <p><%= task.end_time %></p>
+  <p>Due date:</p><p><%= task.end_time %></p>
 </div>
 <div class="assignee">
-  <%= simple_form_for task, url: assign_user_task_path(task), method: :patch, remote: true do |f| %>
-    <%= f.association :user, collection: @users, prompt: "Choose a User", label: false %>
-    <%= f.submit "Assign", class: "my-btn-green" %>
-  <% end %>
+  <p>Assignee:</p><p><%= task.user.name %></p>
 </div>
-<div class="comments">
-  <h4>Comments</h4>
-  <% task.comments.each do |comment| %>
-    <div class="comment">
-      <p class="content"><%= comment.content %></p>
-      <p class="poster">Posted by: <%= comment.user.name %></p>
-    </div>
-  <% end %>
-  <%= simple_form_for(@comment) do |f| %>
-    <%= f.hidden_field :task_id, value: task.id %>
-    <%= f.input :content, as: :text, label: false %>
-    <button type="submit" class="btn" title="Adicionar ao Carrinho">
-      <i class="fa-solid fa-pen"></i>
-    </button>
-  <% end %>
+<div class="dog">
+  <p>Dog:</p><p><%= task.dog.name %></p>
+</div>
+<div class="description">
+  <p>Description:</p><p><%= task.description %></p>
 </div>

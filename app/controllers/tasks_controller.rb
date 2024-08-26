@@ -4,8 +4,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.status = false
-    @task.dog = Dog.last
+    @task.status = false unless @task.status
     @task.user = current_user
     if @task.save
       redirect_to home_path
@@ -33,16 +32,6 @@ class TasksController < ApplicationController
     end
   end
 
-  def assign_user
-    @task = Task.find(params[:id])
-    @task.update(task_params)
-    if @task.save
-      redirect_to home_path
-    else
-      redirect_to home_path, status: :unprocessable_entity
-    end
-  end
-
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
@@ -56,6 +45,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :description, :status, :location, :start_time, :end_time, :user_id)
+    params.require(:task).permit(:name, :description, :status, :location, :start_time, :end_time, :user_id, :dog_id)
   end
 end
