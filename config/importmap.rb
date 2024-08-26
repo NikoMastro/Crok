@@ -12,7 +12,5 @@ pin "@popperjs/core", to: "popper.js", preload: true
 pin "chartkick", to: "chartkick.js"
 pin "Chart.bundle", to: "Chart.bundle.js"
 
-pin "chart.js" # @4.4.4
-pin "@kurkle/color", to: "@kurkle--color.js" # @0.3.2
 
 pin "flatpickr" # @4.6.13

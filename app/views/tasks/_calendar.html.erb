@@ -1,5 +1,5 @@
 <%# <h4>Calendar</h4> %>
-<div class="calendar-container" data-controller="calendar">
+<div class="calendar-container">
   <div class="calendar-header">
     <button class="nav-button">&#8249;</button>
     <span class="month-year"><%= @first_day.strftime("%B") %> <%= @first_day.year %></span>
@@ -18,13 +18,31 @@
       <div class="day"></div> <!-- Empty cells for previous month's days -->
     <% end %>
     <% (@last_day - @first_day + 1).to_i.times do %>
-      <div class="day" data-action="click->calendar#open_task_window"
-        data-calendar-target="clickedDate" data-date=<%= @first_day %>>
-        <%= @first_day.day %>
-        <div class="toggle-task-window d-none" data-calendar-target="toggleWindow" data-date=<%= @first_day %>>
-          <%= render 'tasks/toggle_task_window', tasks: @tasks.where(end_time: @first_day) %>
+      <% if @tasks.where(end_time: @first_day).size > 0 %>
+        <div class="day event" data-action="click->toggle#open_task_window"
+          data-toggle-target="clickedDate" data-date=<%= @first_day %>>
+          <%= @first_day.day %>
+          <div class="toggle-task-window d-none" data-toggle-target="toggleWindow" data-date=<%= @first_day %>>
+            <%= render 'tasks/toggle_task_window', tasks: @tasks.where(end_time: @first_day) %>
+          </div>
         </div>
-      </div>
+      <% elsif @first_day == Date.today %>
+        <div class="day current" data-action="click->toggle#open_task_window"
+          data-toggle-target="clickedDate" data-date=<%= @first_day %>>
+          <%= @first_day.day %>
+          <div class="toggle-task-window d-none" data-toggle-target="toggleWindow" data-date=<%= @first_day %>>
+            <%= render 'tasks/toggle_task_window', tasks: @tasks.where(end_time: @first_day) %>
+          </div>
+        </div>
+      <% else %>
+        <div class="day" data-action="click->toggle#open_task_window"
+          data-toggle-target="clickedDate" data-date=<%= @first_day %>>
+          <%= @first_day.day %>
+          <div class="toggle-task-window d-none" data-toggle-target="toggleWindow" data-date=<%= @first_day %>>
+            <%= render 'tasks/toggle_task_window', tasks: @tasks.where(end_time: @first_day) %>
+          </div>
+        </div>
+      <% end %>
       <% @first_day += 1 %>
     <% end %>
   </div>

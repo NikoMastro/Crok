@@ -42,6 +42,10 @@
     color: #4d352d;
     width: 25%;
     padding: 3px;
+    .toggle-form-window-content .content-header {
+      display: flex;
+      justify-content: center;
+    }
   }
 }
 .task {
@@ -54,26 +58,29 @@
   width: 100%;
   .task-header {
     display: flex;
+    justify-content: space-between;
+    .checkbox-name {
+      display: flex;
+    }
   }
   .task-header p {
     margin: 0px;
-    padding-bottom: 0px;
     padding-left: 8px;
-    color: #333;
     font-size: 20px;
   }
   h4 {
     margin: 0px;
   }
-  .due-date, .assignee, .dog {
+  .due-date, .assignee, .dog, .description {
     padding: 3px;
     display: flex;
     justify-content: space-between;
   }
-  .due-date p, .assignee p, .dog p {
+  .due-date p, .assignee p, .dog p, .description p {
     margin: 0px;
-    font-size: 12px;
-    color: #333;
+  }
+  .assignee {
+    padding: 3px;
   }
   .comments {
     padding: 3px;
@@ -163,6 +170,9 @@
     background-color: #ff9f43;
     color: white;
   }
+  // .toggle-task-window {
+  //   display: none;
+  // }
   .toggle-task-window-bg {
     width: 100%;
     height: 100%;

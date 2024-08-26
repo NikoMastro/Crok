@@ -144,5 +144,4 @@ class HealthTrack < ApplicationRecord
   # def bcs
   #   bcs
   # end
-
 end

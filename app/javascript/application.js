@@ -7,9 +7,7 @@ import "bootstrap"
 import "chartkick"
 import "Chart.bundle"
 //= require Chart.min
-import "chart.js"
 
 //= require chartkick
 //= require Chart.bundle
 //= require("chartkick")
-//= require("chart.js")

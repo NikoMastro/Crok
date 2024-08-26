@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: {
     registrations: "registrations",
     sessions: "sessions"
@@ -6,7 +7,11 @@ Rails.application.routes.draw do
 
   root to: "pages#landing"
 
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    member do
+      patch :remove_family
+    end
+  end
   patch 'task/:id/done', to: 'tasks#done', as: :task_done
 
   get 'home', to: 'pages#home', as: :home
@@ -17,12 +22,11 @@ Rails.application.routes.draw do
     resources :medical_records, only: [:index, :show, :new, :create]
   end
 
-  resources :medical_records, only: [:edit, :update, :destroy]
+  resources :medical_records, only: [:edit, :update, :destroy, :show]
 
   resources :tasks, only: [:create, :update] do
     member do
       patch :toggle_status
-      patch :assign_user
     end
   end
 

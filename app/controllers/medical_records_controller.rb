@@ -20,6 +20,11 @@ class MedicalRecordsController < ApplicationController
     end
   end
 
+  def show
+    @dog = Dog.find(params[:dog_id])
+    @medical_record = @dog.medical_records.find(params[:id])
+  end
+
   def edit
     @medical_record = MedicalRecord.find(params[:id])
     @dog = @medical_record.dog
@@ -45,6 +50,6 @@ class MedicalRecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:medical_record).permit(:date, :description, :vet_contact)
+    params.require(:medical_record).permit(:date, :description, :vet_contact, pictures: [])
   end
 end
