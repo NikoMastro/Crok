@@ -6,7 +6,6 @@ class DogsController < ApplicationController
   def show
     @dog = Dog.find(params[:id])
     @tasks = Task.where(dog: @dog)
-
   end
 
   def new
@@ -36,11 +35,12 @@ class DogsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @dog = Dog.find(params[:id])
-  #   @dog.destroy
-  #   redirect_to family_path(@dog.family), status: :see_other
-  # end
+  def destroy
+    @dog = Dog.find(params[:id])
+    @dog.tasks.destroy_all # Delete associated tasks before deleting the dog
+    @dog.destroy
+    redirect_to family_path(@dog.family), status: :see_other
+  end
 
   def health
     @dog = Dog.find(params[:id])

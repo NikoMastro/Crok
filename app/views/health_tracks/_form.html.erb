@@ -1,17 +1,55 @@
 <%= simple_form_for [@dog, @health_track] do |f| %>
-    <p>Date<%= f.input :date, as: :string, input_html: { data: { controller: "datepicker" } }, label: false %></a></p>
-    <%= f.input :height, as: :numeric %>
-    <%= f.input :weight, as: :numeric %>
-    <div class="form-dropdown">
-      <p>Exercise Level (1 for little exercise, 10 for a lot)</p>
-      <p><%= f.select :exercise, (1..10) %></p>
-      <p>BCS (Body Composition Score)</p>
-      <p>1: Your dog is lean, and the bones in their legs and body are easily noticeable.</p>
-      <p>5: Your dog is neither lean nor fat.</p>
-      <p>10: Your dog is fat and has thick legs.</p>
-      <p><%= f.select :bcs, (1..10) %></p>
+  <p>Date<%= f.input :date, as: :string, input_html: { data: { controller: "datepicker" } }, label: false %></a></p>
+<%= f.input :height, as: :numeric %>
+<%= f.input :weight, as: :numeric %>
+<div class="form-dropdown">
+  <p>Exercise Level (1 for little exercise, 10 for a lot)</p>
+  <p><%= f.select :exercise, (1..10) %></p>
+  <p>BCS (Body Composition Score)</p>
+  <p>1: Your dog is lean, and the bones in their legs and body are easily noticeable.</p>
+  <p>5: Your dog is neither lean nor fat.</p>
+  <p>10: Your dog is fat and has thick legs.</p>
+  <p><%= f.select :bcs, (1..10) %></p>
+</div>
+<div class="form-actions">
+  <%= f.button :submit, class:"btn btn-info my-3" %>
+</div>
+<% end %>
+<!--
+<%= simple_form_for [@dog, @health_track] do |f| %>
+  <p>Date<%= f.input :date, as: :string, input_html: { data: { controller: "datepicker" } }, label: false %></p>
+  <%= f.input :height, as: :numeric %>
+  <%= f.input :weight, as: :numeric %>
+  <div class="form-group">
+    <label for="exerciseLevel">Exercise Level:</label>
+    <div class="input-group">
+      <%= f.select :exercise, (0..10), include_blank: true, class: "form-control" %>
+      <div class="input-group-append">
+        <span class="input-group-text">
+          <i class="fas fa-caret-right"></i>
+          <button type="button" class="btn btn-link" data-tooltip="<%= @exercise_level_tooltip %>">
+            <i class="fas fa-question-circle"></i>
+          </button>
+        </span>
+      </div>
     </div>
-    <div class="form-actions">
-      <%= f.button :submit, class:"btn btn-info my-3" %>
+  </div>
+  <div class="form-group">
+    <label for="bcs">BCS (Body Composition Score):</label>
+    <div class="input-group">
+      <%= f.select :bcs, (0..10), include_blank: true, class: "form-control" %>
+      <div class="input-group-append">
+        <span class="input-group-text">
+          <i class="fas fa-caret-right"></i>
+          <button type="button" class="btn btn-link" data-tooltip="<%= @bcs_tooltip %>">
+            <i class="fas fa-question-circle"></i>
+          </button>
+        </span>
+      </div>
     </div>
-  <% end %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, class:"btn btn-info my-3" %>
+  </div>
+<% end %>
+-->
