@@ -3,9 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  before_save :assign_family
+  before_create :assign_family
 
   belongs_to :family, optional: true
+  has_many :invitations
   has_many :dogs, through: :family
   has_many :tasks, dependent: :destroy
   has_many :comments, dependent: :destroy
