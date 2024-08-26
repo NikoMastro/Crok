@@ -9,16 +9,26 @@
   <h1><%= current_user.family.name%></h1>
   <% current_user.family.users.each do |user|%>
     <!--Add / invite a user inside the family (by link or input)-->
-    <h2><%= user.name %>  <%= link_to "", data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete this review?" }, class:"text-decoration-none" do %>
-        <i class="fa-solid fa-trash"></i>
-      <% end %></h2>
+    <h2>
+      <%= user.name %>
+      <% unless current_user == user %>
+        <%= link_to "delete", remove_family_user_path(user), data: { turbo_method: "patch", turbo_confirm: "Are you sure to remove this user from the family?" }, class:"text-decoration-none" do %>
+          <small><i class="fa-solid fa-trash text-secondary"></i></small>
+        <% end %>
+      <% end %>
+    </h2>
     <!--Remove a user from the family-->
   <% end %>
   <h1>Dogs</h1>
   <% current_user.family.dogs.each do |dog|%>
-    <h2><%= dog.name %> <%= link_to "", data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete this review?" }, class:"text-decoration-none" do %>
-        <i class="fa-solid fa-trash"></i>
-      <% end %></li></h2>
-  <% end %>
-  <%= render 'shared/bottom_nav' %>
+      <h2>
+        <%= dog.name %>
+        <%= link_to dog_path(dog), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete this dog?" }, class:"text-decoration-none" do %>
+         <small><i class="fa-solid fa-trash text-secondary"></i></small>
+        <% end %>
+      </h2>
+    <% end %>
+    <%= render 'shared/bottom_nav' %>
+    <%= render 'invitations/form' %>
+  </div>
 </div>
