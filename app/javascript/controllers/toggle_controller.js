@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["togglableDetail", "togglableForm"]
 
   show_detail(event) {
-    // get a target according to the clicked object's id
+    // クリックされた要素のIDから対応するターゲットを取得
     const taskId = event.currentTarget.dataset.taskId;
     const detailTarget = this.togglableDetailTargets.find(target => target.dataset.taskId === taskId);
     if (detailTarget) {

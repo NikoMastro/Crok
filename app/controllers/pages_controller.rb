@@ -8,9 +8,7 @@ class PagesController < ApplicationController
     @users = User.all
     @comment = Comment.new
     @comments = Comment.all
-    @dogs = Dog.all
-    @first_day = first_day
-    @last_day = last_day
+    @dog = Dog.last
   end
 
   def landing
@@ -19,17 +17,5 @@ class PagesController < ApplicationController
 
   def features
     # No authentication required
-  end
-
-  private
-
-  def first_day
-    today = Date.today
-    Date.new(today.year, today.month, 1)
-  end
-
-  def last_day
-    today = Date.today
-    Date.new(today.year, today.month, -1)
   end
 end
