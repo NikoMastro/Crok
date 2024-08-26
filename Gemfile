@@ -77,6 +77,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "cloudinary"
 gem "chartkick"
 gem "groupdate"
+gem 'chart-js-rails'

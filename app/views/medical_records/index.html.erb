@@ -18,14 +18,13 @@
   <div class="row">
     <div class="col-md-6 d-flex justify-content-center align-items-center">
       <div class="graph">
-        <%= image_tag 'graph.svg', alt: 'graph', style:"height:250px;width:350px"%>
       </div>
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container col-6 col-md-6">
   <div class="row">
-    <div class="col-12 col-md-6 text-center">
+    <div class="text-center">
       <div class="buttons mt-3">
         <button><%= link_to "Add new record", "medical_records/new", class: "btn" %></button>
         <button><%= link_to "Fitness History", :dog_id_health, class: "btn" %></button>
@@ -33,7 +32,7 @@
     </div>
   </div>
 </div>
-<div class="col-12 col-md-6">
+<div class="container col-md-6">
   <div class="last-updates d-flex flex-wrap">
     <div class="last-update">
       <% if @medical_records.empty? %>

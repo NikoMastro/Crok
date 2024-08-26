@@ -3,10 +3,13 @@
     <%= f.input :height, as: :numeric %>
     <%= f.input :weight, as: :numeric %>
     <div class="form-dropdown">
-      <p>BCS (1 for skinny, 10 for chubby)</p>
-      <p><%= f.select :bcs, (1..10) %></p>
       <p>Exercise Level (1 for little exercise, 10 for a lot)</p>
       <p><%= f.select :exercise, (1..10) %></p>
+      <p>BCS (Body Composition Score)</p>
+      <p>1: Your dog is lean, and the bones in their legs and body are easily noticeable.</p>
+      <p>5: Your dog is neither lean nor fat.</p>
+      <p>10: Your dog is fat and has thick legs.</p>
+      <p><%= f.select :bcs, (1..10) %></p>
     </div>
     <div class="form-actions">
       <%= f.button :submit, class:"btn btn-info my-3" %>
