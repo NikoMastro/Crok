@@ -1,0 +1,26 @@
+<turbo-frame id="invitations_form">
+  <hr class="bg-gray-500">
+
+  <div class="d-flex">
+
+    <%# <a class="w-lg-150px w-60px" href="javascript:;"> %>
+      <%#= image_tag 'avatar.png', alt="" class:"mw-100 rounded" %>
+    <%# </a> %>
+
+    <div class="flex-1 ps-3">
+      <h5 class="mb-1">Invitation</h5>
+
+      <%= form_with(model: current_user.invitations.new) do |form| %>
+
+        <div class="mb-3">
+          <%= form.label :recipient_email, class: "form-label" %>
+          <%= form.text_field :recipient_email, class: "form-control", placeholder: "Input your colleague's email to invite him to join" %>
+        </div>
+
+        <%= form.button "Invite", class: "btn btn-sm btn-primary me-5px", data: { turbo_stream: "invitations_form"} %>
+
+      <% end %>
+    </div>
+
+  </div>
+</turbo-frame>
