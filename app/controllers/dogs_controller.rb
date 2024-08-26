@@ -36,11 +36,11 @@ class DogsController < ApplicationController
     end
   end
 
-  def destroy
-    @dog = Dog.find(params[:id])
-    @dog.destroy
-    redirect_to family_path(@dog.family), status: :see_other
-  end
+  # def destroy
+  #   @dog = Dog.find(params[:id])
+  #   @dog.destroy
+  #   redirect_to family_path(@dog.family), status: :see_other
+  # end
 
   def health
     @dog = Dog.find(params[:id])

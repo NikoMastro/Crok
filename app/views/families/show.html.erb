@@ -8,7 +8,6 @@
       <!--Change/update the name of the family-->
       <h1><%= current_user.family.name%></h1>
       <% current_user.family.users.each do |user|%>
-        <!--Add / invite a user inside the family (by link or input)-->
         <h2>
           <%= user.name %>
           <% unless current_user == user %>
@@ -17,7 +16,6 @@
             <% end %>
           <% end %>
         </h2>
-        <!--Remove a user from the family-->
       <% end %>
       <h1>Dogs</h1>
       <% current_user.family.dogs.each do |dog|%>
@@ -29,6 +27,5 @@
         </h2>
       <% end %>
       <%= render 'shared/bottom_nav' %>
-      <%# <%= render 'invitations/form' %>
     </div>
   </div>

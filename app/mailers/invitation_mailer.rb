@@ -1,3 +1,2 @@
 class InvitationMailer < ApplicationController
-
 end

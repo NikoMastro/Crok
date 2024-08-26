@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'invitations/create'
+
   devise_for :users, controllers: {
     registrations: "registrations",
     sessions: "sessions"
