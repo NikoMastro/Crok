@@ -9,12 +9,7 @@
     <div class="feed"><i class="fa-solid fa-bowl-food"></i><p>FEEDING</p></div>
   </div>
 
-  <div class="task-form-wrap">
-    <button type="button" class="btn my-btn-green" data-action="click->toggle#show_form">Add Task</button>
-    <div class="task-form d-none" data-toggle-target="togglableForm">
-      <%= render 'tasks/form' %>
-    </div>
-  </div>
+  <!--
   <% @tasks.each do |task| %>
     <% unless task.status %>
       <div class="task">
@@ -29,23 +24,7 @@
         </div>
       </div>
     <% end %>
-  <% end %>
-  <div class="task-done">
-    <h4>Task Records</h4>
-    <% @tasks.each do |task| %>
-      <% if task.status %>
-        <div class="task">
-          <div class="form-check">
-            <%= form_with url: toggle_status_task_path(task), method: :patch, remote: true do |f| %>
-              <%= f.check_box :status, class: "form-check-input", id: "flexCheckDefault", checked: task.status, onclick: 'this.form.submit();' %>
-            <% end %>
-            <p data-action="click->toggle#show_detail" data-task-id="<%= task.id %>"><%= task.name %></p>
-          </div>
-          <div class="task-detail d-none" data-toggle-target="togglableDetail" data-task-id="<%= task.id %>">
-            <%= render 'tasks/task_detail', task: task %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <% end %>-->
+  <%# calendar %>
+  <%= render 'tasks/calendar' %>
 </div>
