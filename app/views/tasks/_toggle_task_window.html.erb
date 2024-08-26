@@ -1,0 +1,14 @@
+<div class="toggle-task-window-bg"></div>
+<div class="toggle-task-window-content">
+  <div class="content-header">
+    <h4 data-action="click->toggle#close_task_window"><i class="fa-solid fa-chevron-left"></i></h4>
+    <h4><%= @first_day %></h4>
+    <button type="button" class="btn my-btn-plus" data-action="click->toggle#show_form"><i class="fa-solid fa-plus"></i></button>
+  </div>
+  <div class="task-form-wrap">
+    <div class="task-form d-none" data-toggle-target="togglableForm">
+      <%= render 'tasks/form' %>
+    </div>
+  </div>
+  <%= render 'tasks/tasks_cards', tasks: tasks %>
+</div>

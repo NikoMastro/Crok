@@ -1,0 +1,20 @@
+<div class="toggle-form-window-bg"></div>
+<div class="toggle-form-window-content">
+  <div class="content-header">
+    <h4 data-action="click->toggle#close_form_toilet"><i class="fa-solid fa-chevron-left"></i></h4>
+    <h4>TOILET</h4>
+  </div>
+  <div class="task-form-wrap">
+    <%= simple_form_for(@task) do |f| %>
+      <%= f.input :name, collection: ["Poop", "Pee"] %>
+      <%= f.association :dog, collection: @dogs, prompt: "For which dog?", label: false %>
+      <%= f.hidden_field :user, value: current_user.id %>
+      <%= f.input :description, as: :text, label: false, placeholder: 'Discriptions' %>
+      <%= f.hidden_field :end_time, value: Date.today %>
+      <%= f.hidden_field :status, value: true %>
+      <div class="form-actions">
+        <%= f.button :submit, class: "btn btn-info" %>
+      </div>
+    <% end %>
+  </div>
+</div>
