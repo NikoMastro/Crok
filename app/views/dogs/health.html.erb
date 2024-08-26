@@ -8,15 +8,12 @@
   <% if @health_tracks.empty? %>
     <p>No health information added</p>
   <% else %>
-    <h2>Fitness Score:</h2>
-      <%= HealthTrack.bcs_hash(@dog) %>
-      <%= line_chart(HealthTrack.bcs_hash(@dog)) %>
+    <h2>Fitness Score Over the Last 30 Days:</h2>
     <% if !HealthTrack.has_data?(@dog.breed) %>
       <p>Comparison data not available for <%= @dog.name %>'s breed (<%= @dog.breed %>)</p>
-      <% else %>
-      <% @health_tracks.each do |track| %>
-        <p><%= track.date %>: <%= track.dog_score %></p>
-      <% end %>
+    <% else %>
+      <%= HealthTrack.score_hash(@dog) %>
+      <%= line_chart(HealthTrack.score_hash(@dog)) %>
     <% end %>
     <% @health_tracks.each do |track| %>
       <div class="health-card">

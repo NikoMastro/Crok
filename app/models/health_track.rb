@@ -63,11 +63,11 @@ class HealthTrack < ApplicationRecord
     "West Highland White Terrier" => { min_weight_male: 15, max_weight_male: 22, min_height_male: 10, max_height_male: 11, min_weight_female: 15, max_weight_female: 22, min_height_female: 10, max_height_female: 11, min_life_expectancy_male: 12, max_life_expectancy_male: 16, min_life_expectancy_female: 12, max_life_expectancy_female: 16 }
     }
 
-  def self.bcs_hash(dog)
-    bcs_hash = []
-    HealthTrack.where(dog_id: dog.id).order(date: :asc).each{ |track| bcs_hash <<
+  def self.score_hash(dog)
+    score_hash = []
+    HealthTrack.where(dog_id: dog.id, date: (Date.today - 30)...).order(date: :asc).each{ |track| score_hash <<
                           [ track.date.strftime("%Y-%m-%d"), track.dog_score ] }
-    bcs_hash
+    score_hash
     # HealthTrack.where(dog_id: dog.id).map{ |track| bcs_hash[track.id] =
     #                    { track.date.strftime("%Y-%m-%d") => track.bcs}}
   end
