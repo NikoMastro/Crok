@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :medical_records, only: [:index, :show, :new, :create]
   end
 
-  resources :medical_records, only: [:edit, :update, :destroy]
+  resources :medical_records, only: [:edit, :update, :destroy, :show]
 
   resources :tasks, only: [:create, :update] do
     member do
