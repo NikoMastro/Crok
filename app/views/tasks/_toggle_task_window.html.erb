@@ -1,7 +1,7 @@
 <div class="toggle-task-window-bg"></div>
 <div class="toggle-task-window-content">
   <div class="content-header">
-    <h4 data-action="click->calendar#close_task_window"><i class="fa-solid fa-chevron-left"></i></h4>
+    <h4 data-action="click->toggle#close_task_window"><i class="fa-solid fa-chevron-left"></i></h4>
     <h4><%= @first_day %></h4>
     <button type="button" class="btn my-btn-plus" data-action="click->toggle#show_form"><i class="fa-solid fa-plus"></i></button>
   </div>
@@ -10,26 +10,5 @@
       <%= render 'tasks/form' %>
     </div>
   </div>
-  <% tasks.each do |task| %>
-    <div class="task">
-
-      <div class="task-header">
-        <div class="checkbox-name">
-          <%= form_with url: toggle_status_task_path(task), method: :patch, remote: true do |f| %>
-            <%= f.check_box :status, class: "form-check-input", id: "flexCheckDefault", checked: task.status, onclick: 'this.form.submit();' %>
-          <% end %>
-          <p><%= task.name %></p>
-        </div>
-        <button type="button" class="btn my-btn-plus" data-action="click->calendar#show_edit_form"><i class="fa-solid fa-pencil"></i></button>
-      </div>
-
-      <div class="task-detail" data-calendar-target="togglableTaskDetail">
-        <%= render 'tasks/task_detail', task: task %>
-      </div>
-      <div class="task-edit-form d-none" data-calendar-target="togglableEditForm">
-        <%= render 'tasks/edit', task: task %>
-      </div>
-
-    </div>
-  <% end %>
+  <%= render 'tasks/tasks_cards', tasks: tasks %>
 </div>

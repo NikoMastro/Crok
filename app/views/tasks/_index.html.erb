@@ -3,6 +3,15 @@
     <%= image_tag 'tasks_02.svg', alt: "Home", style:"height:150px; width:100%", class:"mt-4"%>
   </div>
   <h2>TO DO LIST</h2>
+  <div class="todays-your-tasks">
+    <h4>Today's your tasks</h4>
+    <% tasks = @tasks.where(user: current_user, end_time: Date.today, status: false) %>
+      <% if tasks.size == 0 %>
+        <p>There is NO task for today yet...</p>
+      <% else %>
+        <%= render 'tasks/tasks_cards', tasks: tasks %>
+      <% end %>
+  </div>
   <div class="default-tasks">
     <div class="toilet" data-action="click->toggle#show_form_toilet">
       <i class="fa-solid fa-toilet"></i><p>TOILET</p>

@@ -42,6 +42,10 @@
     color: #4d352d;
     width: 25%;
     padding: 3px;
+    .toggle-form-window-content .content-header {
+      display: flex;
+      justify-content: center;
+    }
   }
 }
 .task {
