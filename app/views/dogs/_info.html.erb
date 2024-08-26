@@ -9,14 +9,14 @@
         <% end %>
       <% end %>
     </div>
-    <div class="dog-name"><%= @dog.name %></div>
+    <div class="dog-name"><%= dog.name %></div>
     <div class="dog-score">
-      <%= link_to dog_health_path(@dog) do %>
+      <%= link_to dog_health_path(dog) do %>
         <%= image_tag 'dog_score_03.svg', alt: "score", style:"height:120px; width:120px"%>
       <% end %>
     </div>
     <div class="medical-record-link">
-      <%= link_to dog_medical_records_path(@dog) do %>
+      <%= link_to dog_medical_records_path(dog) do %>
         <%= image_tag 'medical_eam_btn.svg', alt: "medic", style:"height:60px; width:100%"%>
       <% end %>
     </div>

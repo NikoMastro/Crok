@@ -8,7 +8,7 @@ class PagesController < ApplicationController
     @users = User.all
     @comment = Comment.new
     @comments = Comment.all
-    @dog = Dog.last
+    @dogs = Dog.all
   end
 
   def landing
