@@ -1,0 +1,12 @@
+<% if @medical_record.pictures.attached? %>
+  <h3>Files:</h3>
+  <div class="row">
+    <% @medical_record.pictures.each do |picture| %>
+      <div class="col-ml-6 col-4">
+        <%= image_tag picture, class: "img-fluid" %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>You haven't uploaded anything yet.</p>
+<% end %>
