@@ -13,4 +13,8 @@ export default class extends Controller {
       detailTarget.classList.remove("d-none");
     }
   }
+  close_task_window(event) {
+    const thisWindow = event.currentTarget.closest('.toggle-task-window');
+    thisWindow.classList.add("d-none");
+  }
 }
