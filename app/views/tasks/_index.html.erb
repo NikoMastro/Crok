@@ -4,27 +4,27 @@
   </div>
   <h2>TO DO LIST</h2>
   <div class="default-tasks">
-    <div class="toilet"><i class="fa-solid fa-toilet"></i><p>TOILET</p></div>
-    <div class="walk"><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-dog"></i><p>WALKING</p></div>
-    <div class="feed"><i class="fa-solid fa-bowl-food"></i><p>FEEDING</p></div>
-  </div>
-
-  <!--
-  <% @tasks.each do |task| %>
-    <% unless task.status %>
-      <div class="task">
-        <div class="form-check">
-          <%= form_with url: toggle_status_task_path(task), method: :patch, remote: true do |f| %>
-            <%= f.check_box :status, class: "form-check-input", id: "flexCheckDefault", checked: task.status, onclick: 'this.form.submit();' %>
-          <% end %>
-          <p data-action="click->toggle#show_detail" data-task-id="<%= task.id %>"><%= task.name %></p>
-        </div>
-        <div class="task-detail d-none" data-toggle-target="togglableDetail" data-task-id="<%= task.id %>">
-          <%= render 'tasks/task_detail', task: task %>
-        </div>
+    <div class="toilet" data-action="click->toggle#show_form_toilet">
+      <i class="fa-solid fa-toilet"></i><p>TOILET</p>
+      <div class="togglable-form d-none" data-toggle-target="togglableFormToilet">
+        <%= render 'tasks/togglable_toilet_form' %>
       </div>
-    <% end %>
-  <% end %>-->
+    </div>
+
+    <div class="walk" data-action="click->toggle#show_form_walk">
+      <i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-dog"></i><p>WALKING</p>
+      <div class="togglable-form d-none" data-toggle-target="togglableFormWalk">
+        <%= render 'tasks/togglable_walk_form' %>
+      </div>
+    </div>
+
+    <div class="feed" data-action="click->toggle#show_form_feed">
+      <i class="fa-solid fa-bowl-food"></i><p>FEEDING</p>
+      <div class="togglable-form d-none" data-toggle-target="togglableFormFeed">
+        <%= render 'tasks/togglable_feed_form' %>
+      </div>
+    </div>
+  </div>
   <%# calendar %>
   <%= render 'tasks/calendar' %>
 </div>

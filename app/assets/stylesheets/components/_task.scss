@@ -54,6 +54,10 @@
   width: 100%;
   .task-header {
     display: flex;
+    justify-content: space-between;
+    .checkbox-name {
+      display: flex;
+    }
   }
   .task-header p {
     margin: 0px;

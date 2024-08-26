@@ -1,8 +1,10 @@
-<div class="container mt-5">
-  <h2>Edit task</h2>
-  <%= render "form", task: @task %>
-  <hr>
-  <%= link_to tasks_path do %>
-    Back to list
-  <% end %>
-</div>
+<%= simple_form_for(task) do |f| %>
+  <%= f.input :name, label: false %>
+  <%= f.association :user, collection: @users, label: false %>
+  <%= f.association :dog, collection: @dogs, label: false %>
+  <%= f.input :description, as: :text, label: false %>
+  <%= f.input :end_time, input_html: { data: { controller: "datepicker" } }, label: false %>
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-info" %>
+  </div>
+<% end %>
