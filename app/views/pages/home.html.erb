@@ -4,73 +4,7 @@
       <div class="dog-info">
         <%= render 'dogs/dogs_carousel' %>
       </div>
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <a href="https://openfarmpet.com/products/wild-caught-salmon-ancient-grains-dry-dog-food" target="_blank">
-              <%= image_tag 'rank_brand_silver_02.jpg', class: 'd-block w-100', alt: '...' %>
-              <div class="carousel-caption">
-                <h5>Special Offer on Dog Food</h5>
-                <p>Check out the latest deals and reviews!</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <a href="https://openfarmpet.com/products/salmon-puppy-food" target="_blank">
-                <%= image_tag 'rank_brand_silver_01.jpg', class: 'd-block w-100', alt: '...' %>
-                <div class="carousel-caption">
-                  <h5>Special Offer on Dog Food</h5>
-                  <p>Check out the latest deals and reviews!</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <a href="https://openfarmpet.com/products/turkey-and-grain-dry-dog-food" target="_blank">
-                  <%= image_tag 'rank_brand_silver_03.jpg', class: 'd-block w-100', alt: '...' %>
-                  <div class="carousel-caption">
-                    <h5>Special Offer on Dog Food</h5>
-                    <p>Check out the latest deals and reviews!</p>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <a href="https://openfarmpet.com/products/chicken-and-grain-dry-dog-food" target="_blank">
-                    <%= image_tag 'rank_brand_gold_01.jpg', class: 'd-block w-100', alt: '...' %>
-                    <div class="carousel-caption">
-                      <h5>Special Offer on Dog Food</h5>
-                      <p>Check out the latest deals and reviews!</p>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <a href="https://openfarmpet.com/products/grain-free-salmon-dog-food" target="_blank">
-                      <%= image_tag 'rank_brand_gold_02.jpg', class: 'd-block w-100', alt: '...' %>
-                      <div class="carousel-caption">
-                        <h5>Special Offer on Dog Food</h5>
-                        <p>Check out the latest deals and reviews!</p>
-                      </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  </div>
-                  <%# <div class="image-carousel-wrapper">
-        <ul class="image-carousel">
-          <li><img src="silver02.svg" alt="01"></li>
-          <li><img src="gold00.svg" alt="02"></li>
-          <li><img src="silver01.svg" alt="03"></li>
-          <li><img src="bronze00.svg" alt="04"></li>
-          <li><img src="gold01.svg" alt="05"></li>
-          <li><img src="bronze01.svg" alt="06"></li>
-          <li><img src="silver02.svg" alt="07"></li>
-          <li><img src="gold00.svg" alt="08"></li>
-          <li><img src="silver01.svg" alt="09"></li>
-          <li><img src="bronze00.svg" alt="010"></li>
-          <li><img src="gold01.svg" alt="011"></li>
-          <li><img src="bronze01.svg" alt="012"></li>
-        </ul>
-      </div> %>
+       <%= render 'food/form' %>
                   <div>
                     <%= render 'tasks/index' %>
                   </div>
