@@ -2,7 +2,7 @@
   <p>Due date:</p>
   <p><%= task.end_time %></p>
 </div>
-<div class="assignee">
+<div class="assignee-form">
   <%= simple_form_for task, url: assign_user_task_path(task), method: :patch, remote: true do |f| %>
     <%= f.association :user, collection: @users, prompt: "Choose a User", label: false %>
     <%= f.submit "Assign", class: "my-btn-green" %>
