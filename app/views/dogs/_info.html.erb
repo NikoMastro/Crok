@@ -2,18 +2,18 @@
   <div class="dog-img">
     <div class="dog-name"><%= dog.name %></div>
     <div class="dog-image">
-      <% if dog.photos.attached? %>
-        <%= cl_image_tag dog.photos.first.key, crop: :fill %>
-      <% else %>
-        <%= image_tag 'labrador running.jpg', alt: "default image for dog"%>
+      <%= link_to dog_health_new_path(dog) do %>
+        <% if dog.photos.attached? %>
+          <%= cl_image_tag dog.photos.first.key, crop: :fill %>
+        <% else %>
+          <%= image_tag 'dog_score_03.svg', alt: "default image for dog"%>
+        <% end %>
       <% end %>
     </div>
     <div class="dog-score">
       <%= link_to dog_health_path(dog) do %>
         <%= image_tag 'dog_score_03.svg', alt: "score", style:"height:120px; width:120px"%>
       <% end %>
-      <%# <p>Score</p>
-      <h4>30.0</h4> %>
     </div>
     <div class="medical-record-link">
       <%= link_to dog_medical_records_path(dog) do %>
