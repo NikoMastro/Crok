@@ -6,3 +6,8 @@ import "bootstrap"
 
 import "chartkick"
 import "Chart.bundle"
+//= require Chart.min
+
+//= require chartkick
+//= require Chart.bundle
+//= require("chartkick")
