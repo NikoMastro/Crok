@@ -1,3 +1,4 @@
+
 <div class="medical-img">
   <%= image_tag 'banner_vet_01.jpg', alt: 'Banner Image'%>
 </div>
@@ -6,6 +7,7 @@
     <h3><%= @dog.name %>'s Medical Records</h3>
     <%= link_to "Add new record", "medical_records/new", class: "btn my-btn-green" %>
     <%= link_to "Fitness History", :dog_id_health, class: "btn my-btn-green" %>
+
   </div>
 </div>
 <div class="container col-md-6 justify-content-center align-items-center">
@@ -23,7 +25,7 @@
                     <%= link_to dog_medical_record_path(record.dog, record) do %>
                       <%= image_tag 'dog_med_banner_01.svg', alt: 'Image phone', class: 'small-card' %>
                     <% end %>
-                    <p><strong>Date of creation: </strong><%= record.date.strftime("%B %d, %Y") %></p>
+                    <p><strong>Date created: </strong><%= record.date.strftime("%B %d, %Y") %></p>
                     <p><strong>Description: </strong><%= record.description %></p>
                     <p><strong>Veterinarian: </strong><%= record.vet_contact %></p>
                     <div class="card-buttons">
