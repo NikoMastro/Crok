@@ -3,9 +3,12 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:landing, :features]
 
   def home
-    @tasks = Task.all
+    # @tasks = Task.all
+    @tasks = Task.joins(:user).where(users: { family_id: current_user.family_id })
+
     @task = Task.new
-    @users = User.all
+    # @users = User.all
+    @users = User.where(family: current_user.family)
     @comment = Comment.new
     @comments = Comment.all
     @dogs = current_user.family.dogs
