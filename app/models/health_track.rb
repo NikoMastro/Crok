@@ -75,7 +75,9 @@ class HealthTrack < ApplicationRecord
 
   def self.weight_change(dog)
     old_track = HealthTrack.where(dog_id: dog.id, date: (Date.today - 30)...).order(date: :asc).first
+    return "" if old_track.nil?
     new_track = HealthTrack.where(dog_id: dog.id).order(date: :asc).last
+    return "" if new_track.nil?
 
     weight_change = new_track.weight - old_track.weight
     days = (new_track.date - old_track.date).to_i
