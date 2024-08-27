@@ -29,10 +29,12 @@
   margin: 0;
 }
 
-.register-icon, .login-icon {
-  width: 270px; // Adjust the size of the icons as needed
+.nav-item {
+  width: 160px;
+  min-width: 100px; // Adjust the size of the icons as needed
   height: auto;
 }
+
 
 // Nav link styles
 .nav-link {
@@ -57,7 +59,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; /* Ensure it stays on top */
-  background-color: rgba(243, 252, 255, 0.2); /* Optional: Set a background color */
-  padding: 10px 0; /* Optional: Add padding */
-}
+  z-index: 1000;
+  background-color: rgba(243, 252, 255, 0.1);
+  padding: 13px 0px 0px 20px;
+  }

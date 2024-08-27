@@ -1,28 +1,4 @@
-.image-carousel-wrapper {
-  overflow: hidden; /* Ensures that the scrolling content does not overflow outside this wrapper */
-  position: relative; /* Makes sure that the container is positioned relative to its parent */
-  width: 100%; /* Adjust as needed, or set a specific width */
-  height: 300px; /* Set height to control the visible area of the carousel */
-}
 
-.image-carousel {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex; /* Ensure items are aligned in a row */
-  animation: scroll-images 20s linear infinite; /* Adjust the animation duration and timing function */
-
-  li {
-    display: inline-block;
-    margin-right: 10px; /* Adjust the spacing between images */
-  }
-
-  img {
-    height: 300px; /* Set the height of the images */
-    width: 150px; /* Set the width of the images */
-    object-fit: cover; /* Ensure the images fit well within the specified dimensions */
-  }
-}
 
 @keyframes scroll-images {
   0% {
