@@ -1,0 +1,42 @@
+.carousel-caption {
+  background-color: rgba(17, 32, 40, 0.5);
+  margin: 8px;
+  border-radius: 10px;
+  text-shadow: 1px 1px 1px black;
+}
+
+.carousel-inner {
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+
+  img {
+    border-radius: 20px;
+  }
+}
+
+.image-carousel-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.image-carousel {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Ensure items are aligned in a row */
+  animation: scroll-images 20s linear infinite; /* Adjust the animation duration and timing function */
+
+  li {
+    display: inline-block;
+    margin-right: 10px; /* Adjust the spacing between images */
+  }
+
+  img {
+    height: 300px; /* Set the height of the images */
+    width: 150px; /* Set the width of the images */
+    object-fit: cover; /* Ensure the images fit well within the specified dimensions */
+  }
+}

@@ -1,5 +1,5 @@
 <div class="container col-6">
-  <h1>Edit <%= @dog.name %>'s Medical Record</h1>
+  <h2>Edit <%= @dog.name %>'s Medical Record</h2>
   <%= link_to "Go back", dog_medical_records_path(@dog) %>
   <%= simple_form_for(@medical_record, html: { multipart: true }) do |f| %>
     <p>Date<%= f.input :date, as: :string, input_html: { data: { controller: "datepicker" } }, label: false %></p>

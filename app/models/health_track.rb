@@ -73,6 +73,54 @@ class HealthTrack < ApplicationRecord
     #                    { track.date.strftime("%Y-%m-%d") => track.bcs}}
   end
 
+  def self.weight_change(dog)
+    old_track = HealthTrack.where(dog_id: dog.id, date: (Date.today - 30)...).order(date: :asc).first
+    return "Not possible to add records older than 30 days" if old_track.nil?
+    new_track = HealthTrack.where(dog_id: dog.id).order(date: :asc).last
+    return "" if new_track.nil?
+
+    weight_change = new_track.weight - old_track.weight
+    days = (new_track.date - old_track.date).to_i
+
+    if dog.sex.downcase == "male"
+      pronoun = "He"
+    else
+      pronoun = "She"
+    end
+
+    if weight_change >= 0
+      return "#{pronoun} gained #{weight_change} lbs in #{days} days."
+    else
+      return "#{pronoun} lost #{weight_change} lbs in #{days} days."
+    end
+  end
+
+  def self.bcs_change(dog)
+    old_track = HealthTrack.where(dog_id: dog.id, date: (Date.today - 30)...).order(date: :asc).first
+    new_track = HealthTrack.where(dog_id: dog.id).order(date: :asc).last
+
+    bcs_change = new_track.bcs - old_track.bcs
+    # days = (new_track.date - old_track.date).to_i
+
+    if dog.sex.downcase == "male"
+      pronoun = "His"
+    else
+      pronoun = "Her"
+    end
+
+    if bcs_change >= 0
+      return "#{pronoun} BCS increased by #{bcs_change} in the same period."
+    else
+      return "#{pronoun} BCS decreased by #{bcs_change} in the same period."
+    end
+  end
+
+  def self.average_score(dog)
+    score_arr = []
+    HealthTrack.where(dog_id: dog.id, date: (Date.today - 30)...).each{ |track| score_arr << track.dog_score }
+    (score_arr.inject(0.0) { |sum, el| sum + el } / score_arr.size).round(2)
+  end
+
   def self.has_data?(breed)
     DOG_DATA[breed] != nil
   end
@@ -133,12 +181,14 @@ class HealthTrack < ApplicationRecord
       age_score = 1
       # if dog is younger than min life expectancy
     elsif age < min_life
-      age_score = 10 - (age / avg_age * 5)
+      age_score = 10 - (age / avg_age * 2)
     else
-      age_score = 10 - (age / avg_age * 9)
+      age_score = 10 - (age / avg_age * 5)
     end
 
-    (bcs * 0.4 + ratio_score * 0.2 + exercise * 0.2 + age_score * 0.2).round
+    bcs_score = 10 - (bcs - 5).abs
+
+    (bcs_score * 0.4 + ratio_score * 0.2 + exercise * 0.2 + age_score * 0.2).round
 
   end
 

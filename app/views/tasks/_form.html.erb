@@ -2,7 +2,7 @@
   <%= f.input :name, label: false, placeholder: 'Title' %>
   <%= f.association :user, collection: @users, prompt: "Who does this?", label: false %>
   <%= f.association :dog, collection: @dogs, prompt: "For which dog?", label: false %>
-  <%= f.input :description, as: :text, label: false, placeholder: 'Discriptions' %>
+  <%= f.input :description, as: :text, label: false, placeholder: 'Descriptions' %>
   <%= f.hidden_field :end_time, value: @first_day %>
   <div class="form-actions">
     <%= f.button :submit, class: "btn btn-info my-3" %>
