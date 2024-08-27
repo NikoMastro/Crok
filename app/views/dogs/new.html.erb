@@ -3,9 +3,18 @@
     <h1>Register a new Dog</h1>
     <%= simple_form_for(@dog) do |f| %>
       <%= f.input :name %>
-      <%= f.input :breed %>
+      <!-- Autocomplete breed input -->
+      <div class="form-group">
+        <%= f.label :breed %>
+        <%= f.text_field :breed, id: "breed_autocomplete", class: "form-control" %>
+      </div>
       <%= f.input :birthdate %>
-      <%= f.input :sex %>
+      <!-- Sex radio buttons -->
+      <div class="form-group">
+        <%= f.label :sex %><br>
+        <%= f.radio_button :sex, 'Male' %> Male
+        <%= f.radio_button :sex, 'Female' %> Female
+      </div>
       <%= f.input :allergies %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <div class="form-actions">
