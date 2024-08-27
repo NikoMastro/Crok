@@ -33,6 +33,14 @@
     color: #4d352d;
     width: 25%;
     padding: 3px;
+    .description {
+      display: flex;
+      margin-bottom: 6px;
+    }
+    .description p {
+      font-size: 24px;
+      margin-left: 6px;
+    }
   }
   .feed {
     border: solid;
@@ -42,9 +50,21 @@
     color: #4d352d;
     width: 25%;
     padding: 3px;
-    .toggle-form-window-content .content-header {
+    .description {
       display: flex;
-      justify-content: center;
+      margin-bottom: 6px;
+    }
+    .description p {
+      font-size: 24px;
+      margin-left: 6px;
+    }
+  }
+  .toggle-form-window-content .content-header {
+    display: flex;
+    justify-content: start;
+    .title {
+      text-align: center;
+      margin: 0 auto;
     }
   }
 }
@@ -118,6 +138,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   width: 100%;
+  margin-bottom: 16px;
   .calendar-header {
     display: flex;
     justify-content: space-between;

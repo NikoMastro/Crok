@@ -11,6 +11,7 @@ class PagesController < ApplicationController
     @dogs = Dog.all
     @first_day = first_day
     @last_day = last_day
+    @latest_health_track = HealthTrack.order(date: :desc).first
   end
 
   def landing

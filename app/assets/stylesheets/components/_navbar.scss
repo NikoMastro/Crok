@@ -58,7 +58,6 @@
   left: 0;
   width: 100%;
   z-index: 1000; /* Ensure it stays on top */
-  background-color: rgba(243, 252, 255, 0.4); /* Optional: Set a background color */
+  background-color: rgba(243, 252, 255, 0.2); /* Optional: Set a background color */
   padding: 10px 0; /* Optional: Add padding */
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* Optional: Add shadow for better visibility */
 }
