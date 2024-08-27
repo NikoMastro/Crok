@@ -10,21 +10,35 @@
         <% end %>
       <% end %>
     </div>
-    <div class="dog-score">
+    <!--<div class="family-showpage-link">
       <%= link_to dog_health_path(dog) do %>
         <%= image_tag 'dog_score_03.svg', alt: "score", style:"height:120px; width:120px"%>
       <% end %>
-    </div>
+    </div> -->
     <div class="medical-record-link">
       <%= link_to dog_medical_records_path(dog) do %>
         <%= image_tag 'medical_eam_btn.svg', alt: "medic", style:"height:60px; width:100%"%>
       <% end %>
     </div>
-    <div class="family-showpage-link">
-      <%# this family path should be changed to current_user.family %>
-      <%= link_to dog_medical_records_path(dog) do %>
-        <%= image_tag 'dog_fitness.svg', alt: "family", style:"height:60px; width:100%"%>
+    <div class="dog-health-track">
+      <%= link_to dog_health_path(dog) do %>
+        <%= image_tag 'dog_family_2.svg', alt: "health_track", style:"height:60px; width:100%"%>
       <% end %>
     </div>
+    <div class="dog-score">
+
+    </div>
+  </div>
+</div>
+<div class="dog-health-track row">
+  <% health_tracks_of_this_dog = @health_tracks.where(dog_id: dog.id) %>
+  <div class="health-history-track col-12 col-md-8 col-lg-6 mb-3">
+    <%= render 'health_tracks/score_history', health_tracks: health_tracks_of_this_dog, dog: dog %>
+  </div>
+  <div class="latest-health-track col-12 col-md-8 col-lg-6">
+    <% if health_tracks_of_this_dog.size > 0 %>
+      <% latest_health_track = health_tracks_of_this_dog.order(date: :desc).last %>
+      <%= render 'health_tracks/latest_health_track', latest_health_track: latest_health_track %>
+    <% end %>
   </div>
 </div>
