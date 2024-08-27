@@ -8,10 +8,11 @@ class PagesController < ApplicationController
     @users = User.all
     @comment = Comment.new
     @comments = Comment.all
-    @dogs = Dog.all
+    @dogs = current_user.family.dogs
     @first_day = first_day
     @last_day = last_day
-    @latest_health_track = HealthTrack.order(date: :desc).first
+    # @latest_health_track = HealthTrack.order(date: :desc).last
+    @health_tracks = HealthTrack.all
   end
 
   def landing
