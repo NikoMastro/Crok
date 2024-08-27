@@ -1,6 +1,15 @@
-<div class="container col-12 col-md-6">
+<div class="container col-12 col-md-6" style="margin-bottom: 60px;">
   <h1>Add health info</h1>
   <%= link_to "Go back", :dog_health %>
+  <% if HealthTrack.where(dog: @dog).last != nil %>
+    <div class="health-card">
+      <p><%= @dog.name %>'s last recorded entry:
+      <p>Height: <%= HealthTrack.where(dog: @dog).order(date: :asc).last.height %> in</p>
+      <p>Weight: <%= HealthTrack.where(dog: @dog).order(date: :asc).last.weight %> lbs</p>
+      <p>Exercise Score: <%= HealthTrack.where(dog: @dog).order(date: :asc).last.exercise %></p>
+      <p>BCS: <%= HealthTrack.where(dog: @dog).order(date: :asc).last.bcs %></p>
+    </div>
+  <% end %>
   <%= render "form", health_track: @health_track %>
 </div>
 <%= render 'shared/bottom_nav' %>

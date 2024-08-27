@@ -87,9 +87,9 @@ class HealthTrack < ApplicationRecord
     end
 
     if weight_change >= 0
-      return "#{pronoun} gained #{weight_change} lbs in #{days} days."
+      return "#{pronoun} gained #{weight_change.abs} lbs in #{days} days."
     else
-      return "#{pronoun} lost #{weight_change} lbs in #{days} days."
+      return "#{pronoun} lost #{weight_change.abs} lbs in #{days} days."
     end
   end
 
@@ -107,9 +107,9 @@ class HealthTrack < ApplicationRecord
     end
 
     if bcs_change >= 0
-      return "#{pronoun} BCS increased by #{bcs_change} in the same period."
+      return "#{pronoun} BCS increased by #{bcs_change.abs} in the same period."
     else
-      return "#{pronoun} BCS decreased by #{bcs_change} in the same period."
+      return "#{pronoun} BCS decreased by #{bcs_change.abs} in the same period."
     end
   end
 
