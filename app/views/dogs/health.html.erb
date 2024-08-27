@@ -12,12 +12,9 @@
     <% if @health_tracks.empty? %>
       <p>No health information added</p>
     <% else %>
-      <h4>Fitness Score Over the Last 30 Days:</h4>
-      <% if !HealthTrack.has_data?(@dog.breed) %>
-        <p>Comparison data not available for <%= @dog.name %>'s breed (<%= @dog.breed %>)</p>
-      <% else %>
-    
-              <div class="line-chart" style="margin-top: 10px; margin-bottom: 10px;">
+
+              <div class="line-chart" style="margin-top: 10px; margin-bottom: 10px; background-color: white;">
+
         <%= line_chart HealthTrack.score_hash(@dog), curve: false, label: "Fitness Score", min: 0, max: 10 %>
       </div>
       <p><%= @dog.name %>'s average fitness score for the last 30 days is <strong><%= HealthTrack.average_score(@dog) %></strong>.
