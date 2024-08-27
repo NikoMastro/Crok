@@ -1,36 +1,41 @@
+<div class="medical-img">
+  <%= image_tag 'banner_vet_01.jpg', alt: 'Banner Image'%>
+</div>
 <div class="container col-12 col-md-6">
   <div style="background-color: #ffc65a; padding: 10px; margin-bottom: 10px; margin-top: 10px;">
-  <h1><%= @dog.name %>'s Fitness History</h1>
-  <%= link_to "View medical records", "medical_records#index", class: "btn my-btn-green" %>
-  <%= link_to "Add new health info", :dog_health_new, class: "btn my-btn-green" %>
-</div>
-<div>
-  <% if @health_tracks.empty? %>
-    <p>No health information added</p>
-  <% else %>
-    <h2>Fitness Score Over the Last 30 Days:</h2>
-    <% if !HealthTrack.has_data?(@dog.breed) %>
-      <p>Comparison data not available for <%= @dog.name %>'s breed (<%= @dog.breed %>)</p>
+    <h3><%= @dog.name %>'s Fitness History</h3>
+    <%= link_to "View medical records", "medical_records#index", class: "btn my-btn-green" %>
+    <%= link_to "Add new health info", :dog_health_new, class: "btn my-btn-green" %>
+  </div>
+  <div>
+    <% if @health_tracks.empty? %>
+      <p>No health information added</p>
     <% else %>
-      <%= HealthTrack.score_hash(@dog) %>
-      <%= line_chart(HealthTrack.score_hash(@dog)) %>
-    <% end %>
-    <% @health_tracks.each do |track| %>
-      <div class="health-card">
-        <h3><i class="fa-solid fa-dog"></i> <%= track.date.strftime("%B %d, %Y") %></h3>
-        <p>Height: <%= track.height %> in</p>
-        <p>Weight: <%= track.weight %> lbs</p>
-        <p>BCS: <%= track.bcs %></p>
-        <p>Exercise Score: <%= track.exercise %></p>
-        <p>Overall Health Score: <%= track.dog_score %></p>
-        <div><%= link_to "Edit", edit_dog_health_track_path(track) %>
-              <%= link_to "Delete",
+      <h4>Fitness Score Over the Last 30 Days:</h4>
+      <% if !HealthTrack.has_data?(@dog.breed) %>
+        <p>Comparison data not available for <%= @dog.name %>'s breed (<%= @dog.breed %>)</p>
+      <% else %>
+        <%= HealthTrack.score_hash(@dog) %>
+        <%= line_chart(HealthTrack.score_hash(@dog)) %>
+      <% end %>
+      <% @health_tracks.each do |track| %>
+        <div class="health-card">
+          <h4><i class="fa-solid fa-dog"></i> <%= track.date.strftime("%B %d, %Y") %></h4>
+          <p>Height: <%= track.height %> in</p>
+          <p>Weight: <%= track.weight %> lbs</p>
+          <p>BCS: <%= track.bcs %></p>
+          <p>Exercise Score: <%= track.exercise %></p>
+          <p>Overall Health Score: <%= track.dog_score %></p>
+          <div><%= link_to "Edit", edit_dog_health_track_path(track) %>
+            <%= link_to "Delete",
               dog_health_track_path(track),
               data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this entry?" }
               %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
   </div>
 </div>
+<br>
+<%= render 'shared/bottom_nav' %>
