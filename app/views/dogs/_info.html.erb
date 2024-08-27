@@ -1,5 +1,6 @@
 <div class="dog-info">
   <div class="dog-img">
+    <div class="dog-name"><%= dog.name %></div>
     <div class="dog-image">
       <%= link_to dog_health_new_path(dog) do %>
         <% if dog.photos.attached? %>
@@ -9,7 +10,6 @@
         <% end %>
       <% end %>
     </div>
-    <div class="dog-name"><%= dog.name %></div>
     <div class="dog-score">
       <%= link_to dog_health_path(dog) do %>
         <%= image_tag 'dog_score_03.svg', alt: "score", style:"height:120px; width:120px"%>

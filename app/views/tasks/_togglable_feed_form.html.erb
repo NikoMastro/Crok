@@ -2,18 +2,22 @@
 <div class="toggle-form-window-content">
   <div class="content-header">
     <h4 data-action="click->toggle#close_form_feed"><i class="fa-solid fa-chevron-left"></i></h4>
-    <h4>FEEDING</h4>
+    <div class="title">
+      <h4>FEEDING</h4>
+    </div>
   </div>
   <div class="task-form-wrap">
     <%= simple_form_for(@task) do |f| %>
       <%= f.hidden_field :name, value: "Feeding" %>
       <%= f.association :dog, collection: @dogs, prompt: "For which dog?", label: false %>
       <%= f.hidden_field :user, value: current_user.id %>
-      <%= f.input :description, collection: 1..100 %>grams
+      <div class="description">
+        <%= f.input :description, collection: 1..100, wrapper: false, label: false, prompt: "Amount of food" %> <p>grams</p>
+      </div>
       <%= f.hidden_field :end_time, value: Date.today %>
       <%= f.hidden_field :status, value: true %>
       <div class="form-actions">
-        <%= f.button :submit, class: "btn btn-info" %>
+        <%= f.button :submit, "Record", class: "btn btn-info" %>
       </div>
     <% end %>
   </div>

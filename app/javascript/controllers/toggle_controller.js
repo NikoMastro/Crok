@@ -22,8 +22,11 @@ export default class extends Controller {
     this.togglableTaskDetailTarget.classList.toggle("d-none");
     this.togglableEditFormTarget.classList.toggle("d-none");
   }
-  show_form() {
-    this.togglableFormTarget.classList.toggle("d-none");
+  show_form(event) {
+    const date = event.currentTarget.closest(".toggle-task-window").dataset.date;
+    const formTarget = this.togglableFormTargets.find(target => target.dataset.date === date);
+    formTarget.classList.toggle("d-none");
+    console.log(formTarget.closest(".toggle-task-window"));
   }
 
   show_form_toilet() {
@@ -48,5 +51,4 @@ export default class extends Controller {
     event.stopPropagation();
     this.togglableFormFeedTarget.classList.add("d-none");
   }
-
 }

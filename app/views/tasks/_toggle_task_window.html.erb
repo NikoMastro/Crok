@@ -6,9 +6,14 @@
     <button type="button" class="btn my-btn-plus" data-action="click->toggle#show_form"><i class="fa-solid fa-plus"></i></button>
   </div>
   <div class="task-form-wrap">
-    <div class="task-form d-none" data-toggle-target="togglableForm">
+    <div class="task-form d-none" data-toggle-target="togglableForm" data-date=<%= @first_day %>>
       <%= render 'tasks/form' %>
     </div>
   </div>
-  <%= render 'tasks/tasks_cards', tasks: tasks %>
+  <% if tasks.size > 0 %>
+    <%= render 'tasks/tasks_cards', tasks: tasks %>
+  <% else %>
+    <p>There is NO task</p>
+  <% end %>
+
 </div>
