@@ -9,5 +9,5 @@ window.Stimulus   = application
 export { application }
 
 //= require select2
-import 'select2';
-import 'select2/dist/css/select2.css';
+// import 'select2';
+// import 'select2/dist/css/select2.css';
