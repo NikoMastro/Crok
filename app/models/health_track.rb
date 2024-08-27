@@ -72,6 +72,12 @@ class HealthTrack < ApplicationRecord
     #                    { track.date.strftime("%Y-%m-%d") => track.bcs}}
   end
 
+  def self.average_score(dog)
+    score_arr = []
+    HealthTrack.where(dog_id: dog.id, date: (Date.today - 30)...).each{ |track| score_arr << track.dog_score }
+    score_arr.inject(0.0) { |sum, el| sum + el } / score_arr.size
+  end
+
   def self.has_data?(breed)
     DOG_DATA[breed] != nil
   end
