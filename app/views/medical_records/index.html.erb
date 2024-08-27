@@ -39,7 +39,7 @@
                     <%= link_to dog_medical_record_path(record.dog, record) do %>
                       <%= image_tag 'dog_med_banner_01.svg', alt: 'Image phone', class: 'small-card' %>
                     <% end %>
-                    <p><strong>Date of creation: </strong><%= record.date.strftime("%B %d, %Y") %></p>
+                    <p><strong>Date created: </strong><%= record.date.strftime("%B %d, %Y") %></p>
                     <p><strong>Description: </strong><%= record.description %></p>
                     <p><strong>Veterinarian: </strong><%= record.vet_contact %></p>
                     <div class="card-buttons">
