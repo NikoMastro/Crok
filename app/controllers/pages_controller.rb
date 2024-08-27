@@ -5,7 +5,6 @@ class PagesController < ApplicationController
   def home
     # @tasks = Task.all
     @tasks = Task.joins(:user).where(users: { family_id: current_user.family_id })
-
     @task = Task.new
     # @users = User.all
     @users = User.where(family: current_user.family)

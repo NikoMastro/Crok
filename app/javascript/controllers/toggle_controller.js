@@ -18,9 +18,12 @@ export default class extends Controller {
     console.log("close was clicked");
     thisWindow.classList.add('d-none');
   }
-  show_edit_form() {
-    this.togglableTaskDetailTarget.classList.toggle("d-none");
-    this.togglableEditFormTarget.classList.toggle("d-none");
+  show_edit_form(event) {
+    const date = event.currentTarget.dataset.date;
+    const detailTarget = this.togglableTaskDetailTargets.find(target => target.dataset.date === date);
+    const formTarget = this.togglableEditFormTargets.find(target => target.dataset.date === date);
+    detailTarget.classList.toggle("d-none");
+    formTarget.classList.toggle("d-none");
   }
   show_form(event) {
     const date = event.currentTarget.closest(".toggle-task-window").dataset.date;
