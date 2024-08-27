@@ -6,6 +6,9 @@
     margin-bottom: 20px;
   }
 }
+.todays-your-tasks {
+  text-align: center;
+}
 .default-tasks {
   display: flex;
   justify-content: space-between;
@@ -216,6 +219,7 @@
     transform: translate(-50%,-50%);
     overflow-y:inherit;
     border-radius: 10px;
+    color: #333;
     .content-header {
       display: flex;
       justify-content: space-between;
