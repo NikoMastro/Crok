@@ -75,7 +75,7 @@ class HealthTrack < ApplicationRecord
 
   def self.weight_change(dog)
     old_track = HealthTrack.where(dog_id: dog.id, date: (Date.today - 30)...).order(date: :asc).first
-    return "" if old_track.nil?
+    return "Not possible to add records older than 30 days" if old_track.nil?
     new_track = HealthTrack.where(dog_id: dog.id).order(date: :asc).last
     return "" if new_track.nil?
 
