@@ -4,31 +4,32 @@
   </div>
   <h2>TO DO LIST</h2>
   <div class="todays-your-tasks">
-    <h4>Today's your tasks</h4>
+    <h4>Today's tasks</h4>
     <% tasks = @tasks.where(user: current_user, end_time: Date.today, status: false) %>
-      <% if tasks.size == 0 %>
-        <p>There is NO task for today yet...</p>
-      <% else %>
-        <%= render 'tasks/tasks_cards', tasks: tasks %>
-      <% end %>
+    <% if tasks.size == 0 %>
+      <p>GOOD JOB ! You have finished all tasks !</p>
+    <% else %>
+      <%= render 'tasks/tasks_cards', tasks: tasks %>
+    <% end %>
   </div>
   <div class="default-tasks">
     <div class="toilet" data-action="click->toggle#show_form_toilet">
-      <i class="fa-solid fa-toilet"></i><p>TOILET</p>
+      <i class="fa-solid fa-toilet"></i>
+      <p>TOILET</p>
       <div class="togglable-form d-none" data-toggle-target="togglableFormToilet">
         <%= render 'tasks/togglable_toilet_form' %>
       </div>
     </div>
-
     <div class="walk" data-action="click->toggle#show_form_walk">
-      <i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-dog"></i><p>WALKING</p>
+      <i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-dog"></i>
+      <p>WALKING</p>
       <div class="togglable-form d-none" data-toggle-target="togglableFormWalk">
         <%= render 'tasks/togglable_walk_form' %>
       </div>
     </div>
-
     <div class="feed" data-action="click->toggle#show_form_feed">
-      <i class="fa-solid fa-bowl-food"></i><p>FEEDING</p>
+      <i class="fa-solid fa-bowl-food"></i>
+      <p>FEEDING</p>
       <div class="togglable-form d-none" data-toggle-target="togglableFormFeed">
         <%= render 'tasks/togglable_feed_form' %>
       </div>
