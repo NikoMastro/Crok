@@ -1,8 +1,10 @@
-<div class="container col-12 col-md-6">
-  <div style="background-color: #ffc65a; padding: 10px; margin-bottom: 10px; margin-top: 10px;">
+<div class="container col-12 col-md-6" style="margin-bottom: 120px;">
+  <div style="text-align: center; background-color: #ffc65a; padding: 10px; margin-bottom: 10px; margin-top: 10px;">
   <h1><%= @dog.name %>'s Fitness History</h1>
-  <%= link_to "View medical records", "medical_records#index", class: "btn my-btn-green" %>
-  <%= link_to "Add new health info", :dog_health_new, class: "btn my-btn-green" %>
+  <div class="container flex-box-health" style="display: flex; align-items: stretch">
+    <%= link_to "View medical records", "medical_records#index", class: "btn my-btn-green" %>
+    <%= link_to "Add new health info", :dog_health_new, class: "btn my-btn-green" %>
+  </div>
 </div>
 <div>
   <% if @health_tracks.empty? %>
@@ -12,8 +14,23 @@
     <% if !HealthTrack.has_data?(@dog.breed) %>
       <p>Comparison data not available for <%= @dog.name %>'s breed (<%= @dog.breed %>)</p>
     <% else %>
-      <%= HealthTrack.score_hash(@dog) %>
-      <%= line_chart(HealthTrack.score_hash(@dog)) %>
+      <div class="line-chart" style="margin-top: 10px; margin-bottom: 10px;">
+        <%= line_chart HealthTrack.score_hash(@dog), curve: false, label: "Fitness Score", min: 0, max: 10 %>
+      </div>
+      <p><%= @dog.name %>'s average fitness score for the last 30 days is <strong><%= HealthTrack.average_score(@dog) %></strong>.
+      <%= HealthTrack.weight_change(@dog) %>
+      <%= HealthTrack.bcs_change(@dog) %>
+      <% if HealthTrack.average_score(@dog) > 8 %>
+        <p><%= @dog.name %> is in great shape! Keep it up!</p>
+      <% elsif HealthTrack.average_score(@dog) > 5 %>
+        <p>Remember to give <%= @dog.name %> plenty of exercise and healthy food!</p>
+      <% else %>
+        <% if @dog.sex.downcase == "male" %>
+          <p>Check <%= @dog.name %>'s diet and make sure he has plenty of healthy food and exercise!</p>
+        <% elsif @dog.sex.downcase == "female" %>
+          <p>Check <%= @dog.name %>'s diet and make sure she has plenty of healthy food and exercise!</p>
+        <% end %>
+      <% end %>
     <% end %>
     <% @health_tracks.each do |track| %>
       <div class="health-card">
@@ -34,3 +51,4 @@
   <% end %>
   </div>
 </div>
+<%= render 'shared/bottom_nav' %>

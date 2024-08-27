@@ -5,19 +5,11 @@
         <div class="dog-profile">
           <%# <img src="dog_image.jpg" alt="Dog's profile picture"> %>
           <h1><%= @dog.name %>'s Medical Records</h1>
-          <p>Breed: <%= @dog.breed %></p>
+          <p>Breed: <%= @dog.breed.capitalize %></p>
           <p>Birthdate: <%= @dog.birthdate.strftime("%B %d, %Y") %></p>
-          <p><%= @dog.sex %></p>
-          <p>Allergies: <%= @dog.allergies %></p>
+          <p><%= @dog.sex.titlecase %></p>
+          <p>Allergies: <%= @dog.allergies.capitalize %></p>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 d-flex justify-content-center align-items-center">
-      <div class="graph">
       </div>
     </div>
   </div>
@@ -47,7 +39,7 @@
                     <%= link_to dog_medical_record_path(record.dog, record) do %>
                       <%= image_tag 'dog_med_banner_01.svg', alt: 'Image phone', class: 'small-card' %>
                     <% end %>
-                    <p><strong>Date of creation: </strong><%= record.date.strftime("%B %d, %Y") %></p>
+                    <p><strong>Date created: </strong><%= record.date.strftime("%B %d, %Y") %></p>
                     <p><strong>Description: </strong><%= record.description %></p>
                     <p><strong>Veterinarian: </strong><%= record.vet_contact %></p>
                     <div class="card-buttons">
