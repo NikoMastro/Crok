@@ -10,11 +10,6 @@
       <% current_user.family.users.each do |user|%>
         <h2>
           <%= user.name %>
-          <% unless current_user == user %>
-            <%= link_to "delete", remove_family_user_path(user), data: { turbo_method: "patch", turbo_confirm: "Are you sure to remove this user from the family?" }, class:"text-decoration-none" do %>
-              <small><i class="fa-solid fa-trash text-secondary"></i></small>
-            <% end %>
-          <% end %>
         </h2>
       <% end %>
       <h1>Dogs</h1>
