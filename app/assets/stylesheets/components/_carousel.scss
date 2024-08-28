@@ -28,12 +28,10 @@
   padding: 0;
   display: flex; /* Ensure items are aligned in a row */
   animation: scroll-images 20s linear infinite; /* Adjust the animation duration and timing function */
-
   li {
     display: inline-block;
     margin-right: 10px; /* Adjust the spacing between images */
   }
-
   img {
     height: 300px; /* Set the height of the images */
     width: 150px; /* Set the width of the images */

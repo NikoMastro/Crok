@@ -36,7 +36,7 @@ class HealthTracksController < ApplicationController
     10. **Level 10 (BCS 10)**: **Morbidly Obese** – Ribs, spine, and pelvic bones are covered in heavy layers of fat. The dog may have pronounced difficulty moving, and obesity-related health problems are likely present."
 
     @health_track = HealthTrack.new
-    @dog = Dog.find(params[:id])
+    @health_track.dog = Dog.find(params[:dog_id])
   end
 
   def create

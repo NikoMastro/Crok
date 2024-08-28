@@ -10,8 +10,9 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   color: #333333;
-  margin: 0;
+  margin: 0 0 60px;
   padding: 0;
+
 }
 
 /* Buttons */
@@ -28,17 +29,21 @@ a.button {
 button.primary,
 a.button.primary {
   background-color: #A093F5;
-  color: #FFFFFF;
+  color: #333333;
   border: none;
 }
 
 button.secondary,
 a.button.secondary {
-  background-color: #FFFFFF;
+  background-color: #333333;
   color: #A093F5;
   border: 1px solid #A093F5;
 }
 
+.my-carousel-btn {
+  height: 40px;
+  top: 160px;
+}
 /* Forms */
 input,
 textarea,
@@ -71,6 +76,11 @@ button[type="submit"] {
   display: block;
 }
 
+.my-carousel-btn {
+  height: 40px;
+  top: 160px;
+}
+
 /* Spacing */
 .section,
 .container {
@@ -85,7 +95,6 @@ button[type="submit"] {
 
 /* Grid System */
 .container {
-  display: flex;
   flex-wrap: wrap;
 }
 

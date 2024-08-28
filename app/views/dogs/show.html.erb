@@ -1,12 +1,26 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class ="d-flex justify-content-center my-5 ">
-  <%= cl_image_tag @dog.photos.first.key, width: 300, height: 400, crop: :fill, style: 'border-radius: 15px; box-shadow: 0 4px 8px rgba(255, 214 ,52, 1.3);' %>
+    <div class ="d-flex justify-content-center dog-profile">
+      <%= cl_image_tag @dog.photos.first.key %>
     </div>
-      <%= render 'tasks/index'%>
-            <div class="dog-health-track">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 mt-4">
+          <%= link_to dog_medical_records_path(@dog) do %>
+            <%= image_tag 'icon_sub/records.png', alt: "records", class: 'img-fluid' %>
+          <% end %>
+        </div>
+        <div class="col-6 mt-4">
+          <%= link_to new_dog_health_track_path(@dog) do %>
+            <%= image_tag 'icon_sub/tracks.png', alt: "health_track", class: 'img-fluid' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <%= render 'tasks/index'%>
+    <div class="dog-health-track">
       <% health_tracks_of_this_dog = @health_tracks.where(dog_id: @dog.id) %>
-      <div class="health-history-track col-12 col-md-8 col-lg-6 mb-3">
+      <div class="health-history-track col-12 col-md-8 col-lg-6">
         <%= render 'health_tracks/score_history', health_tracks: health_tracks_of_this_dog, dog: @dog %>
       </div>
       <div class="latest-health-track col-12 col-md-8 col-lg-6">
@@ -17,23 +31,17 @@
       </div>
     </div>
   </div>
-
-<br>
-
+  <br>
   <div class="d-flex justify-content-center">
-    <div class="medical-record-link row mx-3">
+    <div class="medical-record-link row">
       <%= link_to dog_medical_records_path(@dog) do %>
-        <%= image_tag 'medical_eam_btn.svg', alt: "medic", style:"height:60px; width:100%"%>
+        <%= image_tag 'medical_eam_btn.svg', alt: "medic"%>
       <% end %>
     </div>
     <div class="dog-health-track">
       <%= link_to dog_health_path(@dog) do %>
-        <%= image_tag 'dog_fitness.svg', alt: "health_track", style:"height:56px; width:100%"%>
+        <%= image_tag 'dog_fitness.svg', alt: "health_track"%>
       <% end %>
     </div>
-  <div>
-<br>
-<br>
-<br>
-<br>
-<%= render 'shared/bottom_nav' %>
+  </div>
+</div>

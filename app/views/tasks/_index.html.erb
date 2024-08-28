@@ -26,12 +26,13 @@
     <h4>Today's tasks</h4>
     <% tasks = @tasks.where(user: current_user, end_time: Date.today, status: false) %>
     <% if tasks.size == 0 %>
-      <p>GOOD JOB ! You have finished all tasks !</p>
+      <p class="text-success">GOOD JOB! You have finished all tasks!</p>
     <% else %>
-      <%= render 'tasks/tasks_cards', tasks: tasks %>
+      <div class="d-flex flex-column gap-3">
+        <%= render 'tasks/tasks_cards', tasks: tasks %>
+      </div>
     <% end %>
   </div>
-  <%# calendar %>
   <%= turbo_frame_tag :calendar do %>
     <%= render 'tasks/calendar' %>
   <% end %>

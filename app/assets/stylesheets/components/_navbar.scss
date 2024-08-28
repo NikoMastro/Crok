@@ -1,19 +1,4 @@
-// Banner container styles
-.banner-container {
-  width: 100%;
-  background-color: #f8f9fa;
-  padding-right: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-// Banner image styles
-.banner-image {
-  height: 100px; // Adjust to control the logo size
-  min-height: 50px;
-  width: auto;
-}
 
 // Auth button container styles
 .auth-buttons {
@@ -35,18 +20,9 @@
   height: auto;
 }
 
-
-// Nav link styles
-.nav-link {
-  color: #000; // Adjust the color of the link
-}
 .navbar-container {
   width: 100%;
   padding: 10px;
-}
-
-.banner-container {
-  flex-grow: 1;
 }
 
 .log-button-container {
@@ -60,6 +36,19 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(243, 252, 255, 0.1);
-  padding: 13px 0px 0px 20px;
-  }
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.button-icon {
+  margin: 0px 25px 20px 25px;
+}
+
+.btn-nav {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.avatar {
+  border-radius: 50%;
+}

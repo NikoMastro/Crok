@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     sessions: "sessions"
   }
 
-  root to: "pages#landing"
+  root to: "pages#home"
 
   resources :users, only: [:show] do
     member do
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
   patch 'task/:id/done', to: 'tasks#done', as: :task_done
 
-  get 'home', to: 'pages#home', as: :home
+  get 'home', to: 'dogs#index', as: :home
   get 'features', to: 'pages#features', as: :features
 
   resources :dogs do

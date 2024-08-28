@@ -3,6 +3,17 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%); /* Scroll halfway to account for the duplicated content */
+    transform: translateX(-50%);
   }
+}
+
+.img-front-detail {
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding-top: 12px;
+  max-width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
