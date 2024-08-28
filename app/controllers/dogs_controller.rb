@@ -18,6 +18,7 @@ class DogsController < ApplicationController
     @first_day = first_day
     @last_day = last_day
     @health_tracks = HealthTrack.where(dog: @dog).order(date: :desc)
+    @medical_records = @dog.medical_records
   end
 
   def new

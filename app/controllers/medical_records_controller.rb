@@ -15,7 +15,7 @@ class MedicalRecordsController < ApplicationController
     @dog = Dog.find(params[:dog_id])
     @medical_record.dog = @dog
     if @medical_record.save
-      redirect_to dog_medical_records_path(@dog)
+      redirect_to dog_medical_records_path(params[:dog_id])
     else
       render :new, status: :unprocessable_entity
     end

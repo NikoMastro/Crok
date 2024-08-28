@@ -1,26 +1,33 @@
-<div class="container text-center mt-5 mb-20">
+<div class="banner">
+  <%= image_tag 'banner_family_00.jpg', alt: 'Banner Image'%>
+</div>
+<div class="container text-center mt-5">
   <div class="row">
-    <div class="col-11">
+    <div class="col-12">
       <div class="container col-6">
-        <h1>Family Name</h1>
+        <h2>Family Name:</h2>
+        <h3>"<%= current_user.family.name %>"</h3>
         <p><%= render "families/family-form", family: @family %></p>
       </div>
-      <!--Change/update the name of the family-->
-      <h1><%= current_user.family.name%></h1>
-      <% current_user.family.users.each do |user|%>
-        <h2>
-          <%= user.name %>
-        </h2>
-      <% end %>
-      <h1>Dogs</h1>
-      <% current_user.family.dogs.each do |dog|%>
-        <h2>
-          <%= dog.name %>
-          <%= link_to dog_path(dog), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete this dog?" }, class:"text-decoration-none" do %>
-            <small><i class="fa-solid fa-trash text-secondary"></i></small>
+      <div class="users-dogs-container d-flex justify-content-between">
+        <div class="users-section col-6">
+          <h3><b>Users</b></h3>
+          <% current_user.family.users.each do |user| %>
+            <h4><%= user.name %></h4>
           <% end %>
-        </h2>
-      <% end %>
-      <%= render 'shared/bottom_nav' %>
+        </div>
+        <div class="dogs-section col-6">
+          <h3><b>Dogs</b></h3>
+          <% current_user.family.dogs.each do |dog| %>
+            <h4>
+              <%= dog.name %>
+              <%= link_to dog_path(dog), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete this dog?" }, class: "text-decoration-none" do %>
+                <small><i class="fa-solid fa-trash text-secondary"></i></small>
+              <% end %>
+            </h4>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
+</div>

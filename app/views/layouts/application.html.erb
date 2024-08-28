@@ -20,5 +20,7 @@
     <div class="wrap">
       <%= yield %>
     </div>
-  </body>
+    <% if user_signed_in? %>
+      <%= render 'shared/bottom_nav' %>
+    <% end %>  </body>
 </html>

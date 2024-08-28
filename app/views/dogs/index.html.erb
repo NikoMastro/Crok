@@ -1,17 +1,24 @@
+<div class="Banner">
+  <%= image_tag 'logo/logo02.png', alt: 'Banner Image'%>
+</div>
 <div class="container">
-  <%= turbo_frame_tag :dogs_list do %>
-    <div class="dogs-list">
-      <% @dogs.each do |dog| %>
-        <%= render 'dogs/dog_card', dog: dog %>
-      <% end %>
-    </div>
-  <% end %>
+  <div class="dogs-list">
+    <% @dogs.each do |dog| %>
+      <%= render 'dogs/dog_card', dog: dog %>
+    <% end %>
+  </div>
+  <div class="img-front-detail">
+    <%= image_tag 'tasks_img/task_title.png', alt: 'Image'%>
+  </div>
   <div class="calendar">
     <%= render 'tasks/index' %>
+  </div>
+  <div class="img">
+    <%= image_tag 'food/food_recommendation', alt: 'Image'%>
   </div>
   <div class="foods">
     <%= render 'food/form' %>
   </div>
 </div>
 <br>
-<%= render 'shared/bottom_nav' %>
+</div>
