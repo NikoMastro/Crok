@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_21_025238) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_25_054957) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,6 +82,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_21_025238) do
     t.index ["dog_id"], name: "index_health_tracks_on_dog_id"
   end
 
+  create_table "invitations", force: :cascade do |t|
+    t.string "receipient_email"
+    t.bigint "user_id", null: false
+    t.string "has_secure_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_invitations_on_user_id"
+  end
+
   create_table "medical_records", force: :cascade do |t|
     t.text "description"
     t.date "date"
@@ -130,6 +139,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_21_025238) do
   add_foreign_key "comments", "users"
   add_foreign_key "dogs", "families"
   add_foreign_key "health_tracks", "dogs"
+  add_foreign_key "invitations", "users"
   add_foreign_key "medical_records", "dogs"
   add_foreign_key "tasks", "dogs"
   add_foreign_key "tasks", "users"
