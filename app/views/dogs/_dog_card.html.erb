@@ -1,0 +1,15 @@
+<div class="dog-card-wrap">
+  <%= link_to dog_path(dog) do %>
+    <div class="dog-card">
+      <% if dog.photos.attached? %>
+        <%= cl_image_tag dog.photos.first.key, crop: :fill %>
+      <% else %>
+        <%= image_tag 'dog_score_03.svg', alt: "default image for dog"%>
+      <% end %>
+    <div class="dog-information">
+      <h2><%= dog.name %></h2>
+      <p>test</p>
+    </div>
+  </div>
+<% end %>
+</div>

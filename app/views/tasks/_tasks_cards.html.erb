@@ -1,6 +1,5 @@
 <% tasks.each do |task| %>
   <div class="task">
-
     <div class="task-header">
       <div class="checkbox-name">
         <%= form_with url: toggle_status_task_path(task), method: :patch, remote: true do |f| %>
@@ -10,13 +9,11 @@
       </div>
       <button type="button" class="btn my-btn-plus" data-action="click->toggle#show_edit_form" data-date=<%= task.end_time %>><i class="fa-solid fa-pencil"></i></button>
     </div>
-
     <div class="task-detail" data-toggle-target="togglableTaskDetail" data-date=<%= task.end_time %>>
       <%= render 'tasks/task_detail', task: task %>
     </div>
     <div class="task-edit-form d-none" data-toggle-target="togglableEditForm" data-date=<%= task.end_time %>>
       <%= render 'tasks/edit', task: task %>
     </div>
-
   </div>
 <% end %>

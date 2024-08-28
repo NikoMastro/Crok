@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="dogs-list">
+    <% @dogs.each do |dog| %>
+      <%= render 'dogs/dog_card', dog: dog %>
+    <% end %>
+  </div>
+  <div class="tasks">
+  </div>
+  <div class="calendar">
+    <%= render 'tasks/index' %>
+  </div>
+  <div class="foods">
+    <%= render 'food/form' %>
+  </div>
+</div>
+<br>
+<%= render 'shared/bottom_nav' %>
