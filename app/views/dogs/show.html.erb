@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class ="d-flex justify-content-center dog-profile">
-      <%= cl_image_tag @dog.photos.first.key %>
+    <div class="d-flex justify-content-center dog-profile">
+      <% if @dog && @dog.photos.any? %>
+        <%= cl_image_tag @dog.photos.first.key %>
+      <% else %>
+        <p>No photo available</p>
+      <% end %>
     </div>
     <div class="container">
       <div class="row">
