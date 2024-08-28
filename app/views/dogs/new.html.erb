@@ -4,9 +4,10 @@
     <%= simple_form_for(@dog) do |f| %>
       <%= f.input :name  %>
       <!-- Autocomplete breed input -->
+        <!-- Autocomplete breed input -->
       <div class="form-group">
         <%= f.label :breed %>
-        <%= f.text_field :breed, id: "breed_autocomplete", class: "form-control" %>
+        <%= f.select :breed, options_for_select(HealthTrack::DOG_DATA.keys, @dog.breed), { include_blank: 'Select a breed' }, { class: 'form-select', data: { controller: "tom-select" } } %>
       </div>
       <%= f.input :birthdate %>
       <!-- Sex radio buttons -->
@@ -21,6 +22,12 @@
         <%= f.button :submit, class:"btn btn-info my-3" %>
       </div>
     <% end %>
+
+      <div class="invalid-feedback">
+        Please select a person
+      </div>
+    </form>
   </div>
+
   <%= render 'shared/bottom_nav' %>
 </div>
