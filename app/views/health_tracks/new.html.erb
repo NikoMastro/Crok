@@ -1,15 +1,19 @@
 <div class="container col-12 col-md-6" style="margin-bottom: 60px;">
-  <h1>Add health info</h1>
-  <%= link_to "Go back", :dog_health %>
+  <div style="margin-bottom: 10px;">
+    <h1>Add Fitness Entry</h1>
+    <%= link_to "Go back", :dog_health, class: "health-go-back-button" %>
+  </div>
   <% if HealthTrack.where(dog: @dog).last != nil %>
-    <div class="health-card">
+    <div class="last-recorded-entry">
       <p><%= @dog.name %>'s last recorded entry:
-      <p>Height: <%= HealthTrack.where(dog: @dog).order(date: :asc).last.height %> in</p>
-      <p>Weight: <%= HealthTrack.where(dog: @dog).order(date: :asc).last.weight %> lbs</p>
-      <p>Exercise Score: <%= HealthTrack.where(dog: @dog).order(date: :asc).last.exercise %></p>
-      <p>BCS: <%= HealthTrack.where(dog: @dog).order(date: :asc).last.bcs %></p>
+      <p><i class="fa-solid fa-ruler"></i> Height: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.height %> in</span></p>
+      <p><i class="fa-solid fa-weight-scale"></i> Weight: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.weight %> lbs</span></p>
+      <p><i class="fa-solid fa-scale-balanced"></i> Exercise Score: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.exercise %></span></p>
+      <p><i class="fa-solid fa-dumbbell"></i>BCS: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.bcs %></span></p>
     </div>
   <% end %>
-  <%= render "form", health_track: @health_track %>
+  <div class="health-paragraph">
+    <%= render "form", health_track: @health_track %>
+  </div>
 </div>
 <%= render 'shared/bottom_nav' %>

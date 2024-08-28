@@ -116,9 +116,13 @@ class HealthTrack < ApplicationRecord
   end
 
   def self.average_score(dog)
-    score_arr = []
-    HealthTrack.where(dog_id: dog.id, date: (Date.today - 30)...).each{ |track| score_arr << track.dog_score }
-    (score_arr.inject(0.0) { |sum, el| sum + el } / score_arr.size).round(2)
+    if !has_data?(dog.breed)
+      return "(Data not available)"
+    else
+      score_arr = []
+      HealthTrack.where(dog_id: dog.id, date: (Date.today - 30)...).each{ |track| score_arr << track.dog_score }
+      (score_arr.inject(0.0) { |sum, el| sum + el }.to_f / score_arr.size).round(2)
+    end
   end
 
   def self.has_data?(breed)
