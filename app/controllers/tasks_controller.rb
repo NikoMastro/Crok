@@ -7,9 +7,9 @@ class TasksController < ApplicationController
     @task.status = false unless @task.status
     @task.user = current_user
     if @task.save
-      redirect_to home_path
+      redirect_to dogs_path
     else
-      redirect_to home_path, status: :unprocessable_entity
+      redirect_to dogs_path, status: :unprocessable_entity
     end
   end
 
@@ -18,9 +18,9 @@ class TasksController < ApplicationController
     @task.update(task_params)
     @task.status = false
     if @task.save
-      redirect_to home_path
+      redirect_to dogs_path
     else
-      redirect_to home_path, status: :unprocessable_entity
+      redirect_to dogs_path, status: :unprocessable_entity
     end
   end
 
@@ -28,14 +28,14 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.update(status: !@task.status)
     respond_to do |format|
-      format.html { redirect_to home_path, notice: 'Task status was successfully updated.' }
+      format.html { redirect_to dogs_path, notice: 'Task status was successfully updated.' }
     end
   end
 
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to tasks_path
+    redirect_to dogs_path
   end
 
   private
