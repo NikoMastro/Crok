@@ -1,17 +1,29 @@
-<div class="container col-6">
-  <h2>Edit <%= @dog.name %>'s Medical Record</h2>
-  <%= link_to "Go back", dog_medical_records_path(@dog) %>
-  <%= simple_form_for(@medical_record, html: { multipart: true }) do |f| %>
-    <p>Date<%= f.input :date, as: :string, input_html: { data: { controller: "datepicker" } }, label: false %></p>
-    <%= f.input :description %>
-    <%= f.input :vet_contact %>
-    <!-- Add this for multiple file uploads -->
-    <div class="form-group">
-      <%= f.label :pictures, "Upload Pictures" %>
-      <%= f.file_field :pictures, multiple: true, direct_upload: true %>
+<div class="banner-img">
+  <%= image_tag 'banner_vet_01.jpg', alt: 'Banner Image'%>
+</div>
+<h2 class="text-center"><%= @dog.name %>'s Medical Record</h2>
+<div class="form-edit-container">
+  <%= link_to "Go back", dog_medical_records_path(@dog), class: "btn btn-info back-btn button-record m-3" %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= simple_form_for(@medical_record, html: { multipart: true }) do |f| %>
+        <div class="form-group">
+          <p><b>Date:</b><%= f.input :date, as: :string, input_html: { data: { controller: "datepicker" } }, label: false %></p>
+        </div>
+        <div class="vet-group">
+          <%= f.input :vet_contact %>
+        </div>
+        <div class="form-group">
+          <%= f.input :description %>
+        </div>
+        <div class="file-upload">
+          <%= f.label :photos, "Upload photos" %>
+          <%= f.file_field :photos, multiple: true, direct_upload: true %>
+        </div>
+        <div class="button-container mt-3">
+          <%= f.button :submit, class: "btn btn-info button-record" %>
+        </div>
+      <% end %>
     </div>
-    <div class="form-actions">
-      <%= f.button :submit, class: "btn btn-info my-3" %>
-    </div>
-  <% end %>
+  </div>
 </div>

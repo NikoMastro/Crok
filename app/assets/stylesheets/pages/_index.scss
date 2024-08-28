@@ -3,3 +3,165 @@
 @import "features";
 @import "landing";
 @import "medical-records";
+
+/* Base Styles */
+body {
+  background-color: #f8fbff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Buttons */
+button,
+a.button {
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 12px 24px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+}
+
+button.primary,
+a.button.primary {
+  background-color: #A093F5;
+  color: #FFFFFF;
+  border: none;
+}
+
+button.secondary,
+a.button.secondary {
+  background-color: #FFFFFF;
+  color: #A093F5;
+  border: 1px solid #A093F5;
+}
+
+/* Forms */
+input,
+textarea,
+select {
+  border: 1px solid #CCCCCC;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #A093F5;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+
+form {
+  margin-bottom: 16px;
+}
+
+.form-control {
+  color: #333333;
+}
+
+button[type="submit"] {
+  margin-left: auto;
+  display: block;
+}
+
+/* Spacing */
+.section,
+.container {
+  padding: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section {
+  margin-bottom: 16px;
+}
+
+/* Grid System */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container > * {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Images and Icons */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-large {
+  width: 32px;
+  height: 32px;
+}
+
+img.center {
+  display: block;
+  margin: 16px auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    padding: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  h2 { font-size: 24px; }
+  h3 { font-size: 20px; }
+  h4 { font-size: 18px; }
+  h5 { font-size: 16px; }
+  h6 { font-size: 14px; }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  h2 { font-size: 26px; }
+  h3 { font-size: 22px; }
+  h4 { font-size: 19px; }
+  h5 { font-size: 17px; }
+  h6 { font-size: 15px; }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  h2 { font-size: 28px; }
+  h3 { font-size: 23px; }
+  h4 { font-size: 19px; }
+  h5 { font-size: 18px; }
+  h6 { font-size: 16px; }
+}
+
+@media (min-width: 992px) {
+  h2 { font-size: 30px; }
+  h3 { font-size: 24px; }
+  h4 { font-size: 20px; }
+  h5 { font-size: 18px; }
+  h6 { font-size: 16px; }
+}

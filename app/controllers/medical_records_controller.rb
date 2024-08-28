@@ -12,9 +12,10 @@ class MedicalRecordsController < ApplicationController
 
   def create
     @medical_record = MedicalRecord.new(record_params)
-    @medical_record.dog = Dog.find(params[:dog_id])
+    @dog = Dog.find(params[:dog_id])
+    @medical_record.dog = @dog
     if @medical_record.save
-      redirect_to dog_medical_records_path
+      redirect_to dog_medical_records_path(@dog)
     else
       render :new, status: :unprocessable_entity
     end
@@ -50,6 +51,6 @@ class MedicalRecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:medical_record).permit(:date, :description, :vet_contact, pictures: [])
+    params.require(:medical_record).permit(:date, :description, :vet_contact, photos: [])
   end
 end
