@@ -17,38 +17,38 @@
             <% latest_health_track = health_tracks_of_this_dog.order(date: :asc).last %>
             <% score = latest_health_track.dog_score %>
             <p>
-            <i class="fa-solid fa-briefcase-medical"></i>
-            <% if score >= 7 %>
+              <i class="fa-solid fa-briefcase-medical"></i>
+              <% if score >= 7 %>
+                <span class="score" style="color:green"><%= score %></span>/10</p>
+            <% elsif score >= 4 && score <= 6 %>
               <span class="score" style="color:green"><%= score %></span>/10</p>
-            <% elsif 4 <= score <= 6 %>
-              <span class="score" style="color:green"><%= score %></span>/10</p>
-            <% else %>
-              <span class="score" style="color:red"><%= score %></span>/10</p>
-            <% end %>
           <% else %>
-            <p>
-            <i class="fa-solid fa-briefcase-medical"></i>
-            <span class="score"> - </span>/10</p>
-          <% end %>
-        </div>
-      </div>
-      <div class="dog-info-right">
-        <%# feeding and walking status today %>
-        <% walking = @tasks.where(end_time: Date.today, name: "Walking", dog: dog, status: true).size %>
-        <% feeding = @tasks.where(end_time: Date.today, name: "Feeding", dog: dog, status: true).size %>
-        <p><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-dog"></i>
-        <span style="color:green">
-          <% walking.times do %>
-            <i class="fa-solid fa-circle-check"></i>
-          <% end %>
-        </span></p>
-        <p><i class="fa-solid fa-bowl-food"></i>
-        <span style="color:green">
-          <% feeding.times do %>
-            <i class="fa-solid fa-circle-check"></i>
-          <% end %>
-        </span></p>
-      </div>
+            <span class="score" style="color:red"><%= score %></span>/10</p>
+        <% end %>
+      <% else %>
+        <p>
+          <i class="fa-solid fa-briefcase-medical"></i>
+          <span class="score"> - </span>/10</p>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+  <div class="dog-info-right">
+    <%# feeding and walking status today %>
+    <% walking = @tasks.where(end_time: Date.today, name: "Walking", dog: dog, status: true).size %>
+    <% feeding = @tasks.where(end_time: Date.today, name: "Feeding", dog: dog, status: true).size %>
+    <p><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-dog"></i>
+      <span style="color:green">
+        <% walking.times do %>
+          <i class="fa-solid fa-circle-check"></i>
+        <% end %>
+      </span></p>
+    <p><i class="fa-solid fa-bowl-food"></i>
+      <span style="color:green">
+        <% feeding.times do %>
+          <i class="fa-solid fa-circle-check"></i>
+        <% end %>
+      </span></p>
+  </div>
+</div>
+<% end %>
 </div>
