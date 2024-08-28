@@ -1,12 +1,27 @@
-// Define variables for your color scheme
+// Base Colors
+$white: #FFFFFF;
+$black: #000000;
+$gray-dark: #333333;
+$gray-light: #F4F4F4;
 
-// For example:
-$red: #FFCDD2;
-$blue: #112028;
-$light-blue: #d2ebf3;
-$brown: #795548;
-$yellow: #FFC65A;
-$orange: #FF9800;
-$green: #96bb6a;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
+// Primary Colors
+$primary: #A093F5; // Primary color used for main elements like buttons, links
+$primary-light: #B0BFFF; // Lighter variant of primary color
+
+// Secondary Colors
+$secondary: #B0FFF4; // Secondary color used for accents and notifications
+$secondary-light: #B0F0FF; // Lighter variant of secondary color
+
+// Accent Colors
+$sky-blue: #AED6FE; // Soft blue for additional accents
+$light-grayish-blue: #C7DCF2; // Light blue-gray for subtle background elements
+
+// Status Colors
+$success: #96bb6a; // Success message or indicator
+$warning: #FFC65A; // Warning message or indicator
+$danger: #FF9800; // Danger message or indicator
+
+// Neutral Colors
+$dark-gray: #0E0000; // Very dark gray for text or backgrounds
+$medium-gray: #795548; // Medium gray for subtle backgrounds or borders
+$light-gray: #F4F4F4; // Light gray for backgrounds

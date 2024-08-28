@@ -1,54 +1,52 @@
-
-<div class="medical-img">
+<div class="banner-img">
   <%= image_tag 'banner_vet_01.jpg', alt: 'Banner Image'%>
 </div>
-<div class="container col-12 col-md-6 justify-content-center align-items-center">
-  <div style="background-color: #ffc65a; padding: 10px; margin-bottom: 10px; margin-top: 10px;">
-    <h3><%= @dog.name %>'s Medical Records</h3>
-    <%= link_to "Add new record", "medical_records/new", class: "btn my-btn-green" %>
-    <%= link_to "Fitness History", :dog_id_health, class: "btn my-btn-green" %>
-
-  </div>
-</div>
-<div class="container col-md-6 justify-content-center align-items-center">
-  <div class="last-updates">
-    <div class="last-update">
-      <% if @medical_records.empty? %>
-        <p>No medical records added</p>
-      <% else %>
-        <% @medical_records.each_slice(2) do |slice| %>
-          <div class="col-12 mb-3">
-            <div class="row">
-              <% slice.each do |record| %>
-                <div class="col-md-6 col-12">
-                  <div class="health-card">
-                    <%= link_to dog_medical_record_path(record.dog, record) do %>
-                      <%= image_tag 'dog_med_banner_01.svg', alt: 'Image phone', class: 'small-card' %>
-                    <% end %>
-                    <p><strong>Date created: </strong><%= record.date.strftime("%B %d, %Y") %></p>
-                    <p><strong>Description: </strong><%= record.description %></p>
-                    <p><strong>Veterinarian: </strong><%= record.vet_contact %></p>
-                    <div class="card-buttons">
-                      <%= link_to "Edit", edit_medical_record_path(record), class: "btn btn-outline-primary" %>
-                      <%= link_to "Delete", medical_record_path(record), class: "btn btn-outline-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this entry?" } %>
+<main>
+  <h2 class="text-center"><%= @dog.name %>'s Medical Records</h2>
+  <div class="container record-container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="button-container">
+          <%= link_to "Add new record", "medical_records/new", class: "btn btn-primary button-record" %>
+          <%= link_to "Fitness History", :dog_id_health, class: "btn btn-primary button-record" %>
+        </div>
+        <div class="medical-records-container">
+          <% if @medical_records.empty? %>
+            <p>No medical records added</p>
+          <% else %>
+            <% @medical_records.each_slice(2) do |slice| %>
+              <div class="col-12 mb-3">
+                <div class="row">
+                  <% slice.each do |record| %>
+                    <div class="col-md-3 col-6">
+                      <div class="health-record">
+                        <div class="folder-container">
+                          <%= link_to dog_medical_record_path(record.dog, record) do %>
+                            <% if record.photos.attached? %>
+                              <%= image_tag 'btn/records.png', alt: 'Medical record image', class: 'folder' %>
+                            <% else %>
+                              <%= image_tag 'btn/emptyrecords.png', alt: 'No medical record image', class: 'folder' %>
+                            <% end %>
+                          <% end %>
+                        </div>
+                        <p class="result"><em><%= record.date.strftime("%B %d, %Y") %></em></p>
+                        <div class="health-buttons">
+                          <%= link_to "Edit", edit_medical_record_path(record), class: "btn btn-outline-primary button-record-scd" %>
+                          <%= link_to "Delete", medical_record_path(record), class: "btn btn-outline-danger button-record-scd", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this entry?" } %>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  <% end %>
                 </div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 d-flex justify-content-center align-items-center">
-      <div class="graph">
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="graph-container">
+        </div>
       </div>
     </div>
   </div>
-</div>
-<br>
-<%= render 'shared/bottom_nav' %>
+</main>

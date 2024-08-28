@@ -1,9 +1,18 @@
-<% if @medical_record.pictures.attached? %>
-  <h3>Files:</h3>
+<div class="banner-img">
+  <%= image_tag 'banner_vet_01.jpg', alt: 'Banner Image' %>
+</div>
+<%= link_to "Go back", dog_medical_records_path(@dog), class: "btn btn-info back-btn button-record m-3" %>
+<% if @medical_record.photos.attached? %>
+  <h2 class="text-center">Files:</h2>
+  <p class="text-center"><strong>Description: </strong><%= @medical_record.description %></p>
+  <div class="info-card">
+    <p class="show-explainations"><strong>Date created: </strong><%= @medical_record.date.strftime("%B %d, %Y") %></p>
+    <p class="show-explainations"><strong>Veterinarian: </strong><%= @medical_record.vet_contact %></p>
+  </div>
   <div class="row">
-    <% @medical_record.pictures.each do |picture| %>
-      <div class="col-ml-6 col-4">
-        <%= image_tag picture, class: "img-fluid" %>
+    <% @medical_record.photos.each_with_index do |photo, index| %>
+      <div class="col-6 mb-3">
+        <%= link_to image_tag(photo, class: "img-fluid"), "#imageModal#{index}", data: { toggle: "modal" } %>
       </div>
     <% end %>
   </div>
