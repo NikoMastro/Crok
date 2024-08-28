@@ -14,3 +14,4 @@ pin "Chart.bundle", to: "Chart.bundle.js"
 
 
 pin "flatpickr" # @4.6.13
+pin "tom-select" # @2.3.1
