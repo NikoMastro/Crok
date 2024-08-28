@@ -89,9 +89,9 @@ class HealthTrack < ApplicationRecord
     end
 
     if weight_change >= 0
-      return "#{pronoun} gained #{weight_change} lbs in #{days} days."
+      return "#{pronoun} gained #{weight_change.abs} lbs in #{days} days."
     else
-      return "#{pronoun} lost #{weight_change} lbs in #{days} days."
+      return "#{pronoun} lost #{weight_change.abs} lbs in #{days} days."
     end
   end
 
@@ -109,16 +109,20 @@ class HealthTrack < ApplicationRecord
     end
 
     if bcs_change >= 0
-      return "#{pronoun} BCS increased by #{bcs_change} in the same period."
+      return "#{pronoun} BCS increased by #{bcs_change.abs} in the same period."
     else
-      return "#{pronoun} BCS decreased by #{bcs_change} in the same period."
+      return "#{pronoun} BCS decreased by #{bcs_change.abs} in the same period."
     end
   end
 
   def self.average_score(dog)
-    score_arr = []
-    HealthTrack.where(dog_id: dog.id, date: (Date.today - 30)...).each{ |track| score_arr << track.dog_score }
-    (score_arr.inject(0.0) { |sum, el| sum + el } / score_arr.size).round(2)
+    if !has_data?(dog.breed)
+      return "(Data not available)"
+    else
+      score_arr = []
+      HealthTrack.where(dog_id: dog.id, date: (Date.today - 30)...).each{ |track| score_arr << track.dog_score }
+      (score_arr.inject(0.0) { |sum, el| sum + el }.to_f / score_arr.size).round(2)
+    end
   end
 
   def self.has_data?(breed)
