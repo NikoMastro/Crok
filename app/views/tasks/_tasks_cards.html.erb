@@ -7,7 +7,12 @@
         <% end %>
         <p><%= task.name %></p>
       </div>
-      <button type="button" class="btn my-btn-plus" data-action="click->toggle#show_edit_form" data-date=<%= task.end_time %>><i class="fa-solid fa-pencil"></i></button>
+      <div class="edit-destroy">
+        <button type="button" class="btn my-btn-plus" data-action="click->toggle#show_edit_form" data-date=<%= task.end_time %>><i class="fa-solid fa-pencil"></i></button>
+        <%= link_to task_path(task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      </div>
     </div>
     <div class="task-detail" data-toggle-target="togglableTaskDetail" data-date=<%= task.end_time %>>
       <%= render 'tasks/task_detail', task: task %>

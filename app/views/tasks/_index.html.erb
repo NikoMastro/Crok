@@ -32,5 +32,7 @@
     <% end %>
   </div>
   <%# calendar %>
-  <%= render 'tasks/calendar' %>
+  <%= turbo_frame_tag :calendar do %>
+    <%= render 'tasks/calendar' %>
+  <% end %>
 </div>
