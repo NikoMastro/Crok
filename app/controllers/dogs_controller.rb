@@ -14,6 +14,10 @@ class DogsController < ApplicationController
   def show
     @dog = Dog.find(params[:id])
     @tasks = Task.where(dog: @dog)
+    @task = Task.new
+    @first_day = first_day
+    @last_day = last_day
+    @health_tracks = HealthTrack.where(dog: @dog).order(date: :desc)
   end
 
   def new

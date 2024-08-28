@@ -1,11 +1,11 @@
 .dog-info {
-  background-color: #ffc65a;
+  background-color: #FFFFFF;
   padding-top: 30px;
   padding-bottom: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: Montserrat;
+  font-family: Roboto;
   .dog-img {
     position: relative;
     display: flex;
@@ -34,12 +34,13 @@
   }
   .dog-name {
     font-size: 30px;
-    font-family: Montserrat;
+    font-family: Roboto;
     font-weight: 600;
     color: #112028;
     top: 10px;
     z-index: 1;
   }
+
   // .family-showpage-link {
   //   position: absolute;
   //   bottom: -30px;
