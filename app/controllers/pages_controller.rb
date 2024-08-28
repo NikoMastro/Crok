@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     @users = User.where(family: current_user.family)
     @comment = Comment.new
     @comments = Comment.all
+    # @dogs = Dog.all
     @dogs = current_user.family.dogs
     @first_day = first_day
     @last_day = last_day
