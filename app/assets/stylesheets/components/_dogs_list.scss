@@ -1,0 +1,64 @@
+.dogs-list {
+  margin: 8px;
+  // display: grid;
+  // grid-template-columns: repeat(2, 1fr);
+  // gap: 6px;
+}
+.dog-card-wrap a {
+  text-decoration: none;
+}
+.dog-card {
+  margin: 6px 0;
+  overflow: hidden;
+  height: 80px;
+  width: 100%;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 40px;
+  .dog-infos {
+    display: flex;
+    justify-content: space-between;
+  }
+  .dog-info-left {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .name-score {
+    margin-left: 6px;
+  }
+  .dog-info-right {
+    margin-right: 16px;
+    align-items: center;
+    text-align: right;
+  }
+
+  img {
+    height: 100%;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: solid;
+    border-color: black;
+  }
+  p {
+    font-size: 20px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 3px;
+  }
+  .dog-information {
+    padding: 6px 16px;
+  }
+  h2 {
+    margin: 0;
+  }
+  .score {
+    font-size: 24px;
+    font-weight: bold;
+  }
+}

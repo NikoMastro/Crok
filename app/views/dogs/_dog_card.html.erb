@@ -1,0 +1,54 @@
+<%# get the latest health score %>
+<% health_tracks_of_this_dog = @health_tracks.where(dog_id: dog.id) %>
+<div class="dog-card-wrap">
+  <%= link_to dog_path(dog) do %>
+    <div class="dog-card">
+      <div class="dog-info-left">
+        <%# img %>
+        <% if dog.photos.attached? %>
+          <%= cl_image_tag dog.photos.first.key, crop: :fill %>
+        <% else %>
+          <%= image_tag 'dog_score_03.svg', alt: "default image for dog"%>
+        <% end %>
+        <%# information div contains dog's name and score%>
+        <div class="name-score">
+          <h2><%= dog.name %></h2>
+          <% if health_tracks_of_this_dog.size > 0 %>
+            <% latest_health_track = health_tracks_of_this_dog.order(date: :asc).last %>
+            <% score = latest_health_track.dog_score %>
+            <p>
+            <i class="fa-solid fa-briefcase-medical"></i>
+            <% if score >= 7 %>
+              <span class="score" style="color:green"><%= score %></span>/10</p>
+            <% elsif 4 <= score <= 6 %>
+              <span class="score" style="color:green"><%= score %></span>/10</p>
+            <% else %>
+              <span class="score" style="color:red"><%= score %></span>/10</p>
+            <% end %>
+          <% else %>
+            <p>
+            <i class="fa-solid fa-briefcase-medical"></i>
+            <span class="score"> - </span>/10</p>
+          <% end %>
+        </div>
+      </div>
+      <div class="dog-info-right">
+        <%# feeding and walking status today %>
+        <% walking = @tasks.where(end_time: Date.today, name: "Walking", dog: dog, status: true).size %>
+        <% feeding = @tasks.where(end_time: Date.today, name: "Feeding", dog: dog, status: true).size %>
+        <p><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-dog"></i>
+        <span style="color:green">
+          <% walking.times do %>
+            <i class="fa-solid fa-circle-check"></i>
+          <% end %>
+        </span></p>
+        <p><i class="fa-solid fa-bowl-food"></i>
+        <span style="color:green">
+          <% feeding.times do %>
+            <i class="fa-solid fa-circle-check"></i>
+          <% end %>
+        </span></p>
+      </div>
+    </div>
+  <% end %>
+</div>

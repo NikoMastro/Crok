@@ -1,6 +1,6 @@
 .tasks {
   font-family: Montserrat;
-  background-color: #FFC65A;
+  background-color: whitesmoke;
   h2 {
     text-align: center;
     margin-bottom: 20px;
@@ -82,6 +82,7 @@
   .task-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     .checkbox-name {
       display: flex;
     }
@@ -217,9 +218,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    overflow-y:inherit;
     border-radius: 10px;
     color: #333;
+    // ======================
+    // These prevent the height of modal window from exceeding the window height
+    // and make it scrollable
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+    // ======================
     .content-header {
       display: flex;
       justify-content: space-between;

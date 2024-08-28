@@ -1,11 +1,23 @@
 class DogsController < ApplicationController
   def index
-    @dogs = Dog.all
+    @tasks = Task.joins(:user).where(users: { family_id: current_user.family_id })
+    @task = Task.new
+    @users = User.where(family: current_user.family)
+    @comment = Comment.new
+    @comments = Comment.all
+    @dogs = current_user.family.dogs
+    @first_day = first_day
+    @last_day = last_day
+    @health_tracks = HealthTrack.all
   end
 
   def show
     @dog = Dog.find(params[:id])
     @tasks = Task.where(dog: @dog)
+    @task = Task.new
+    @first_day = first_day
+    @last_day = last_day
+    @health_tracks = HealthTrack.where(dog: @dog).order(date: :desc)
   end
 
   def new
@@ -52,5 +64,15 @@ class DogsController < ApplicationController
 
   def dog_params
     params.require(:dog).permit(:name, :breed, :birthdate, :sex, :allergies, photos: [])
+  end
+
+  def first_day
+    today = Date.today
+    Date.new(today.year, today.month, 1)
+  end
+
+  def last_day
+    today = Date.today
+    Date.new(today.year, today.month, -1)
   end
 end

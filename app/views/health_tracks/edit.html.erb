@@ -1,5 +1,9 @@
 <div class="container col-6">
-  <h1>Edit Medical Entry</h1>
-  <%= link_to "Go back", :dog_health %>
-  <%= render "form", health_track: @health_track %>
+  <div style="margin: 10px 0 10px 0;">
+    <h1>Edit Fitness Entry</h1>
+    <%= link_to "Go back", :dog_health, class: "health-go-back-button" %>
+  </div>
+  <div class="health-paragraph">
+    <%= render "form", health_track: @health_track %>
+  </div>
 </div>

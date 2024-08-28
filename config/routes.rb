@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   resources :medical_records, only: [:edit, :update, :destroy, :show]
 
-  resources :tasks, only: [:create, :update] do
+  resources :tasks, only: [:create, :update, :destroy] do
     member do
       patch :toggle_status
     end
