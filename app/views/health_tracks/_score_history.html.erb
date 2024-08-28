@@ -5,7 +5,7 @@
   <% if !HealthTrack.has_data?(dog.breed) %>
     <p>Comparison data not available for <%= dog.name %>'s breed (<%= dog.breed %>)</p>
   <% else %>
-    <%= HealthTrack.score_hash(dog) %>
+    <%# <%= HealthTrack.score_hash(dog) %> 
     <%= line_chart(HealthTrack.score_hash(dog)) %>
   <% end %>
 <% end %>

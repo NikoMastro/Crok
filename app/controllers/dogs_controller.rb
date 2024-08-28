@@ -6,6 +6,10 @@ class DogsController < ApplicationController
   def show
     @dog = Dog.find(params[:id])
     @tasks = Task.where(dog: @dog)
+    @task = Task.new
+    @first_day = first_day
+    @last_day = last_day
+    @health_tracks = HealthTrack.where(dog: @dog).order(date: :desc)
   end
 
   def new
@@ -52,5 +56,15 @@ class DogsController < ApplicationController
 
   def dog_params
     params.require(:dog).permit(:name, :breed, :birthdate, :sex, :allergies, photos: [])
+  end
+
+  def first_day
+    today = Date.today
+    Date.new(today.year, today.month, 1)
+  end
+
+  def last_day
+    today = Date.today
+    Date.new(today.year, today.month, -1)
   end
 end
