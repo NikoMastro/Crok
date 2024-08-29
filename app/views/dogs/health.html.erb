@@ -5,8 +5,8 @@
   <h2 style="text-align:center"><%= @dog.name %>'s Fitness History</h2>
   <div style=" align-items: center; justify-content: center;">
     <div style="display: flex;">
-      <%= link_to "View medical records", "medical_records#index", class: "btn btn-primary button-record" %>
       <%= link_to "Add new fitness entry", :dog_health_new, class: "btn btn-primary button-record" %>
+      <%= link_to "View medical records", "medical_records#index", class: "btn btn-primary button-record" %>
     </div>
   </div>
   <%= link_to "Go back", dog_path(@dog), class: "btn btn-info back-btn button-record m-3" %>
