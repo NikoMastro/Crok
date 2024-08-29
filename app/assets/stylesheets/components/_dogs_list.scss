@@ -18,26 +18,43 @@
   border: solid 2px #d2daff;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   align-items: center;
   border-radius: 40px;
-  .dog-infos {
-    display: flex;
-    justify-content: space-between;
-  }
-  .dog-info-left {
+  // .dog-info-left {
+  //   // display: flex;
+  //   // align-items: center;
+  //   height: 100%;
+  // }
+  .dog-feed-walk {
     display: flex;
     align-items: center;
-    height: 100%;
-  }
-  .name-score {
-    margin-left: 6px;
+    .walking-status {
+      margin-right: 16px;
+    }
+    span {
+      font-size: 14px;
+    }
   }
   .dog-info-right {
     margin-right: 16px;
     align-items: center;
     text-align: right;
+    .name-health {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  // .dog-infos {
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
+  .name-health {
+    align-items: center;
+    p {
+      margin: 0 8px 0 0;
+    }
   }
 
   img {

@@ -1,0 +1,26 @@
+<%# get the latest health score %>
+<% health_tracks_of_this_dog = @health_tracks.where(dog_id: dog.id) %>
+<% if health_tracks_of_this_dog.size > 0 %>
+  <% latest_health_track = health_tracks_of_this_dog.order(date: :asc).last %>
+  <% score = latest_health_track.dog_score %>
+  <% if HealthTrack.has_data?(dog.breed) %>
+    <%# <p><i class="fa-solid fa-briefcase-medical"></i> %>
+    <p>Health:
+    <% if score >= 9 %>
+      <span class="score" style="color:MediumSeaGreen">Fabulous!</span></p>
+    <% elsif score >= 7 && score <= 8 %>
+      <span class="score" style="color:DodgerBlue">Good!</span></p>
+    <% elsif score >= 5 && score <= 6 %>
+      <span class="score" style="color:SkyBlue">So-So</span></p>
+    <% elsif score >= 3 && score <= 4 %>
+      <span class="score" style="color:orange">Not Good</span></p>
+    <% else %>
+      <span class="score" style="color:tomato">Bad</span></p>
+    <% end %>
+  <% else %>
+    <p>Health:
+    <span class="score"> - </span></p>
+  <% end %>
+<% else %>
+  <p>Health:<span class="score"> - </span></p>
+<% end %>
