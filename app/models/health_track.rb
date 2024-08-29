@@ -99,8 +99,12 @@ class HealthTrack < ApplicationRecord
     old_track = HealthTrack.where(dog_id: dog.id, date: (Date.today - 30)...).order(date: :asc).first
     new_track = HealthTrack.where(dog_id: dog.id).order(date: :asc).last
 
-    bcs_change = new_track.bcs - old_track.bcs
+    if old_track && new_track
+      bcs_change = new_track.bcs - old_track.bcs
     # days = (new_track.date - old_track.date).to_i
+    else
+      bcs_change = 0
+    end
 
     if dog.sex.downcase == "male"
       pronoun = "His"
@@ -121,7 +125,14 @@ class HealthTrack < ApplicationRecord
     else
       score_arr = []
       HealthTrack.where(dog_id: dog.id, date: (Date.today - 30)...).each{ |track| score_arr << track.dog_score }
-      (score_arr.inject(0.0) { |sum, el| sum + el }.to_f / score_arr.size).round(2)
+      avg_score = (score_arr.inject(0.0) { |sum, el| sum + el }.to_f / score_arr.size).round(2)
+    end
+    if avg_score.nan?
+      return 0
+    elsif avg_score > 0
+      return avg_score
+    elsif avg_score.empty?
+      return 0
     end
   end
 
