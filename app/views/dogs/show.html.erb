@@ -8,7 +8,6 @@
         <p>No photo available</p>
       <% end %>
     </div>
-
     <div class="container">
       <div class="row">
         <div class="col-6 mt-4">
@@ -23,13 +22,12 @@
         </div>
       </div>
     </div>
-
-     <div class="dog-health-track">
+    <div class="dog-health-track">
       <% health_tracks_of_this_dog = @health_tracks.where(dog_id: @dog.id) %>
       <div class="health-history-track col-12 col-md-8 col-lg-6">
         <%= render 'health_tracks/score_history', health_tracks: health_tracks_of_this_dog, dog: @dog %>
       </div>
-        <%= render 'health_tracks/health_paragraph', dog: @dog %>
+      <%= render 'health_tracks/health_paragraph', dog: @dog %>
       <div class="latest-health-track col-12 col-md-8 col-lg-6">
         <% if health_tracks_of_this_dog.size > 0 %>
           <% latest_health_track = health_tracks_of_this_dog.order(date: :asc).last %>
@@ -37,10 +35,8 @@
         <% end %>
       </div>
     </div>
-
-
   </div>
-    <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center">
     <div class="medical-record-link row">
       <%= link_to dog_medical_records_path(@dog) do %>
         <%= image_tag 'medical_eam_btn.svg', alt: "medic"%>
@@ -51,15 +47,7 @@
         <%= image_tag 'dog_fitness.svg', alt: "health_track"%>
       <% end %>
     </div>
-    <div class="col-12">
-      <div class="img">
-        <%= image_tag 'food/food_recommendation.png', alt: 'Image'%>
-      </div>
-      <div class="foods">
-        <%= render 'food/form' %>
-      </div>
-    </div>
   </div>
-    <%= render 'tasks/index'%>
+  <%= render 'tasks/index'%>
   <br>
 </div>

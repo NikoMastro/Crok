@@ -1,5 +1,7 @@
- <div class="health-paragraph">
-  <p><%= @dog.name %>'s average fitness score for the last 30 days is <strong><%= HealthTrack.average_score(@dog) %></strong>.</p>
+<div class="health-paragraph">
+  <p><%= @dog.name %>'s average fitness score for the last 30 days is
+    <strong><%= HealthTrack.average_score(@dog) ? HealthTrack.average_score(@dog) : 0 %></strong>.
+  </p>
   <p><%= HealthTrack.weight_change(@dog) %>
     <%= HealthTrack.bcs_change(@dog) %></p>
   <% if HealthTrack.average_score(@dog) > 8 %>
