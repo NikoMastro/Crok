@@ -1,52 +1,38 @@
-.health-page {
-  // font: "Roboto";
-  margin-bottom: 25px;
-}
 
 .health-data {
-  color: #2811bb;
+  color: #96bb6a;
+  font-size: 24px;
   font-weight: bold;
 }
 
 .health-paragraph{
   padding: 15px;
   padding-bottom: 10px;
-  background-color: #FFE2AD;
+  background-color: #d2ebf3;
   border-radius: 10px;
   margin: 10px 0 10px 0;
+  color: #333333;
+  font-size: 20px;
 }
 
 .health-button{
-//   background-color:#A093F5;
-//   color: white;
-//   border-radius: 4px;
-//   padding: 12px 24px 12px 24px;
+
   padding: 5px 10px 5px 10px;
   text-decoration: none;
   border: solid;
   border-radius: 5px;
   color: #5b44ee;
-  border-color: #7c6af1;
+  border-color: #A093F5;
   background-color: transparent;
 }
 
-.health-button:hover {
-  color: #2811bb;
-  // background-color: #2811bb;
-  border-color: #2811bb;
-  transition: 0.3s;
-}
-
 .add-track-btn{
-  // background-color:#A093F5;
-  // color: white;
-  // border-radius: 4px;
-  // padding: 12px 24px 12px 24px;
+
   padding: 5px 10px 5px 10px;
   border: solid;
   border-radius: 5px;
-  border-color: #795548;
-  color: #795548;
+  border-color: #A093F5;
+  color: #A093F5;
   background-color: transparent;
 }
 
@@ -56,32 +42,29 @@
   border: solid;
 }
 
-.health-go-back-button {
-  // background-color:#A093F5;
-  // color: white;
-  // border-radius: 4px;
-  // padding: 12px 24px 12px 24px;
-  padding: 5px 10px 5px 10px;
-  margin-bottom: 30px;
-  text-decoration: none;
-  border: solid;
-  border-radius: 5px;
-  border-color: #795548;
-  color: #795548;
-  // background-color: #FFC65A;
-  background-color: transparent;
-}
-
-.health-go-back-button:hover{
-  // background-color: #FFE2AD;
-  color: black;
-  border-color: black;
-  transition: 0.3s;
-}
-
 .last-recorded-entry {
   background-color: #d2ebf3;
   padding: 10px 15px 1px 15px;
   border-radius: 10px;
   margin: 10px 0 10px 0;
+}
+
+.icon-dog-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.icon-dog-card img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.health-data {
+  flex: 1;
+}
+
+.health-card {
+  background-image: url('/icon_sub/background_card.png');
 }
