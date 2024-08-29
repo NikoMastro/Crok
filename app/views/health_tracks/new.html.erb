@@ -6,13 +6,13 @@
   <% if HealthTrack.where(dog: @dog).last != nil %>
     <div class="last-recorded-entry">
       <p><%= @dog.name %>'s last recorded entry:
-        <p><i class="fa-solid fa-ruler"></i> Height: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.height %> in</span></p>
-        <p><i class="fa-solid fa-weight-scale"></i> Weight: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.weight %> lbs</span></p>
-        <p><i class="fa-solid fa-scale-balanced"></i> Exercise Score: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.exercise %></span></p>
-        <p><i class="fa-solid fa-dumbbell"></i>BCS: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.bcs %></span></p>
-      </div>
-    <% end %>
-    <div class="health-paragraph">
-      <%= render "form", health_track: @health_track %>
+      <p><i class="fa-solid fa-ruler"></i> Height: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.height %> in</span></p>
+      <p><i class="fa-solid fa-weight-scale"></i> Weight: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.weight %> lbs</span></p>
+      <p><i class="fa-solid fa-scale-balanced"></i> Exercise Score: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.exercise %></span></p>
+      <p><i class="fa-solid fa-dumbbell"></i>BCS: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.bcs %></span></p>
     </div>
+  <% end %>
+  <div class="health-paragraph">
+    <%= render "form", health_track: @health_track %>
   </div>
+</div>

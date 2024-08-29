@@ -37,6 +37,7 @@ class HealthTracksController < ApplicationController
 
     @health_track = HealthTrack.new
     @health_track.dog = Dog.find(params[:dog_id])
+    @dog = Dog.find(params[:dog_id])
   end
 
   def create
