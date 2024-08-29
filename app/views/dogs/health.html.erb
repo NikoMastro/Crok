@@ -9,6 +9,7 @@
       <%= link_to "Add new fitness entry", :dog_health_new, class: "btn btn-primary button-record" %>
     </div>
   </div>
+  <%= link_to "Go back", dog_path(@dog), class: "btn btn-info back-btn button-record m-3" %>
   <div class="health-paragraph">
     <p><%= @dog.name %>'s average fitness score for the last 30 days is <strong><%= HealthTrack.average_score(@dog) %>/10</strong>.</p>
     <p><%= HealthTrack.weight_change(@dog) %>
@@ -45,14 +46,14 @@
           <div class="col-6">
             <p class="icon-dog-card">
               <%= image_tag 'icon_sub/dog_height.png', alt: 'dog height', class: 'icon' %>
-              <span class="health-data"><%= track.height %>
+              <span class="health-data"><%= track.height %> /22
                 <p>inches</p>
               </span>
             </p>
             <p class="icon-dog-card">
               <%= image_tag 'icon_sub/dog_weight.png', alt: 'dog weight', class: 'icon' %>
-              <span class="health-data"><%= track.weight %>
-                <p>lbs</p>
+              <span class="health-data"><%= track.weight %> /60
+                <p>Lbs</p>
               </span>
             </p>
           </div>

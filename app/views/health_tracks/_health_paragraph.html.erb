@@ -1,18 +1,19 @@
 <div class="health-paragraph">
-  <p><%= @dog.name %>'s average fitness score for the last 30 days is
-    <strong><%= HealthTrack.average_score(@dog) ? HealthTrack.average_score(@dog) : 0 %></strong>.
+  <p style="font-size:18px;"><%= @dog.name %>'s average fitness score for the last 30 days is
+    <strong><%= HealthTrack.average_score(@dog) ? HealthTrack.average_score(@dog) : 0 %>/10</strong>.
   </p>
   <p><%= HealthTrack.weight_change(@dog) %>
     <%= HealthTrack.bcs_change(@dog) %></p>
-  <% if HealthTrack.average_score(@dog).to_f > 8 %>
-    <p><%= @dog.name %> is in great shape! Keep it up!</p>
-  <% elsif HealthTrack.average_score(@dog).to_f > 5 %>
-    <p>Remember to give <%= @dog.name %> plenty of exercise and healthy food!</p>
+  <% if HealthTrack.average_score(@dog) > 8 %>
+    <p><%= @dog.name %> is in fabulous shape! Keep it up!</p>
+  <% elsif HealthTrack.average_score(@dog) > 5 %>
+    <p>Your dog is in good health! Make sure to give <%= @dog.name %> plenty of exercise and nutritious food!</p>
   <% else %>
     <% if @dog.sex.downcase == "male" %>
-      <p>Check <%= @dog.name %>'s diet and make sure he has plenty of healthy food and exercise!</p>
+      <p><b>Ensure that <%= @dog.name %> is getting enough exercise! Males tend to stay indoors and sleep more at this age.</b></p>
     <% elsif @dog.sex.downcase == "female" %>
-      <p>Check <%= @dog.name %>'s diet and make sure she has plenty of healthy food and exercise!</p>
+      <p style="color:#FF9800; font-size:18px;">Monitor <%= @dog.name %>'s stress levels. Females of this breed often need extra attention and affection.</p>
     <% end %>
   <% end %>
+  <p> More in Tracks ...</p>
 </div>

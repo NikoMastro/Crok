@@ -108,6 +108,7 @@ button[type="submit"] {
 img {
   max-width: 100%;
   height: auto;
+  border-radius: 20px;
 }
 
 .icon {
@@ -173,13 +174,4 @@ img.center {
   h4 { font-size: 20px; }
   h5 { font-size: 18px; }
   h6 { font-size: 16px; }
-}
-
-.dog-photo {
-  width: 70px; /* Set desired width */
-  height: 70px; /* Match height to width for circular shape */
-  border-radius: 50%; /* Makes the image circular */
-  box-shadow: 2px 2px 8px #888888;
-  object-fit: cover; /* Ensures the image covers the container without distortion */
-  max-width: none; /* Override general max-width */
 }
