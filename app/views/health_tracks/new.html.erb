@@ -1,18 +1,23 @@
-<div class="container col-12 col-md-6" style="margin-bottom: 60px;">
-  <div style="margin-bottom: 10px;">
-    <h1>Add Fitness Entry</h1>
-    <%= link_to "Go back", dogs_path(@dog), class: "health-go-back-button" %>
+<div class="medical-img">
+  <%= image_tag 'banners/banner_vet_00.jpg', alt: 'Banner Image'%>
+</div>
+<div class="container col-12" style="margin-bottom: 60px;">
+  <div>
+    <h2 style="text-align: center;">Add Fitness Entry</h2>
+    <%= link_to "Go back", dogs_path(@dog), class: "btn btn-info back-btn button-record m-3" %>
   </div>
   <% if HealthTrack.where(dog: @dog).last != nil %>
     <div class="last-recorded-entry">
       <p><%= @dog.name %>'s last recorded entry:
-      <p><i class="fa-solid fa-ruler"></i> Height: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.height %> in</span></p>
-      <p><i class="fa-solid fa-weight-scale"></i> Weight: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.weight %> lbs</span></p>
-      <p><i class="fa-solid fa-scale-balanced"></i> Exercise Score: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.exercise %></span></p>
-      <p><i class="fa-solid fa-dumbbell"></i>BCS: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.bcs %></span></p>
+        <p><%= image_tag 'icon_sub/dog_height.png', alt: 'dog height', class: 'icon' %> Height: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.height %> in</span></p>
+        <p><%= image_tag 'icon_sub/dog_weight.png', alt: 'dog weight', class: 'icon' %> Weight: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.weight %> lbs</span></p>
+        <p><%= image_tag 'icon_sub/dog_ex_level.png', alt: 'dog exercise', class: 'icon' %></i> Exercise Score: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.exercise %></span></p>
+      <p><%= image_tag 'icon_sub/dog_bcs.png', alt: 'dog bcs', class: 'icon' %>
+        BCS: <span class="health-data"><%= HealthTrack.where(dog: @dog).order(date: :asc).last.bcs %></span></p>
     </div>
   <% end %>
   <div class="health-paragraph">
     <%= render "form", health_track: @health_track %>
   </div>
+</div>
 </div>

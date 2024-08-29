@@ -87,7 +87,7 @@ end
 # dog name breed birthday allergies
 ange = Dog.new(
   name: "Ange",
-  breed: "golden retriever",
+  breed: "Golden Retriever",
   sex: "female",
   birthdate: Date.new(2008, 2, 24)
 )
@@ -148,7 +148,7 @@ puts "made 1 dog"
 
 anold = Dog.new(
   name: "Anold",
-  breed: "golden retriever",
+  breed: "Golden Retriever",
   sex: "male",
   birthdate: Date.new(2010, 5, 27)
 )

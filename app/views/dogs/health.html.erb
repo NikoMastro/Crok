@@ -2,47 +2,75 @@
   <%= image_tag 'banner_vet_01.jpg', alt: 'Banner Image'%>
 </div>
 <div class="container col-12 col-md-6 health-page">
-  <div style="background-color: #ffc65a; padding: 10px; margin-bottom: 10px; margin-top: 10px; align-items: center; justify-content: center;">
-    <h3><%= @dog.name %>'s Fitness History</h3>
+  <h2 style="text-align:center"><%= @dog.name %>'s Fitness History</h2>
+  <div style=" align-items: center; justify-content: center;">
     <div style="display: flex;">
-      <%= link_to "View medical records", "medical_records#index", class: "btn my-btn-green" %>
-      <%= link_to "Add new fitness entry", :dog_health_new, class: "btn my-btn-green" %>
+      <%= link_to "View medical records", "medical_records#index", class: "btn btn-primary button-record" %>
+      <%= link_to "Add new fitness entry", :dog_health_new, class: "btn btn-primary button-record" %>
     </div>
+  </div>
+  <div class="health-paragraph">
+    <p><%= @dog.name %>'s average fitness score for the last 30 days is <strong><%= HealthTrack.average_score(@dog) %>/10</strong>.</p>
+    <p><%= HealthTrack.weight_change(@dog) %>
+      <%= HealthTrack.bcs_change(@dog) %></p>
+    <% if HealthTrack.average_score(@dog) > 8 %>
+      <p><%= @dog.name %> is in fabulous shape! Keep it up!</p>
+    <% elsif HealthTrack.average_score(@dog) > 5 %>
+      <p>Your dog is in good health! Make sure to give <%= @dog.name %> plenty of exercise and nutritious food!</p>
+    <% else %>
+      <% if @dog.sex.downcase == "male" %>
+        <p>Ensure that <%= @dog.name %> is getting enough exercise! Males tend to stay indoors and sleep more at this age.</p>
+      <% elsif @dog.sex.downcase == "female" %>
+        <p>Monitor <%= @dog.name %>'s stress levels. Females of this breed often need extra attention and affection.</p>
+      <% end %>
+    <% end %>
   </div>
   <div>
     <% if @health_tracks.empty? %>
-      <p>No health information added</p>
+      <p style="text-align:center">No health information added</p>
     <% elsif !HealthTrack.has_data?(@dog.breed)%>
-      <p>Data not available for <%= @dog.name %>'s breed (<%= @dog.breed %>).</p>
+      <p style="text-align:center">Data not available for <%= @dog.name %>'s breed (<%= @dog.breed %>).</p>
     <% else %>
       <div class="line-chart" style="margin-top: 10px; margin-bottom: 10px; background-color: white;">
         <%= line_chart HealthTrack.score_hash(@dog), curve: false, label: "Fitness Score", min: 0, max: 10 %>
       </div>
-      <div class="health-paragraph">
-        <p><%= @dog.name %>'s average fitness score for the last 30 days is <strong><%= HealthTrack.average_score(@dog) %></strong>.</p>
-        <p><%= HealthTrack.weight_change(@dog) %>
-          <%= HealthTrack.bcs_change(@dog) %></p>
-        <% if HealthTrack.average_score(@dog) > 8 %>
-          <p><%= @dog.name %> is in great shape! Keep it up!</p>
-        <% elsif HealthTrack.average_score(@dog) > 5 %>
-          <p>Remember to give <%= @dog.name %> plenty of exercise and healthy food!</p>
-        <% else %>
-          <% if @dog.sex.downcase == "male" %>
-            <p>Check <%= @dog.name %>'s diet and make sure he has plenty of healthy food and exercise!</p>
-          <% elsif @dog.sex.downcase == "female" %>
-            <p>Check <%= @dog.name %>'s diet and make sure she has plenty of healthy food and exercise!</p>
-          <% end %>
-        <% end %>
-      </div>
     <% end %>
     <% @health_tracks.each do |track| %>
       <div class="health-card">
-        <h3><i class="fa-solid fa-dog"></i> <%= track.date.strftime("%B %d, %Y") %></h3>
-        <p><i class="fa-solid fa-ruler"></i> Height: <span class="health-data"><%= track.height %> in</span></p>
-        <p><i class="fa-solid fa-weight-scale"></i> Weight: <span class="health-data"><%= track.weight %> lbs</span></p>
-        <p><i class="fa-solid fa-scale-balanced"></i> BCS: <span class="health-data"><%= track.bcs %></span></p>
-        <p><i class="fa-solid fa-dumbbell"></i> Exercise Score: <span class="health-data"><%= track.exercise %></span></p>
-        <p>Overall Health Score: <span class="health-data"><%= track.dog_score %></span></p>
+        <h3><%= track.date.strftime("%B %d, %Y") %></h3>
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <p  style="font-size:28px;"> Overall Health Score: <span class="health-data"><%= track.dog_score %> /10.</span></p>
+          </div>
+          <div class="col-6">
+            <p class="icon-dog-card">
+              <%= image_tag 'icon_sub/dog_height.png', alt: 'dog height', class: 'icon' %>
+              <span class="health-data"><%= track.height %>
+                <p>inches</p>
+              </span>
+            </p>
+            <p class="icon-dog-card">
+              <%= image_tag 'icon_sub/dog_weight.png', alt: 'dog weight', class: 'icon' %>
+              <span class="health-data"><%= track.weight %>
+                <p>lbs</p>
+              </span>
+            </p>
+          </div>
+          <div class="col-6">
+            <p class="icon-dog-card">
+              <%= image_tag 'icon_sub/dog_bcs.png', alt: 'dog bcs', class: 'icon' %>
+              <span class="health-data"><%= track.bcs %>
+                <p>Body Condition Score</p>
+              </span>
+            </p>
+            <p class="icon-dog-card">
+              <%= image_tag 'icon_sub/dog_ex_level.png', alt: 'dog exercise', class: 'icon' %>
+              <span class="health-data"><%= track.exercise %>
+                <p>Exercise</p>
+              </span>
+            </p>
+          </div>
+        </div>
         <div><%= link_to "Edit", edit_dog_health_track_path(track), class: "health-button" %>
           <%= link_to "Delete",
               dog_health_track_path(track),

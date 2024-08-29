@@ -1,9 +1,14 @@
-<div class="container col-6">
-  <div style="margin: 10px 0 10px 0;">
-    <h1>Edit Fitness Entry</h1>
-    <%= link_to "Go back", :dog_health, class: "health-go-back-button" %>
-  </div>
-  <div class="health-paragraph">
-    <%= render "form", health_track: @health_track %>
+<div class="medical-img">
+  <%= image_tag 'banners/banner_vet_00.jpg', alt: 'Banner Image'%>
+</div>
+<div>
+  <div class="container col-12">
+    <div style="margin: 10px 0 10px 0;">
+      <h2 style="text-align:center;">Edit Fitness Entry</h2>
+      <%= link_to "Go back", :dog_health, class: "btn btn-info back-btn button-record m-3" %>
+    </div>
+    <div class="health-paragraph">
+      <%= render "form", health_track: @health_track %>
+    </div>
   </div>
 </div>

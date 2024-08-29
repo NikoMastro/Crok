@@ -1,11 +1,14 @@
-<% if health_tracks.empty? %>
-  <p>No health information added</p>
-<% else %>
-  <h4 class="text-center">Fitness Score Over the Last 30 Days</h4>
-  <% if !HealthTrack.has_data?(dog.breed) %>
-    <p>Comparison data not available for <%= dog.name %>'s breed (<%= dog.breed %>)</p>
+<div>
+  <% if health_tracks.empty? %>
+    <p style="text-align:center">No health information added</p>
   <% else %>
-    <%# <%= HealthTrack.score_hash(dog) %> 
-    <%= line_chart(HealthTrack.score_hash(dog)) %>
+    <h4 class="text-center">Fitness Score Over the Last 30 Days</h4>
+    <% if !HealthTrack.has_data?(dog.breed) %>
+      <p>Comparison data not available for <%= dog.name %>'s breed (<%= dog.breed %>)</p>
+    <% else %>
+      <%# <%= HealthTrack.score_hash(dog) %>
+      <%= line_chart(HealthTrack.score_hash(dog)) %>
+    <% end %>
   <% end %>
-<% end %>
+  <%= link_to "Go back", dogs_path(@dog), class: "btn btn-info back-btn button-record m-3" %>
+</div>
