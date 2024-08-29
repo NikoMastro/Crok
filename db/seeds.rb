@@ -72,11 +72,11 @@ niko = User.new(
   password:  "123123",
 )
 niko.family = my_family
-niko.photo.attach(
-  io: File.open(Rails.root.join('app', 'assets', 'images', 'avatars', 'niko_avatar.jpeg')),
-  filename: 'niko_avatar.jpeg',
-  content_type: 'image/jpeg'
-)
+# niko.photo.attach(
+#   io: File.open(Rails.root.join('app', 'assets', 'images', 'avatars', 'niko_avatar.jpeg')),
+#   filename: 'niko_avatar.jpeg',
+#   content_type: 'image/jpeg'
+# )
 if niko.save
   puts "Niko OK"
 else
