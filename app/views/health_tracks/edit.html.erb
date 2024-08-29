@@ -5,7 +5,7 @@
   <div class="container col-12">
     <div style="margin: 10px 0 10px 0;">
       <h2 style="text-align:center;">Edit Fitness Entry</h2>
-      <%= link_to "Go back", :dog_health, class: "btn btn-info back-btn button-record m-3" %>
+      <%= link_to "Go back", dog_health_path, class: "btn btn-info back-btn button-record m-3" %>
     </div>
     <div class="health-paragraph">
       <%= render "form", health_track: @health_track %>
