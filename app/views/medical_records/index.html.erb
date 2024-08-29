@@ -8,7 +8,7 @@
       <div class="col-md-6">
         <div class="button-container">
           <%= link_to "Add new record", new_dog_medical_record_path(@dog), class: "btn btn-primary button-record" %>
-          <%= link_to "Fitness History", dog_health_tracks_path(@dog), class: "btn btn-primary button-record" %>
+          <%= link_to "Fitness History", :dog_id_health, class: "btn btn-primary button-record" %>
         </div>
         <div class="medical-records-container">
           <% if @medical_records.empty? %>
