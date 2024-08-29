@@ -22,13 +22,6 @@ class PagesController < ApplicationController
     # No authentication required
   end
 
-  def next_month
-
-  end
-  def prev_month
-
-  end
-
   private
 
   def first_day
