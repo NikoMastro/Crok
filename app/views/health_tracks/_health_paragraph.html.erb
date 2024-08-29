@@ -1,0 +1,16 @@
+ <div class="health-paragraph">
+  <p><%= @dog.name %>'s average fitness score for the last 30 days is <strong><%= HealthTrack.average_score(@dog) %></strong>.</p>
+  <p><%= HealthTrack.weight_change(@dog) %>
+    <%= HealthTrack.bcs_change(@dog) %></p>
+  <% if HealthTrack.average_score(@dog) > 8 %>
+    <p><%= @dog.name %> is in great shape! Keep it up!</p>
+  <% elsif HealthTrack.average_score(@dog) > 5 %>
+    <p>Remember to give <%= @dog.name %> plenty of exercise and healthy food!</p>
+  <% else %>
+    <% if @dog.sex.downcase == "male" %>
+      <p>Check <%= @dog.name %>'s diet and make sure he has plenty of healthy food and exercise!</p>
+    <% elsif @dog.sex.downcase == "female" %>
+      <p>Check <%= @dog.name %>'s diet and make sure she has plenty of healthy food and exercise!</p>
+    <% end %>
+  <% end %>
+</div>
