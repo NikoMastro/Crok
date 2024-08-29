@@ -5,6 +5,9 @@
     <h4>Add New Task</h4>
   </div>
   <div class="task-form-wrap">
+    <% @task = Task.new %>
+    <% @users = User.where(family: current_user.family) %>
+    <% @dogs = current_user.family.dogs %>
 
     <%= simple_form_for(@task) do |f| %>
       <%= f.input :name, label: false, placeholder: 'Title' %>

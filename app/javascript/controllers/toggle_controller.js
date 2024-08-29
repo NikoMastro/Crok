@@ -56,14 +56,12 @@ export default class extends Controller {
     event.stopPropagation();
     this.togglableFormFeedTarget.classList.add("d-none");
   }
-  open_task_window_wo_date() {
-    console.log("open was clicked");
+  open_task_window_wo_date(event) {
+    event.stopPropagation();
     this.toggleWindowWithoutDateTarget.classList.remove("d-none");
   }
-  close_task_window_wo_date() {
-    // event.stopPropagation();
-    console.log("close was clicked");
+  close_task_window_wo_date(event) {
+    event.stopPropagation();
     this.toggleWindowWithoutDateTarget.classList.add("d-none");
-    console.log(this.toggleWindowWithoutDateTarget);
   }
 }
