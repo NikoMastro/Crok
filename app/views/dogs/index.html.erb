@@ -7,6 +7,9 @@
       <%= render 'dogs/dog_card', dog: dog %>
     <% end %>
   </div>
+  <div class="d-flex justify-content-center">
+    <%= link_to "Add a new dog", new_dog_path, class: "btn btn-primary button-record" %>
+  </div>
   <div class="img-front-detail">
     <%= image_tag 'tasks_img/task_title.png', alt: 'Image'%>
   </div>
