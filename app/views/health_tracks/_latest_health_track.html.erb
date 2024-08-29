@@ -1,5 +1,7 @@
 <% if latest_health_track %>
-  <h4 class="text-center">Latest Health Track:</h4>
+    <div class="text-container mt-3">
+      <h4 class="text-center">Latest Health Track:</h4>
+    </div>
   <div class="health-card">
     <h3><i class="fa-solid fa-dog"></i> <%= latest_health_track.date.strftime("%B %d, %Y") %></h3>
     <p>Height: <%= latest_health_track.height %> in</p>
