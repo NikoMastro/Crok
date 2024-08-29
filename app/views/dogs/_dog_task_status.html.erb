@@ -1,0 +1,28 @@
+<% walking = @tasks.where(end_time: Date.today, name: "Walking", dog: dog, status: true).size %>
+<% feeding = @tasks.where(end_time: Date.today, name: "Feeding", dog: dog, status: true).size %>
+<p class="walking-status"><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-dog"></i>
+  <% walking_times = 3 if walking > 3 %>
+  <span style="color:green">
+    <% walking.times do %>
+      <i class="fa-solid fa-circle-check"></i>
+    <% end %>
+  </span>
+  <span style="color:gray">
+    <% (3 - walking).times do %>
+      <i class="fa-solid fa-circle-check"></i>
+    <% end %>
+  </span>
+</p>
+<p><i class="fa-solid fa-bowl-food"></i>
+  <% feeding_times = 3 if feeding > 3 %>
+  <span style="color:green">
+    <% feeding.times do %>
+      <i class="fa-solid fa-circle-check"></i>
+    <% end %>
+  </span>
+  <span style="color:gray">
+    <% (3 - feeding).times do %>
+      <i class="fa-solid fa-circle-check"></i>
+    <% end %>
+  </span>
+</p>

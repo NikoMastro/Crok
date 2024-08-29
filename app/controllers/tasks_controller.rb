@@ -13,6 +13,12 @@ class TasksController < ApplicationController
     end
   end
 
+  def task_on_multiple_dogs_create
+    # get array of dogs selecred from view
+
+    # iterate over the array to create new task as usual
+  end
+
   def update
     @task = Task.find(params[:id])
     @task.update(task_params)

@@ -2,7 +2,9 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="toggle"
 export default class extends Controller {
-  static targets = ["togglableForm", "togglableFormToilet", "togglableFormWalk", "togglableFormFeed", 'clickedDate', 'toggleWindow', 'togglableTaskDetail', 'togglableEditForm']
+  static targets = ["togglableForm", "togglableFormToilet", "togglableFormWalk",
+    "togglableFormFeed", 'clickedDate', 'toggleWindow', 'togglableTaskDetail',
+    'togglableEditForm', 'toggleWindowWithoutDate']
   connect() {
     console.log("hello");
   }
@@ -53,5 +55,13 @@ export default class extends Controller {
   close_form_feed(event) {
     event.stopPropagation();
     this.togglableFormFeedTarget.classList.add("d-none");
+  }
+  open_task_window_wo_date(event) {
+    event.stopPropagation();
+    this.toggleWindowWithoutDateTarget.classList.remove("d-none");
+  }
+  close_task_window_wo_date(event) {
+    event.stopPropagation();
+    this.toggleWindowWithoutDateTarget.classList.add("d-none");
   }
 }

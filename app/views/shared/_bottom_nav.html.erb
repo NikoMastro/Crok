@@ -2,11 +2,14 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="btn-nav sticky-bottom">
-        <%= link_to "/dogs/new", class: "btn" do %>
-          <div class="button__icon">
+        <div class="task_form">
+          <div class="button__icon" data-action="click->toggle#open_task_window_wo_date">
             <%= image_tag 'logo/add_icn.png', alt: "Add new record" %>
           </div>
-        <% end %>
+          <div class="toggle-task-window d-none" data-toggle-target="toggleWindowWithoutDate" data-date="#">
+            <%= render 'tasks/toggle_task_window_wo_date', date_id: "#" %>
+          </div>
+        </div>
         <%= link_to home_path, class: "btn" do %>
           <div class="button__icon">
             <%= image_tag 'logo/logo.png', alt: "Home" %>
