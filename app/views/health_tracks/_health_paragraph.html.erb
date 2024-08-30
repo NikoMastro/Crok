@@ -4,9 +4,9 @@
   </p>
   <p><%= HealthTrack.weight_change(@dog) %>
     <%= HealthTrack.bcs_change(@dog) %></p>
-  <% if HealthTrack.average_score(@dog) > 8 %>
+  <% if HealthTrack.average_score(@dog).to_i > 8 %>
     <p><%= @dog.name %> is in fabulous shape! Keep it up!</p>
-  <% elsif HealthTrack.average_score(@dog) > 5 %>
+  <% elsif HealthTrack.average_score(@dog).to_i > 5 %>
     <p>Your dog is in good health! Make sure to give <%= @dog.name %> plenty of exercise and nutritious food!</p>
   <% else %>
     <% if @dog.sex.downcase == "male" %>
