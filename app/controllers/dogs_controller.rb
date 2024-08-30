@@ -70,12 +70,23 @@ class DogsController < ApplicationController
   end
 
   def first_day
-    today = Date.today
+    today = get_date_to_show
     Date.new(today.year, today.month, 1)
   end
 
   def last_day
-    today = Date.today
+    today = get_date_to_show
     Date.new(today.year, today.month, -1)
+  end
+
+  def get_date_to_show
+    if params[:n].present?
+      @x = params[:n].to_i + 1
+    elsif params[:p].present?
+      @x = params[:p].to_i - 1
+    else
+      @x = 0
+    end
+    @date_now = Date.current.months_since(@x)
   end
 end

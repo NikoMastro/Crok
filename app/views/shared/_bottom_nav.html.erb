@@ -18,9 +18,10 @@
         <% if user_signed_in? %>
           <div class="btn dropdown">
             <div class="button__icon"
-                id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                style="background-image: url('<%= current_user.photo.attached? ? cl_image_path(current_user.photo.key) : "" %>')">
-              <% unless current_user.photo.attached? %>
+                id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <% if current_user.photo.attached? %>
+                <%= cl_image_tag current_user.photo.key, class:'dog-image'%>
+              <% else %>
                 <%= image_tag "icon_sub/settings.png", alt: "Login Icon", class: "login-icon"%>
               <% end %>
             </div>
