@@ -2,7 +2,9 @@
   <div class="row justify-content-start mx-4">
     <div class="d-flex align-items-start dog-profile">
       <% if @dog && @dog.photos.any? %>
-        <%= cl_image_tag @dog.photos.first.key, class:'dog-image'%>
+        <% photo_key = @dog.photos.first.key %>
+        <% encoded_photo_key = URI.encode(photo_key) %>
+        <%= cl_image_tag encoded_photo_key, class: 'dog-image' %>
       <% else %>
         <p>No photo available</p>
       <% end %>

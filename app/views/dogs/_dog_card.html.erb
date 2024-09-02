@@ -7,10 +7,9 @@
         <% if dog.photos.attached? %>
           <%= cl_image_tag dog.photos.first.key, crop: :fill %>
         <% else %>
-          <%= image_tag 'dog_score_03.svg', alt: "default image for dog"%>
+          <%= image_tag 'other/dog_score_03.svg', alt: "default image for dog"%>
         <% end %>
       </div>
-
       <div class="dog-info-right">
         <div class="name-health">
           <%# name %>

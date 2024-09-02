@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_25_054957) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_02_044654) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,11 +83,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_25_054957) do
   end
 
   create_table "invitations", force: :cascade do |t|
-    t.string "receipient_email"
+    t.string "email"
+    t.string "token"
+    t.bigint "family_id", null: false
     t.bigint "user_id", null: false
-    t.string "has_secure_token"
+    t.datetime "accepted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_invitations_on_family_id"
     t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 
@@ -128,6 +131,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_25_054957) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "family_id"
+    t.string "invitation_token"
+    t.integer "invited_by_id"
+    t.string "invited_by_type"
+    t.datetime "invite_accepted_at"
+    t.integer "invite_limit"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["family_id"], name: "index_users_on_family_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -139,6 +147,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_25_054957) do
   add_foreign_key "comments", "users"
   add_foreign_key "dogs", "families"
   add_foreign_key "health_tracks", "dogs"
+  add_foreign_key "invitations", "families"
   add_foreign_key "invitations", "users"
   add_foreign_key "medical_records", "dogs"
   add_foreign_key "tasks", "dogs"
