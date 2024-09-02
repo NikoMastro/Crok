@@ -46,6 +46,7 @@ gem "bootsnap", require: false
 
 gem "bootstrap", "~> 5.2"
 gem "devise"
+gem 'devise_invitable'
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
@@ -55,6 +56,8 @@ gem 'select2-rails'
 gem "chartkick"
 gem "groupdate"
 gem 'chart-js-rails'
+gem 'letter_opener'
+
 
 group :development, :test do
   gem "dotenv-rails"
