@@ -1,30 +1,31 @@
-<div class="dog-new">
-  <div class="container col-12 col-md-6">
-    <h2>Register a new Dog</h2>
-    <%= simple_form_for(@dog) do |f| %>
-      <%= f.input :name  %>
-      <!-- Autocomplete breed input -->
-      <!-- Autocomplete breed input -->
-      <div class="form-group">
-        <%= f.label :breed %>
-        <%= f.select :breed, options_for_select(HealthTrack::DOG_DATA.keys, @dog.breed), { include_blank: 'Select a breed' }, { class: 'form-select', data: { controller: "tom-select" } } %>
+<div class="dog-new d-flex justify-content-center align-items-center min-vh-100">
+  <div class="content-wrapper d-flex flex-column align-items-center">
+    <%= image_tag 'icon_sub/add_dog01', class: 'dog-add-icon mb-4'%>
+    <div class="container col-12 col-md-6">
+      <h2 class="text-center">Register a new Dog</h2>
+      <%= simple_form_for(@dog) do |f| %>
+        <%= f.input :name %>
+        <div class="form-group">
+          <%= f.label :breed %>
+          <%= f.select :breed, options_for_select(HealthTrack::DOG_DATA.keys, @dog.breed), { include_blank: 'Select a breed' }, { class: 'form-select', data: { controller: "tom-select" } } %>
+        </div>
+        <br>
+        <%= f.input :birthdate %>
+        <div class="form-group d-flex align-items-center">
+          <%= f.label :sex, class: 'me-2' %>
+          <%= f.radio_button :sex, 'Male' %>
+          <%= f.label :sex, 'Male', class: 'me-2 ms-1' %>
+          <%= f.radio_button :sex, 'Female' %>
+          <%= f.label :sex, 'Female', class: 'ms-1' %>
+        </div>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <div class="form-actions text-center">
+          <%= f.button :submit, class: "btn btn-info my-3" %>
+        </div>
+      <% end %>
+      <div class="invalid-feedback text-center">
+        Please select a person
       </div>
-      <%= f.input :birthdate %>
-      <!-- Sex radio buttons -->
-      <div class="form-group">
-        <%= f.label :sex %><br>
-        <%= f.radio_button :sex, 'Male' %> Male
-        <%= f.radio_button :sex, 'Female' %> Female
-      </div>
-      <%= f.input :allergies %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <div class="form-actions">
-        <%= f.button :submit, class:"btn btn-info my-3" %>
-      </div>
-    <% end %>
-    <div class="invalid-feedback">
-      Please select a person
     </div>
-  </form>
-</div>
+  </div>
 </div>

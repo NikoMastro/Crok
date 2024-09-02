@@ -1,12 +1,5 @@
 <div class="container tasks">
   <div class="default-tasks">
-    <div class="toilet" data-action="click->toggle#show_form_toilet">
-      <i class="fa-solid fa-toilet"></i>
-      <p>TOILET</p>
-      <div class="togglable-form d-none" data-toggle-target="togglableFormToilet">
-        <%= render 'tasks/togglable_toilet_form' %>
-      </div>
-    </div>
     <div class="walk" data-action="click->toggle#show_form_walk">
       <i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-dog"></i>
       <p>WALKING</p>
@@ -22,8 +15,8 @@
       </div>
     </div>
   </div>
-  <div class="todays-your-tasks">
-    <h4>Today's tasks</h4>
+  <div class="todays-your-tasks mb-4">
+    <h4>Today's overall tasks</h4>
     <% tasks = @tasks.where(user: current_user, end_time: Date.today, status: false) %>
     <% if tasks.size == 0 %>
       <p class="text-success">GOOD JOB! You have finished all tasks!</p>

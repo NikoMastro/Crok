@@ -12,7 +12,8 @@
       <%= f.association :dog, collection: @dogs, prompt: "For which dog?", label: false %>
       <%= f.hidden_field :user, value: current_user.id %>
       <div class="description">
-        <%= f.input :description, collection: 1..100, wrapper: false, label: false, prompt: "Amount of food" %> <p>grams</p>
+        <%= f.input :description, collection: (50..300).step(10), wrapper: false, label: false, prompt: "Amount of food" %>
+        <p>grams</p>
       </div>
       <%= f.hidden_field :end_time, value: Date.today %>
       <%= f.hidden_field :status, value: true %>
