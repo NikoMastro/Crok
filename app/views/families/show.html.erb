@@ -21,12 +21,24 @@
           <% current_user.family.dogs.each do |dog| %>
             <h4>
               <%= dog.name %>
+              <%= link_to edit_dog_path(dog), class: "text-decoration-none" do %>
+                <i class="fa-solid fa-pencil"></i>
+              <% end %>
               <%= link_to dog_path(dog), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete this dog?" }, class: "text-decoration-none" do %>
-                <small><i class="fa-solid fa-trash text-secondary"></i></small>
+                <small><i class="fa-solid fa-trash "></i></small>
               <% end %>
             </h4>
           <% end %>
         </div>
+      </div>
+      <div class="container col-6">
+        <%= form_with(model: Invitation.new, url: invitations_path) do |form| %>
+          <div class="form-group">
+            <%= form.label :email, 'Invite by email' %>
+            <%= form.email_field :email, class: 'form-control' %>
+          </div>
+          <%= form.submit 'Send Invitation', class: 'btn btn-primary' %>
+        <% end %>
       </div>
     </div>
   </div>

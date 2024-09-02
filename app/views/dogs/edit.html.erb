@@ -1,0 +1,38 @@
+<div class="banner">
+  <%= image_tag 'other/banner_family_00.jpg', alt: 'Banner Image' %>
+</div>
+<div class="dogs-section col-6 mx-auto">
+  <h3 class="text-center"><b>Dogs</b></h3>
+  <% current_user.family.dogs.each_with_index do |dog, index| %>
+    <%= form_with(model: dog, local: true, html: { class: 'dog-edit-form' }) do |form| %>
+      <div class="dog-entry my-4 p-3 border rounded shadow-sm">
+        <h4 class="text-center">
+          <%= form.text_field :name, value: dog.name, class: 'form-control dog-name-input mb-2 text-center' %>
+          <%= link_to dog_path(dog), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete this dog?" }, class: "text-decoration-none ml-2" do %>
+            <small><i class="fa-solid fa-trash"></i></small>
+          <% end %>
+        </h4>
+        <div class="form-group">
+          <%= form.label :breed, 'Breed', class: 'form-label' %>
+          <%= form.select :breed, options_for_select(HealthTrack::DOG_DATA.keys, dog.breed), { include_blank: 'Select a breed' }, class: 'form-select', data: { controller: "tom-select" } %>
+        </div>
+        <!-- <div class="form-group">
+          <%= form.label :birthdate, 'Birthdate', class: 'form-label' %>
+          <%= form.date_field :birthdate, class: 'form-control' %>
+        </div> -->
+        <div class="form-group">
+          <%= form.label :sex, 'Sex', class: 'form-label' %>
+          <%= form.select :sex, options_for_select([['Male', 'male'], ['Female', 'female']], dog.sex), {}, class: 'form-select' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :photos, 'Photos', class: 'form-label' %>
+          <%= form.file_field :photos, multiple: true, class: 'form-control' %>
+        </div>
+        <%= form.submit 'Update Dog', class: 'btn btn-secondary mt-2 d-block mx-auto' %>
+      </div>
+    <% end %>
+    <% if index < current_user.family.dogs.size - 1 %>
+      <hr class="my-4">
+    <% end %>
+  <% end %>
+</div>
