@@ -1,5 +1,5 @@
 <div class="banner-img">
-  <%= image_tag 'banner_vet_01.jpg', alt: 'Banner Image' %>
+  <%= image_tag 'other/banner_vet_01.jpg', alt: 'Banner Image' %>
 </div>
 <%= link_to "Go back", dog_medical_records_path(@dog), class: "btn btn-info back-btn button-record m-3" %>
 <% if @medical_record.photos.attached? %>
@@ -17,5 +17,5 @@
     <% end %>
   </div>
 <% else %>
-  <p>You haven't uploaded anything yet.</p>
+  <p style="text-align: center;">You haven't uploaded anything yet.</p>
 <% end %>
