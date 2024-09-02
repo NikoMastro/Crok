@@ -12,23 +12,17 @@ Rails.application.routes.draw do
       patch :remove_family
     end
   end
-
   patch 'task/:id/done', to: 'tasks#done', as: :task_done
 
-  # General Pages
   get 'home', to: 'dogs#index', as: :home
   get 'features', to: 'pages#features', as: :features
-  get 'welcome', to: 'families#welcome', as: :welcome
 
   resources :dogs do
-    member do
-      get 'health', to: 'dogs#health', as: :health
-    end
-    resources :health_tracks, except: [:index]
+    resources :health_tracks, only: [:show, :edit, :update, :new, :create, :destroy]
     resources :medical_records, only: [:index, :show, :new, :create]
   end
 
-  resources :medical_records, only: [:edit, :update, :destroy]
+  resources :medical_records, only: [:edit, :update, :destroy, :show]
 
   resources :tasks, only: [:create, :update, :destroy] do
     member do
@@ -37,13 +31,15 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: [:create]
-
   resources :families, only: [:show, :update]
 
   resources :invitations, only: [:create] do
-    collection do
-      get 'accept/:token', to: 'invitations#accept', as: :accept
-    end
+    get 'accept/:token', to: 'invitations#accept', as: :accept, on: :collection
   end
 
+
+  get 'welcome', to: 'families#welcome', as: :welcome
+  get 'dogs/:id/health', to: 'dogs#health', as: :dog_health
+  get 'dogs/:dog_id/health', to: 'dogs#health', as: :dog_id_health
+  get 'dogs/:id/health/new', to: "health_tracks#new", as: :dog_health_new
 end
